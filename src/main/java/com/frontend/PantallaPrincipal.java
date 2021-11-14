@@ -12,8 +12,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private PantallaSesiones pantallaSesiones = new PantallaSesiones();
     private PantallaSalones pantallaSalones = new PantallaSalones();
     private PantallaPaquetes pantallaPaquetes = new PantallaPaquetes();
-    private Color colorGris = new Color(150, 150, 150);
-    private Color colorGris = new Color(187, 187, 187);
+    private Color colorGris = new Color(123, 123, 123);
+    private Color colorGrisClaro = new Color(150, 150, 150);
+    private Color colorBlanco = new Color(187, 187, 187);
+    private Color colorNegro = new Color(69, 72, 75);
 
     public PantallaPrincipal() {
         initComponents();
@@ -571,13 +573,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         barraEmpleados.setVisible(false);
         barraAlumnos.setVisible(false);
 
-        textoBoton_Inicio.setForeground(new Color(150, 150, 150));
-        textoBoton_Pacientes.setForeground(new Color(187, 187, 187));
-        textoBoton_Empleados.setForeground(new Color(187, 187, 187));
+        textoBoton_Inicio.setForeground(colorGrisClaro);
+        textoBoton_Pacientes.setForeground(colorBlanco);
+        textoBoton_Empleados.setForeground(colorBlanco);
 
-        botonInicio.setBackground(new Color(69, 72, 75));
-        botonProfesores.setBackground(new Color(123, 123, 123));
-        botonAlumnos.setBackground(new Color(123, 123, 123));
+        botonInicio.setBackground(colorNegro);
+        botonProfesores.setBackground(colorGris);
+        botonAlumnos.setBackground(colorGris);
     }//GEN-LAST:event_botonInicioMouseClicked
 
     private void botonProfesoresMouseClicked(java.awt.event.MouseEvent evt) {
@@ -585,13 +587,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         barraEmpleados.setVisible(true);
         barraAlumnos.setVisible(false);
 
-        textoBoton_Inicio.setForeground(new Color(187, 187, 187));
-        textoBoton_Pacientes.setForeground(new Color(150, 150, 150));
-        textoBoton_Empleados.setForeground(new Color(187, 187, 187));
+        textoBoton_Inicio.setForeground(colorBlanco);
+        textoBoton_Pacientes.setForeground(colorGrisClaro);
+        textoBoton_Empleados.setForeground(colorBlanco);
 
-        botonInicio.setBackground(new Color(123, 123, 123));
-        botonProfesores.setBackground(new Color(69, 72, 75));
-        botonAlumnos.setBackground(new Color(123, 123, 123));
+        botonInicio.setBackground(colorGris);
+        botonProfesores.setBackground(colorNegro);
+        botonAlumnos.setBackground(colorGris);
     }//GEN-LAST:event_botonProfesoresMouseClicked
 
     private void botonAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonAlumnosMouseClicked
@@ -599,86 +601,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         barraEmpleados.setVisible(false);
         barraAlumnos.setVisible(true);
 
-        textoBoton_Inicio.setForeground(new Color(187, 187, 187));
-        textoBoton_Pacientes.setForeground(new Color(187, 187, 187));
-        textoBoton_Empleados.setForeground(new Color(150, 150, 150));
+        textoBoton_Inicio.setForeground(colorBlanco);
+        textoBoton_Pacientes.setForeground(colorBlanco);
+        textoBoton_Empleados.setForeground(colorGrisClaro);
 
-        botonInicio.setBackground(new Color(123, 123, 123));
-        botonProfesores.setBackground(new Color(123, 123, 123));
-        botonAlumnos.setBackground(new Color(69, 72, 75));
+        botonInicio.setBackground(colorGris);
+        botonProfesores.setBackground(colorGris);
+        botonAlumnos.setBackground(colorNegro);
     }//GEN-LAST:event_botonAlumnosMouseClicked
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_botonSalirActionPerformed
-
-    private void alumnos_ingresarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alumnos_ingresarDatosActionPerformed
-
-    }//GEN-LAST:event_alumnos_ingresarDatosActionPerformed
-
-    private void alumnos_modificarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alumnos_modificarDatosActionPerformed
-    }//GEN-LAST:event_alumnos_modificarDatosActionPerformed
-
-    private void alumnos_verInformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alumnos_verInformacionActionPerformed
-
-
-    }//GEN-LAST:event_alumnos_verInformacionActionPerformed
-
-    private void alumnos_paquetesAdquiridosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alumnos_paquetesAdquiridosActionPerformed
-
-    }//GEN-LAST:event_alumnos_paquetesAdquiridosActionPerformed
-
-    private void alumnos_clasesAsistidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alumnos_clasesAsistidasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_alumnos_clasesAsistidasActionPerformed
-
-    private void alumnos_clasesPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alumnos_clasesPendientesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_alumnos_clasesPendientesActionPerformed
-
-    private void alumnos_retirarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alumnos_retirarAlumnoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_alumnos_retirarAlumnoActionPerformed
-
-    private void botonSesionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonSesionesMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonSesionesMouseClicked
-
-    private void botonSalonesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonSalonesMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonSalonesMouseClicked
-
-    private void botonPaquetesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonPaquetesMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonPaquetesMouseClicked
-
-    private void profesores_retirarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profesores_retirarProfesorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_profesores_retirarProfesorActionPerformed
-
-    private void profesores_verSesionesDictadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profesores_verSesionesDictadasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_profesores_verSesionesDictadasActionPerformed
-
-    private void profesores_verSesionesProgramadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profesores_verSesionesProgramadasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_profesores_verSesionesProgramadasActionPerformed
-
-    private void profesores_verInformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profesores_verInformacionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_profesores_verInformacionActionPerformed
-
-    private void profesores_modificarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profesores_modificarDatosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_profesores_modificarDatosActionPerformed
-
-    private void profesores_ingresarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profesores_ingresarDatosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_profesores_ingresarDatosActionPerformed
-
-    private void profesores_ingresarDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profesores_ingresarDatosMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_profesores_ingresarDatosMouseClicked
 
     public static void main(String args[]) {
         /* Set the FlatLaf Dark look and feel */
