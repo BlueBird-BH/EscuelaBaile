@@ -1,4 +1,4 @@
-package com.escuelabaile;
+package com.backend;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,10 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class conexionSQL {
+public class ConexionSQL {
     private Connection conexion = null;
     
-    public conexionSQL() {}
+    public ConexionSQL() {}
 
     public void establecerConexion() {
         try {

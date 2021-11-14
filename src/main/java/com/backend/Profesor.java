@@ -1,4 +1,4 @@
-package com.escuelabaile;
+package com.backend;
 
 public class Profesor {
     private String cedula, nombre, salario;

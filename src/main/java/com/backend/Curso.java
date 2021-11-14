@@ -1,4 +1,4 @@
-package com.escuelabaile;
+package com.backend;
 
 public class Curso {
     private String id, nombre, cupo, intensidadHoras;

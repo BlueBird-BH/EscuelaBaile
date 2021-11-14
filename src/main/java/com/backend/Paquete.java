@@ -1,4 +1,4 @@
-package com.escuelabaile;
+package com.backend;
 
 public class Paquete {
     private String id, numeroSesiones, vigencia, precio, idCurso;

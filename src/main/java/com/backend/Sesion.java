@@ -1,4 +1,4 @@
-package com.escuelabaile;
+package com.backend;
 
 public class Sesion {
     private String id, fecha, horaInicio, horaFinal, cedulaProfesor, idSalon, idCurso;

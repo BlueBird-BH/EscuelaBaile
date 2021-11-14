@@ -1,4 +1,4 @@
-package com.escuelabaile;
+package com.backend;
 
 public class Salon {
     private String id;

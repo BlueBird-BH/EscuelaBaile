@@ -1,4 +1,4 @@
-package com.escuelabaile;
+package com.backend;
 
 public class Equipo {
     private String id, nombre;

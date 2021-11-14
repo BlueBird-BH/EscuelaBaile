@@ -1,4 +1,4 @@
-package com.escuelabaile;
+package com.backend;
 
 public class Alumno {
     private String cedula, nombre, fechaNacimiento, genero;

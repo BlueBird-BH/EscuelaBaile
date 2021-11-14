@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="title" type="java.lang.String" value="Seatora - Sistema Especializado de Atenci&#xf3;n Oral"/>
+    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+      <Color id="Cursor Por defecto"/>
+    </Property>
+    <Property name="locationByPlatform" type="boolean" value="true"/>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,68,0,0,1,-52"/>
+  </AuxValues>
+
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="barraOdontologos_ingresar">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[300, 300]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[300, 300]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+          <CardConstraints cardName="card4"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="checkCampo_ingresar_planta" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="textoCampo_ingresar_identificacion" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
+                              <Component id="textoCampo_ingresar_nombre" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_ingresar_nacimiento" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_ingresar_salario" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_ingresar_numeroTarjeta" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_ingresar_especialidad" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="formatoCampo_ingresar_salario" pref="228" max="32767" attributes="0"/>
+                              <Component id="formatoCampo_ingresar_nombre" max="32767" attributes="0"/>
+                              <Component id="formatoCampo_ingresar_identificacion" max="32767" attributes="0"/>
+                              <Component id="formatoCampo_ingresar_nacimiento" alignment="0" max="32767" attributes="0"/>
+                              <Component id="formatoCampo_ingresar_numeroTarjeta" alignment="0" max="32767" attributes="0"/>
+                              <Component id="comboCampo_ingresar_especialidad" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                  <Component id="botonOdontologos_registrarDatos" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="botonOdontologos_ingresarRegresar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="33" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_ingresar_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_ingresar_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_ingresar_identificacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_ingresar_identificacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_ingresar_nacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_ingresar_nacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_ingresar_salario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_ingresar_salario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_ingresar_numeroTarjeta" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_ingresar_numeroTarjeta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="textoCampo_ingresar_especialidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboCampo_ingresar_especialidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <Component id="checkCampo_ingresar_planta" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="botonOdontologos_registrarDatos" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonOdontologos_ingresarRegresar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="textoCampo_ingresar_nombre">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Nombre del odontologo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_ingresar_identificacion">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Documento de identidad"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_ingresar_nacimiento">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Fecha de nacimiento (dd/MM/yy)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_ingresar_salario">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Salario mensual actual"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_ingresar_numeroTarjeta">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Numero de tarjeta profesional"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_ingresar_especialidad">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Especialidad"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_ingresar_nombre">
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_ingresar_identificacion">
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_ingresar_nacimiento">
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_ingresar_salario">
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_ingresar_numeroTarjeta">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="checkCampo_ingresar_planta">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="El odontologo pertenece a la planta"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="botonOdontologos_registrarDatos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Registrar datos del odontologo"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonOdontologos_registrarDatosActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="comboCampo_ingresar_especialidad">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="9">
+                <StringItem index="0" value="Seleccione una opcion"/>
+                <StringItem index="1" value="Prostodoncia"/>
+                <StringItem index="2" value="Ortodoncia"/>
+                <StringItem index="3" value="Endodoncia"/>
+                <StringItem index="4" value="Patolog&#xed;as bucales y maxilofaciales"/>
+                <StringItem index="5" value="Cirug&#xed;a bucal y maxilofacial"/>
+                <StringItem index="6" value="Radiolog&#xed;a bucal y Maxilofacial"/>
+                <StringItem index="7" value="Odontolog&#xed;a de Salud P&#xfa;blica"/>
+                <StringItem index="8" value="Odontolog&#xed;a Pedi&#xe1;trica"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="botonOdontologos_ingresarRegresar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Regresar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonOdontologos_ingresarRegresarActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="barraOdontologos_detalles">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[300, 300]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[300, 300]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+          <CardConstraints cardName="card4"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="textoCampo_detalles_nombre" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_detalles_nacimiento" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_detalles_salario" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_detalles_numeroTarjeta" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_detalles_especialidad" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_detalles_planta" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_detalles_pacientesActuales" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_detalles_identificacion" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="formatoCampo_detalles_salario" alignment="0" max="32767" attributes="0"/>
+                              <Component id="formatoCampo_detalles_nombre" alignment="0" max="32767" attributes="0"/>
+                              <Component id="formatoCampo_detalles_nacimiento" alignment="0" max="32767" attributes="0"/>
+                              <Component id="formatoCampo_detalles_numeroTarjeta" alignment="0" max="32767" attributes="0"/>
+                              <Component id="formatoCampo_detalles_especialidad" alignment="0" max="32767" attributes="0"/>
+                              <Component id="formatoCampo_detalles_pacientesActuales" alignment="0" max="32767" attributes="0"/>
+                              <Component id="formatoCampo_detalles_planta" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="comboCampo_detalles_identificacion" pref="103" max="32767" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="botonOdontologos_detalles_consultarDatos" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Component id="botonOdontologos_detallesRegresar" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="comboCampo_detalles_identificacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_detalles_identificacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonOdontologos_detalles_consultarDatos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_detalles_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_detalles_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_detalles_nacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_detalles_nacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_detalles_salario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_detalles_salario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_detalles_numeroTarjeta" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_detalles_numeroTarjeta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_detalles_especialidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_detalles_especialidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_detalles_planta" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_detalles_planta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_detalles_pacientesActuales" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_detalles_pacientesActuales" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="botonOdontologos_detallesRegresar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="12" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="textoCampo_detalles_identificacion">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Documento de identidad"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_detalles_nombre">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Nombre del odontologo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_detalles_nacimiento">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Fecha de nacimiento"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_detalles_salario">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Salario mensual actual"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_detalles_numeroTarjeta">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Numero de tarjeta profesional"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_detalles_especialidad">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Especialidad"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_detalles_planta">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="&#xbf;Pertenece a la planta?"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_detalles_pacientesActuales">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Pacientes a los que trata"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_detalles_nombre">
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_detalles_nacimiento">
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_detalles_salario">
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_detalles_numeroTarjeta">
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_detalles_especialidad">
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_detalles_planta">
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_detalles_pacientesActuales">
+        </Component>
+        <Component class="javax.swing.JButton" name="botonOdontologos_detallesRegresar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Regresar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonOdontologos_detallesRegresarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="comboCampo_detalles_identificacion">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="botonOdontologos_detalles_consultarDatos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Consultar datos"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonOdontologos_detalles_consultarDatosActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="barraOdontologos_retirar">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[300, 300]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[300, 300]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+          <CardConstraints cardName="card4"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="textoCampo_retirar_nombre" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_retirar_nacimiento" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_retirar_salario" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_retirar_numeroTarjeta" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_retirar_especialidad" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_retirar_planta" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_retirar_pacientesActuales" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="textoCampo_retirar_identificacion" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="formatoCampo_retirar_salario" alignment="0" max="32767" attributes="0"/>
+                              <Component id="formatoCampo_retirar_nombre" alignment="0" max="32767" attributes="0"/>
+                              <Component id="formatoCampo_retirar_nacimiento" alignment="0" max="32767" attributes="0"/>
+                              <Component id="formatoCampo_retirar_numeroTarjeta" alignment="0" max="32767" attributes="0"/>
+                              <Component id="formatoCampo_retirar_especialidad" alignment="0" max="32767" attributes="0"/>
+                              <Component id="formatoCampo_retirar_pacientesActuales" alignment="0" max="32767" attributes="0"/>
+                              <Component id="formatoCampo_retirar_planta" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="comboCampo_retirar_identificacion" pref="103" max="32767" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="botonOdontologos_retirar_consultarDatos" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="botonOdontologos_retirarOdontologo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          <Component id="botonOdontologos_retirarRegresar" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="comboCampo_retirar_identificacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_retirar_identificacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonOdontologos_retirar_consultarDatos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_retirar_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_retirar_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_retirar_nacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_retirar_nacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_retirar_salario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_retirar_salario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_retirar_numeroTarjeta" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_retirar_numeroTarjeta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_retirar_especialidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_retirar_especialidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_retirar_planta" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_retirar_planta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="formatoCampo_retirar_pacientesActuales" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textoCampo_retirar_pacientesActuales" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="botonOdontologos_retirarRegresar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonOdontologos_retirarOdontologo" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="12" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="textoCampo_retirar_identificacion">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Documento de identidad"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_retirar_nombre">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Nombre del odontologo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_retirar_nacimiento">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Fecha de nacimiento"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_retirar_salario">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Salario mensual actual"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_retirar_numeroTarjeta">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Numero de tarjeta profesional"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_retirar_especialidad">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Especialidad"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_retirar_planta">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="&#xbf;Pertenece a la planta?"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="textoCampo_retirar_pacientesActuales">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Pacientes a los que trata"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_retirar_nombre">
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_retirar_nacimiento">
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_retirar_salario">
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_retirar_numeroTarjeta">
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_retirar_especialidad">
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_retirar_planta">
+        </Component>
+        <Component class="javax.swing.JTextField" name="formatoCampo_retirar_pacientesActuales">
+        </Component>
+        <Component class="javax.swing.JButton" name="botonOdontologos_retirarRegresar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Regresar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonOdontologos_retirarRegresarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="comboCampo_retirar_identificacion">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="botonOdontologos_retirar_consultarDatos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Consultar datos"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonOdontologos_retirar_consultarDatosActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="botonOdontologos_retirarOdontologo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Retirar odontologo"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonOdontologos_retirarOdontologoActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="barraOdontologos_lista">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[300, 300]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[300, 300]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+          <CardConstraints cardName="card4"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="botonOdontologos_listaRegresar" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="formatoCampo_lista_scroll" alignment="1" min="-2" pref="424" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Component id="formatoCampo_lista_scroll" min="-2" pref="237" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="botonOdontologos_listaRegresar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JScrollPane" name="formatoCampo_lista_scroll">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JList" name="formatoCampo_lista">
+              <Properties>
+                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="botonOdontologos_listaRegresar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Regresar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonOdontologos_listaRegresarActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
