@@ -1,42 +1,63 @@
 package com.frontend;
 
+import com.backend.ConexionSQL;
 import java.awt.Color;
 import java.awt.Cursor;
 import com.formdev.flatlaf.FlatDarkLaf;
 
 public class PantallaPrincipal extends javax.swing.JFrame {
 
-    private Archivos seatoraPersistencia = new Archivos();
-    private PantallaAlumnos pantallaAlumnos = new PantallaAlumnos();
+    /*
+    
     private PantallaProfesores pantallaProfesores = new PantallaProfesores();
     private PantallaSesiones pantallaSesiones = new PantallaSesiones();
     private PantallaSalones pantallaSalones = new PantallaSalones();
     private PantallaPaquetes pantallaPaquetes = new PantallaPaquetes();
+    */
+    private PantallaAlumnos pantallaAlumnos = new PantallaAlumnos();
+    private PantallaProfesores pantallaProfesores = new PantallaProfesores();
+    private ConexionSQL conexion = new ConexionSQL();
+    
     private Color colorGris = new Color(123, 123, 123);
     private Color colorGrisClaro = new Color(150, 150, 150);
     private Color colorBlanco = new Color(187, 187, 187);
     private Color colorNegro = new Color(69, 72, 75);
 
     public PantallaPrincipal() {
+        realizarConexionSQL();
+        
         initComponents();
-        seatoraPersistencia.abrirArchivo();
-
-        botonInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        botonProfesores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        botonAlumnos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        definirCursorBotones();
     }
-
+    
+    private void definirCursorBotones() {
+        botonInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        botonAlumnos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        botonProfesores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        botonSesiones.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        botonSalones.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        botonPaquetes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }
+    
+    private void realizarConexionSQL() {
+        conexion.establecerConexion();
+        pantallaAlumnos.definirConexion(conexion);
+        pantallaProfesores.definirConexion(conexion);
+    }
+    
     private void ocultarPantallas() {
         pantallaAlumnos.setVisible(false);
         pantallaProfesores.setVisible(false);
+    /*
         pantallaSesiones.setVisible(false);
         pantallaSalones.setVisible(false);
         pantallaPaquetes.setVisible(false);
+    */
     }
 
     private void activarOpcion(String pantalla, String opcion) {
         ocultarPantallas();
-
+        
         switch (pantalla) {
             case "alumnos":
                 pantallaAlumnos.setVisible(true);
@@ -49,18 +70,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 break;
 
             case "sesiones":
-                pantallaSesiones.setVisible(true);
-                pantallaSesiones.pantallaRequerida(opcion);
+                //pantallaSesiones.setVisible(true);
+                //pantallaSesiones.pantallaRequerida(opcion);
                 break;
 
             case "salones":
-                pantallaSalones.setVisible(true);
-                pantallaSalones.pantallaRequerida(opcion);
+                //pantallaSalones.setVisible(true);
+                //pantallaSalones.pantallaRequerida(opcion);
                 break;
 
             case "paquetes":
-                pantallaPaquetes.setVisible(true);
-                pantallaPaquetes.pantallaRequerida(opcion);
+                //pantallaPaquetes.setVisible(true);
+                //pantallaPaquetes.pantallaRequerida(opcion);
                 break;
         }
     }
@@ -69,46 +90,66 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        gestionEmpleado_grupoBotones = new javax.swing.ButtonGroup();
         barraLateral = new javax.swing.JPanel();
         botonInicio = new javax.swing.JPanel();
-        textoBoton_Inicio = new javax.swing.JLabel();
+        tituloBotonInicio = new javax.swing.JLabel();
         botonAlumnos = new javax.swing.JPanel();
-        textoBoton_Empleados = new javax.swing.JLabel();
+        tituloBotonAlumnos = new javax.swing.JLabel();
         botonProfesores = new javax.swing.JPanel();
-        textoBoton_Pacientes = new javax.swing.JLabel();
+        tituloBotonProfesores = new javax.swing.JLabel();
         botonSesiones = new javax.swing.JPanel();
-        textoBoton_Empleados1 = new javax.swing.JLabel();
+        tituloBotonSesiones = new javax.swing.JLabel();
         botonSalones = new javax.swing.JPanel();
-        textoBoton_Empleados2 = new javax.swing.JLabel();
+        tituloBotonSalones = new javax.swing.JLabel();
         botonPaquetes = new javax.swing.JPanel();
-        textoBoton_Empleados3 = new javax.swing.JLabel();
+        tituloBotonPaquetes = new javax.swing.JLabel();
         logoPrimerParrafo = new javax.swing.JLabel();
         logoSegundoParrafo = new javax.swing.JLabel();
         barraSeparadora = new javax.swing.JSeparator();
         barraPrincipal = new javax.swing.JPanel();
         barraInicio = new javax.swing.JPanel();
         barraAlumnos = new javax.swing.JPanel();
-        alumnos_ingresarDatos = new javax.swing.JButton();
-        alumnos_modificarDatos = new javax.swing.JButton();
-        alumnos_verInformacion = new javax.swing.JButton();
-        alumnos_clasesAsistidas = new javax.swing.JButton();
-        alumnos_clasesPendientes = new javax.swing.JButton();
-        alumnos_paquetesAdquiridos = new javax.swing.JButton();
-        alumnos_retirarAlumno = new javax.swing.JButton();
+        botonRegistrarAlumno = new javax.swing.JButton();
+        botonVerAlumno = new javax.swing.JButton();
+        botonModificarAlumno = new javax.swing.JButton();
+        botonVerClasesAsistidas = new javax.swing.JButton();
+        botonVerClasesPendientes = new javax.swing.JButton();
+        botonVerPaquetesAdquiridos = new javax.swing.JButton();
+        botonEliminarAlumno = new javax.swing.JButton();
         barraProfesores = new javax.swing.JPanel();
-        profesores_ingresarDatos = new javax.swing.JButton();
-        profesores_modificarDatos = new javax.swing.JButton();
-        profesores_verInformacion = new javax.swing.JButton();
-        profesores_verSesionesProgramadas = new javax.swing.JButton();
-        profesores_verSesionesDictadas = new javax.swing.JButton();
-        profesores_retirarProfesor = new javax.swing.JButton();
+        botonRegistrarProfesor = new javax.swing.JButton();
+        botonVerProfesor = new javax.swing.JButton();
+        botonModificarProfesor = new javax.swing.JButton();
+        botonVerSesionesProgramadas = new javax.swing.JButton();
+        botonVerSesionesDictadas = new javax.swing.JButton();
+        botonEliminarProfesor = new javax.swing.JButton();
+        barraSesiones = new javax.swing.JPanel();
+        sesiones_ingresarDatos = new javax.swing.JButton();
+        sesiones_modificarDatos = new javax.swing.JButton();
+        sesiones_verDatos = new javax.swing.JButton();
+        sesiones_filtarFecha = new javax.swing.JButton();
+        sesiones_filtrarClase = new javax.swing.JButton();
+        sesiones_eliminarSesion = new javax.swing.JButton();
+        barraSalones = new javax.swing.JPanel();
+        salones_ingresarDatos = new javax.swing.JButton();
+        salones_modificarDatos = new javax.swing.JButton();
+        salones_verDatos = new javax.swing.JButton();
+        salones_verDisponibilidad = new javax.swing.JButton();
+        salones_filtrarHora = new javax.swing.JButton();
+        salones_eliminarSalon = new javax.swing.JButton();
+        barraPaquetes = new javax.swing.JPanel();
+        paquetes_ingresarDatos = new javax.swing.JButton();
+        paquetes_modificarDatos = new javax.swing.JButton();
+        paquetes_verDatos = new javax.swing.JButton();
+        paquetes_verVentas = new javax.swing.JButton();
+        paquetes_filtrarCompra = new javax.swing.JButton();
+        paquetes_eliminarPaquete = new javax.swing.JButton();
         barraMenu = new javax.swing.JMenuBar();
         menuArchivo = new javax.swing.JMenu();
         botonSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Mis primeros brincos");
+        setTitle("Gestion - Mis primeros brincos");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setLocationByPlatform(true);
         setResizable(false);
@@ -122,11 +163,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        textoBoton_Inicio.setBackground(new java.awt.Color(187, 187, 187));
-        textoBoton_Inicio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        textoBoton_Inicio.setForeground(new java.awt.Color(150, 150, 150));
-        textoBoton_Inicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoBoton_Inicio.setText("Inicio");
+        tituloBotonInicio.setBackground(new java.awt.Color(187, 187, 187));
+        tituloBotonInicio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tituloBotonInicio.setForeground(new java.awt.Color(150, 150, 150));
+        tituloBotonInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloBotonInicio.setText("Inicio");
 
         javax.swing.GroupLayout botonInicioLayout = new javax.swing.GroupLayout(botonInicio);
         botonInicio.setLayout(botonInicioLayout);
@@ -134,14 +175,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             botonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(botonInicioLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addComponent(textoBoton_Inicio)
+                .addComponent(tituloBotonInicio)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         botonInicioLayout.setVerticalGroup(
             botonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(botonInicioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(textoBoton_Inicio)
+                .addComponent(tituloBotonInicio)
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
@@ -152,10 +193,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        textoBoton_Empleados.setBackground(new java.awt.Color(187, 187, 187));
-        textoBoton_Empleados.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        textoBoton_Empleados.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoBoton_Empleados.setText("Gestionar alumnos");
+        tituloBotonAlumnos.setBackground(new java.awt.Color(187, 187, 187));
+        tituloBotonAlumnos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tituloBotonAlumnos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloBotonAlumnos.setText("Gestionar alumnos");
 
         javax.swing.GroupLayout botonAlumnosLayout = new javax.swing.GroupLayout(botonAlumnos);
         botonAlumnos.setLayout(botonAlumnosLayout);
@@ -163,14 +204,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             botonAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(botonAlumnosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(textoBoton_Empleados)
+                .addComponent(tituloBotonAlumnos)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         botonAlumnosLayout.setVerticalGroup(
             botonAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(botonAlumnosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(textoBoton_Empleados)
+                .addComponent(tituloBotonAlumnos)
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
@@ -181,10 +222,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        textoBoton_Pacientes.setBackground(new java.awt.Color(187, 187, 187));
-        textoBoton_Pacientes.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        textoBoton_Pacientes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoBoton_Pacientes.setText("Gestionar profesores");
+        tituloBotonProfesores.setBackground(new java.awt.Color(187, 187, 187));
+        tituloBotonProfesores.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tituloBotonProfesores.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloBotonProfesores.setText("Gestionar profesores");
 
         javax.swing.GroupLayout botonProfesoresLayout = new javax.swing.GroupLayout(botonProfesores);
         botonProfesores.setLayout(botonProfesoresLayout);
@@ -192,14 +233,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             botonProfesoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(botonProfesoresLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(textoBoton_Pacientes)
+                .addComponent(tituloBotonProfesores)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         botonProfesoresLayout.setVerticalGroup(
             botonProfesoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botonProfesoresLayout.createSequentialGroup()
                 .addContainerGap(7, Short.MAX_VALUE)
-                .addComponent(textoBoton_Pacientes)
+                .addComponent(tituloBotonProfesores)
                 .addContainerGap())
         );
 
@@ -210,10 +251,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        textoBoton_Empleados1.setBackground(new java.awt.Color(187, 187, 187));
-        textoBoton_Empleados1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        textoBoton_Empleados1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoBoton_Empleados1.setText("Gestionar sesiones");
+        tituloBotonSesiones.setBackground(new java.awt.Color(187, 187, 187));
+        tituloBotonSesiones.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tituloBotonSesiones.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloBotonSesiones.setText("Gestionar sesiones");
 
         javax.swing.GroupLayout botonSesionesLayout = new javax.swing.GroupLayout(botonSesiones);
         botonSesiones.setLayout(botonSesionesLayout);
@@ -221,14 +262,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             botonSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(botonSesionesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(textoBoton_Empleados1)
+                .addComponent(tituloBotonSesiones)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         botonSesionesLayout.setVerticalGroup(
             botonSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(botonSesionesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(textoBoton_Empleados1)
+                .addComponent(tituloBotonSesiones)
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
@@ -239,10 +280,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        textoBoton_Empleados2.setBackground(new java.awt.Color(187, 187, 187));
-        textoBoton_Empleados2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        textoBoton_Empleados2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoBoton_Empleados2.setText("Gestionar salones");
+        tituloBotonSalones.setBackground(new java.awt.Color(187, 187, 187));
+        tituloBotonSalones.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tituloBotonSalones.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloBotonSalones.setText("Gestionar salones");
 
         javax.swing.GroupLayout botonSalonesLayout = new javax.swing.GroupLayout(botonSalones);
         botonSalones.setLayout(botonSalonesLayout);
@@ -250,14 +291,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             botonSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(botonSalonesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(textoBoton_Empleados2)
+                .addComponent(tituloBotonSalones)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         botonSalonesLayout.setVerticalGroup(
             botonSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botonSalonesLayout.createSequentialGroup()
                 .addContainerGap(7, Short.MAX_VALUE)
-                .addComponent(textoBoton_Empleados2)
+                .addComponent(tituloBotonSalones)
                 .addContainerGap())
         );
 
@@ -268,10 +309,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        textoBoton_Empleados3.setBackground(new java.awt.Color(187, 187, 187));
-        textoBoton_Empleados3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        textoBoton_Empleados3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoBoton_Empleados3.setText("Gestionar paquetes");
+        tituloBotonPaquetes.setBackground(new java.awt.Color(187, 187, 187));
+        tituloBotonPaquetes.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tituloBotonPaquetes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloBotonPaquetes.setText("Gestionar paquetes");
 
         javax.swing.GroupLayout botonPaquetesLayout = new javax.swing.GroupLayout(botonPaquetes);
         botonPaquetes.setLayout(botonPaquetesLayout);
@@ -279,14 +320,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             botonPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(botonPaquetesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(textoBoton_Empleados3)
+                .addComponent(tituloBotonPaquetes)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         botonPaquetesLayout.setVerticalGroup(
             botonPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(botonPaquetesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(textoBoton_Empleados3)
+                .addComponent(tituloBotonPaquetes)
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
@@ -313,7 +354,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     .addComponent(logoSegundoParrafo)
                     .addComponent(barraSeparadora, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(logoPrimerParrafo))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(botonSesiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(botonSalones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(botonPaquetes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -363,52 +404,52 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         barraAlumnos.setMaximumSize(new java.awt.Dimension(300, 300));
         barraAlumnos.setMinimumSize(new java.awt.Dimension(300, 300));
 
-        alumnos_ingresarDatos.setText("Ingresar datos de un alumno");
-        alumnos_ingresarDatos.addActionListener(new java.awt.event.ActionListener() {
+        botonRegistrarAlumno.setText("Registrar nuevo alumno");
+        botonRegistrarAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alumnos_ingresarDatosActionPerformed(evt);
+                botonRegistrarAlumnoActionPerformed(evt);
             }
         });
 
-        alumnos_modificarDatos.setText("Modificar datos de un alumno");
-        alumnos_modificarDatos.addActionListener(new java.awt.event.ActionListener() {
+        botonVerAlumno.setText("Ver informacion de un alumno");
+        botonVerAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alumnos_modificarDatosActionPerformed(evt);
+                botonVerAlumnoActionPerformed(evt);
             }
         });
 
-        alumnos_verInformacion.setText("Ver informacion de un alumno");
-        alumnos_verInformacion.addActionListener(new java.awt.event.ActionListener() {
+        botonModificarAlumno.setText("Modificar datos de un alumno");
+        botonModificarAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alumnos_verInformacionActionPerformed(evt);
+                botonModificarAlumnoActionPerformed(evt);
             }
         });
 
-        alumnos_clasesAsistidas.setText("Clases a las que ha asistido");
-        alumnos_clasesAsistidas.addActionListener(new java.awt.event.ActionListener() {
+        botonVerClasesAsistidas.setText("Clases a las que ha asistido");
+        botonVerClasesAsistidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alumnos_clasesAsistidasActionPerformed(evt);
+                botonVerClasesAsistidasActionPerformed(evt);
             }
         });
 
-        alumnos_clasesPendientes.setText("Clases pendientes");
-        alumnos_clasesPendientes.addActionListener(new java.awt.event.ActionListener() {
+        botonVerClasesPendientes.setText("Clases pendientes");
+        botonVerClasesPendientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alumnos_clasesPendientesActionPerformed(evt);
+                botonVerClasesPendientesActionPerformed(evt);
             }
         });
 
-        alumnos_paquetesAdquiridos.setText("Paquetes adquiridos");
-        alumnos_paquetesAdquiridos.addActionListener(new java.awt.event.ActionListener() {
+        botonVerPaquetesAdquiridos.setText("Paquetes adquiridos");
+        botonVerPaquetesAdquiridos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alumnos_paquetesAdquiridosActionPerformed(evt);
+                botonVerPaquetesAdquiridosActionPerformed(evt);
             }
         });
 
-        alumnos_retirarAlumno.setText("Retirar un alumno");
-        alumnos_retirarAlumno.addActionListener(new java.awt.event.ActionListener() {
+        botonEliminarAlumno.setText("Eliminar un alumno");
+        botonEliminarAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alumnos_retirarAlumnoActionPerformed(evt);
+                botonEliminarAlumnoActionPerformed(evt);
             }
         });
 
@@ -417,35 +458,35 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         barraAlumnosLayout.setHorizontalGroup(
             barraAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraAlumnosLayout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(51, Short.MAX_VALUE)
                 .addGroup(barraAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(alumnos_retirarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(alumnos_clasesPendientes, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(alumnos_clasesAsistidas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(alumnos_paquetesAdquiridos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(alumnos_modificarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(alumnos_verInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(alumnos_ingresarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50))
+                    .addComponent(botonEliminarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonVerClasesPendientes, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonVerClasesAsistidas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonVerPaquetesAdquiridos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonModificarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonVerAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonRegistrarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51))
         );
         barraAlumnosLayout.setVerticalGroup(
             barraAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(barraAlumnosLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(alumnos_ingresarDatos)
+                .addGap(50, 50, 50)
+                .addComponent(botonRegistrarAlumno)
+                .addGap(12, 12, 12)
+                .addComponent(botonVerAlumno)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(alumnos_modificarDatos)
+                .addComponent(botonModificarAlumno)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(alumnos_verInformacion)
+                .addComponent(botonVerClasesAsistidas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(alumnos_clasesAsistidas)
+                .addComponent(botonVerClasesPendientes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(alumnos_clasesPendientes)
+                .addComponent(botonVerPaquetesAdquiridos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(alumnos_paquetesAdquiridos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(alumnos_retirarAlumno)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addComponent(botonEliminarAlumno)
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         barraPrincipal.add(barraAlumnos, "card4");
@@ -453,50 +494,45 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         barraProfesores.setMaximumSize(new java.awt.Dimension(300, 300));
         barraProfesores.setMinimumSize(new java.awt.Dimension(300, 300));
 
-        profesores_ingresarDatos.setText("Ingresar datos de un profesor");
-        profesores_ingresarDatos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                profesores_ingresarDatosMouseClicked(evt);
-            }
-        });
-        profesores_ingresarDatos.addActionListener(new java.awt.event.ActionListener() {
+        botonRegistrarProfesor.setText("Registrar nuevo profesor");
+        botonRegistrarProfesor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profesores_ingresarDatosActionPerformed(evt);
+                botonRegistrarProfesorActionPerformed(evt);
             }
         });
 
-        profesores_modificarDatos.setText("Modificar datos de un profesor");
-        profesores_modificarDatos.addActionListener(new java.awt.event.ActionListener() {
+        botonVerProfesor.setText("Ver informacion de un profesor");
+        botonVerProfesor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profesores_modificarDatosActionPerformed(evt);
+                botonVerProfesorActionPerformed(evt);
             }
         });
 
-        profesores_verInformacion.setText("Ver informacion de un profesor");
-        profesores_verInformacion.addActionListener(new java.awt.event.ActionListener() {
+        botonModificarProfesor.setText("Modificar datos de un profesor");
+        botonModificarProfesor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profesores_verInformacionActionPerformed(evt);
+                botonModificarProfesorActionPerformed(evt);
             }
         });
 
-        profesores_verSesionesProgramadas.setText("Ver sesiones programadas");
-        profesores_verSesionesProgramadas.addActionListener(new java.awt.event.ActionListener() {
+        botonVerSesionesProgramadas.setText("Ver sesiones programadas");
+        botonVerSesionesProgramadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profesores_verSesionesProgramadasActionPerformed(evt);
+                botonVerSesionesProgramadasActionPerformed(evt);
             }
         });
 
-        profesores_verSesionesDictadas.setText("Ver sesiones dictadas");
-        profesores_verSesionesDictadas.addActionListener(new java.awt.event.ActionListener() {
+        botonVerSesionesDictadas.setText("Ver sesiones dictadas");
+        botonVerSesionesDictadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profesores_verSesionesDictadasActionPerformed(evt);
+                botonVerSesionesDictadasActionPerformed(evt);
             }
         });
 
-        profesores_retirarProfesor.setText("Retirar un profesor");
-        profesores_retirarProfesor.addActionListener(new java.awt.event.ActionListener() {
+        botonEliminarProfesor.setText("Eliminar un profesor");
+        botonEliminarProfesor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profesores_retirarProfesorActionPerformed(evt);
+                botonEliminarProfesorActionPerformed(evt);
             }
         });
 
@@ -507,33 +543,273 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraProfesoresLayout.createSequentialGroup()
                 .addContainerGap(51, Short.MAX_VALUE)
                 .addGroup(barraProfesoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(profesores_retirarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(profesores_verSesionesDictadas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(profesores_verSesionesProgramadas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(profesores_modificarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(profesores_verInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(profesores_ingresarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botonEliminarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonVerSesionesDictadas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonVerSesionesProgramadas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonModificarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonVerProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonRegistrarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51))
         );
         barraProfesoresLayout.setVerticalGroup(
             barraProfesoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(barraProfesoresLayout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(profesores_ingresarDatos)
+                .addGap(50, 50, 50)
+                .addComponent(botonRegistrarProfesor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(profesores_modificarDatos)
+                .addComponent(botonVerProfesor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(profesores_verInformacion)
+                .addComponent(botonModificarProfesor)
+                .addGap(12, 12, 12)
+                .addComponent(botonVerSesionesProgramadas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(profesores_verSesionesProgramadas)
+                .addComponent(botonVerSesionesDictadas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(profesores_verSesionesDictadas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(profesores_retirarProfesor)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addComponent(botonEliminarProfesor)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         barraPrincipal.add(barraProfesores, "card4");
+
+        barraSesiones.setMaximumSize(new java.awt.Dimension(300, 300));
+        barraSesiones.setMinimumSize(new java.awt.Dimension(300, 300));
+
+        sesiones_ingresarDatos.setText("Ingresar datos de una sesión");
+        sesiones_ingresarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sesiones_ingresarDatosActionPerformed(evt);
+            }
+        });
+
+        sesiones_modificarDatos.setText("Modificar datos de una sesión");
+        sesiones_modificarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sesiones_modificarDatosActionPerformed(evt);
+            }
+        });
+
+        sesiones_verDatos.setText("Ver informacion de una sesión");
+        sesiones_verDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sesiones_verDatosActionPerformed(evt);
+            }
+        });
+
+        sesiones_filtarFecha.setText("Filtrar sesiónes por fecha");
+        sesiones_filtarFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sesiones_filtarFechaActionPerformed(evt);
+            }
+        });
+
+        sesiones_filtrarClase.setText("Filtrar sesiónes por clases");
+        sesiones_filtrarClase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sesiones_filtrarClaseActionPerformed(evt);
+            }
+        });
+
+        sesiones_eliminarSesion.setText("Eliminar una sesión");
+        sesiones_eliminarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sesiones_eliminarSesionActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout barraSesionesLayout = new javax.swing.GroupLayout(barraSesiones);
+        barraSesiones.setLayout(barraSesionesLayout);
+        barraSesionesLayout.setHorizontalGroup(
+            barraSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraSesionesLayout.createSequentialGroup()
+                .addContainerGap(51, Short.MAX_VALUE)
+                .addGroup(barraSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sesiones_eliminarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sesiones_filtrarClase, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sesiones_filtarFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sesiones_modificarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sesiones_verDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sesiones_ingresarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51))
+        );
+        barraSesionesLayout.setVerticalGroup(
+            barraSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(barraSesionesLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(sesiones_ingresarDatos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sesiones_modificarDatos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sesiones_verDatos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sesiones_filtarFecha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sesiones_filtrarClase)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sesiones_eliminarSesion)
+                .addContainerGap(108, Short.MAX_VALUE))
+        );
+
+        barraPrincipal.add(barraSesiones, "card4");
+
+        barraSalones.setMaximumSize(new java.awt.Dimension(300, 300));
+        barraSalones.setMinimumSize(new java.awt.Dimension(300, 300));
+
+        salones_ingresarDatos.setText("Ingresar datos de un salon");
+        salones_ingresarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salones_ingresarDatosActionPerformed(evt);
+            }
+        });
+
+        salones_modificarDatos.setText("Modificar datos de un salon");
+        salones_modificarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salones_modificarDatosActionPerformed(evt);
+            }
+        });
+
+        salones_verDatos.setText("Ver informacion de un salon");
+        salones_verDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salones_verDatosActionPerformed(evt);
+            }
+        });
+
+        salones_verDisponibilidad.setText("Ver disponibilidad de un salon");
+        salones_verDisponibilidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salones_verDisponibilidadActionPerformed(evt);
+            }
+        });
+
+        salones_filtrarHora.setText("Clases dictadas en un tiempo");
+        salones_filtrarHora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salones_filtrarHoraActionPerformed(evt);
+            }
+        });
+
+        salones_eliminarSalon.setText("Eliminar un salon");
+        salones_eliminarSalon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salones_eliminarSalonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout barraSalonesLayout = new javax.swing.GroupLayout(barraSalones);
+        barraSalones.setLayout(barraSalonesLayout);
+        barraSalonesLayout.setHorizontalGroup(
+            barraSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraSalonesLayout.createSequentialGroup()
+                .addContainerGap(51, Short.MAX_VALUE)
+                .addGroup(barraSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(salones_eliminarSalon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salones_filtrarHora, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salones_verDisponibilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salones_modificarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salones_verDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salones_ingresarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51))
+        );
+        barraSalonesLayout.setVerticalGroup(
+            barraSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(barraSalonesLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(salones_ingresarDatos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(salones_modificarDatos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(salones_verDatos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(salones_verDisponibilidad)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(salones_filtrarHora)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(salones_eliminarSalon)
+                .addContainerGap(108, Short.MAX_VALUE))
+        );
+
+        barraPrincipal.add(barraSalones, "card4");
+
+        barraPaquetes.setMaximumSize(new java.awt.Dimension(300, 300));
+        barraPaquetes.setMinimumSize(new java.awt.Dimension(300, 300));
+
+        paquetes_ingresarDatos.setText("Ingresar datos de un paquete");
+        paquetes_ingresarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paquetes_ingresarDatosActionPerformed(evt);
+            }
+        });
+
+        paquetes_modificarDatos.setText("Modificar datos de un paquete");
+        paquetes_modificarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paquetes_modificarDatosActionPerformed(evt);
+            }
+        });
+
+        paquetes_verDatos.setText("Ver informacion de un paquete");
+        paquetes_verDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paquetes_verDatosActionPerformed(evt);
+            }
+        });
+
+        paquetes_verVentas.setText("Ver ventas de un paquete");
+        paquetes_verVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paquetes_verVentasActionPerformed(evt);
+            }
+        });
+
+        paquetes_filtrarCompra.setText("Ver compras dada su fecha");
+        paquetes_filtrarCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paquetes_filtrarCompraActionPerformed(evt);
+            }
+        });
+
+        paquetes_eliminarPaquete.setText("Eliminar un paquete");
+        paquetes_eliminarPaquete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paquetes_eliminarPaqueteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout barraPaquetesLayout = new javax.swing.GroupLayout(barraPaquetes);
+        barraPaquetes.setLayout(barraPaquetesLayout);
+        barraPaquetesLayout.setHorizontalGroup(
+            barraPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraPaquetesLayout.createSequentialGroup()
+                .addContainerGap(51, Short.MAX_VALUE)
+                .addGroup(barraPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(paquetes_eliminarPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(paquetes_filtrarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(paquetes_verVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(paquetes_modificarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(paquetes_verDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(paquetes_ingresarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51))
+        );
+        barraPaquetesLayout.setVerticalGroup(
+            barraPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(barraPaquetesLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(paquetes_ingresarDatos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(paquetes_modificarDatos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(paquetes_verDatos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(paquetes_verVentas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(paquetes_filtrarCompra)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(paquetes_eliminarPaquete)
+                .addContainerGap(108, Short.MAX_VALUE))
+        );
+
+        barraPrincipal.add(barraPaquetes, "card4");
 
         menuArchivo.setText("Archivo");
 
@@ -555,7 +831,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(barraLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(barraPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -570,49 +846,270 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void botonInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonInicioMouseClicked
         barraInicio.setVisible(true);
-        barraEmpleados.setVisible(false);
         barraAlumnos.setVisible(false);
+        barraProfesores.setVisible(false);
+        barraSesiones.setVisible(false);
+        barraSalones.setVisible(false);
+        barraPaquetes.setVisible(false);
 
-        textoBoton_Inicio.setForeground(colorGrisClaro);
-        textoBoton_Pacientes.setForeground(colorBlanco);
-        textoBoton_Empleados.setForeground(colorBlanco);
+        tituloBotonInicio.setForeground(colorGrisClaro);
+        tituloBotonAlumnos.setForeground(colorBlanco);
+        tituloBotonProfesores.setForeground(colorBlanco);
+        tituloBotonSesiones.setForeground(colorBlanco);
+        tituloBotonSalones.setForeground(colorBlanco);
+        tituloBotonPaquetes.setForeground(colorBlanco);
 
         botonInicio.setBackground(colorNegro);
+        botonAlumnos.setBackground(colorGris);
         botonProfesores.setBackground(colorGris);
-        botonAlumnos.setBackground(colorGris);
+        botonSesiones.setBackground(colorGris);
+        botonSalones.setBackground(colorGris);
+        botonPaquetes.setBackground(colorGris);
     }//GEN-LAST:event_botonInicioMouseClicked
-
-    private void botonProfesoresMouseClicked(java.awt.event.MouseEvent evt) {
-        barraInicio.setVisible(false);
-        barraEmpleados.setVisible(true);
-        barraAlumnos.setVisible(false);
-
-        textoBoton_Inicio.setForeground(colorBlanco);
-        textoBoton_Pacientes.setForeground(colorGrisClaro);
-        textoBoton_Empleados.setForeground(colorBlanco);
-
-        botonInicio.setBackground(colorGris);
-        botonProfesores.setBackground(colorNegro);
-        botonAlumnos.setBackground(colorGris);
-    }//GEN-LAST:event_botonProfesoresMouseClicked
 
     private void botonAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonAlumnosMouseClicked
         barraInicio.setVisible(false);
-        barraEmpleados.setVisible(false);
         barraAlumnos.setVisible(true);
+        barraProfesores.setVisible(false);
+        barraSesiones.setVisible(false);
+        barraSalones.setVisible(false);
+        barraPaquetes.setVisible(false);
 
-        textoBoton_Inicio.setForeground(colorBlanco);
-        textoBoton_Pacientes.setForeground(colorBlanco);
-        textoBoton_Empleados.setForeground(colorGrisClaro);
+        tituloBotonInicio.setForeground(colorBlanco);
+        tituloBotonAlumnos.setForeground(colorGrisClaro);
+        tituloBotonProfesores.setForeground(colorBlanco);
+        tituloBotonSesiones.setForeground(colorBlanco);
+        tituloBotonSalones.setForeground(colorBlanco);
+        tituloBotonPaquetes.setForeground(colorBlanco);
 
         botonInicio.setBackground(colorGris);
-        botonProfesores.setBackground(colorGris);
         botonAlumnos.setBackground(colorNegro);
+        botonProfesores.setBackground(colorGris);
+        botonSesiones.setBackground(colorGris);
+        botonSalones.setBackground(colorGris);
+        botonPaquetes.setBackground(colorGris);
     }//GEN-LAST:event_botonAlumnosMouseClicked
 
+    private void botonProfesoresMouseClicked(java.awt.event.MouseEvent evt) {                                                                                          
+        barraInicio.setVisible(false);
+        barraAlumnos.setVisible(false);
+        barraProfesores.setVisible(true);
+        barraSesiones.setVisible(false);
+        barraSalones.setVisible(false);
+        barraPaquetes.setVisible(false);
+
+        tituloBotonInicio.setForeground(colorBlanco);
+        tituloBotonAlumnos.setForeground(colorBlanco);
+        tituloBotonProfesores.setForeground(colorGrisClaro);
+        tituloBotonSesiones.setForeground(colorBlanco);
+        tituloBotonSalones.setForeground(colorBlanco);
+        tituloBotonPaquetes.setForeground(colorBlanco);
+
+        botonInicio.setBackground(colorGris);
+        botonAlumnos.setBackground(colorGris);
+        botonProfesores.setBackground(colorNegro);
+        botonSesiones.setBackground(colorGris);
+        botonSalones.setBackground(colorGris);
+        botonPaquetes.setBackground(colorGris);
+    }                                                                                                                  
+    
+    private void botonSesionesMouseClicked(java.awt.event.MouseEvent evt) {                                                                                          
+        barraInicio.setVisible(false);
+        barraAlumnos.setVisible(false);
+        barraProfesores.setVisible(false);
+        barraSesiones.setVisible(true);
+        barraSalones.setVisible(false);
+        barraPaquetes.setVisible(false);
+
+        tituloBotonInicio.setForeground(colorBlanco);
+        tituloBotonAlumnos.setForeground(colorBlanco);
+        tituloBotonProfesores.setForeground(colorBlanco);
+        tituloBotonSesiones.setForeground(colorGrisClaro);
+        tituloBotonSalones.setForeground(colorBlanco);
+        tituloBotonPaquetes.setForeground(colorBlanco);
+
+        botonInicio.setBackground(colorGris);
+        botonAlumnos.setBackground(colorGris);
+        botonProfesores.setBackground(colorGris);
+        botonSesiones.setBackground(colorNegro);
+        botonSalones.setBackground(colorGris);
+        botonPaquetes.setBackground(colorGris);
+    }       
+    
+    private void botonSalonesMouseClicked(java.awt.event.MouseEvent evt) {                                                                                          
+        barraInicio.setVisible(false);
+        barraAlumnos.setVisible(false);
+        barraProfesores.setVisible(false);
+        barraSesiones.setVisible(false);
+        barraSalones.setVisible(true);
+        barraPaquetes.setVisible(false);
+
+        tituloBotonInicio.setForeground(colorBlanco);
+        tituloBotonAlumnos.setForeground(colorBlanco);
+        tituloBotonProfesores.setForeground(colorBlanco);
+        tituloBotonSesiones.setForeground(colorBlanco);
+        tituloBotonSalones.setForeground(colorGrisClaro);
+        tituloBotonPaquetes.setForeground(colorBlanco);
+
+        botonInicio.setBackground(colorGris);
+        botonAlumnos.setBackground(colorGris);
+        botonProfesores.setBackground(colorGris);
+        botonSesiones.setBackground(colorGris);
+        botonSalones.setBackground(colorNegro);
+        botonPaquetes.setBackground(colorGris);
+    }   
+    
+    private void botonPaquetesMouseClicked(java.awt.event.MouseEvent evt) {                                                                                          
+        barraInicio.setVisible(false);
+        barraAlumnos.setVisible(false);
+        barraProfesores.setVisible(false);
+        barraSesiones.setVisible(false);
+        barraSalones.setVisible(false);
+        barraPaquetes.setVisible(true);
+
+        tituloBotonInicio.setForeground(colorBlanco);
+        tituloBotonAlumnos.setForeground(colorBlanco);
+        tituloBotonProfesores.setForeground(colorBlanco);
+        tituloBotonSesiones.setForeground(colorBlanco);
+        tituloBotonSalones.setForeground(colorBlanco);
+        tituloBotonPaquetes.setForeground(colorGrisClaro);
+
+        botonInicio.setBackground(colorGris);
+        botonAlumnos.setBackground(colorGris);
+        botonProfesores.setBackground(colorGris);
+        botonSesiones.setBackground(colorGris);
+        botonSalones.setBackground(colorGris);
+        botonPaquetes.setBackground(colorNegro);
+    }
+    
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
+        conexion.cerrarConexion();
         this.dispose();
     }//GEN-LAST:event_botonSalirActionPerformed
+
+    private void botonRegistrarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarAlumnoActionPerformed
+        activarOpcion("alumnos", "ingresarDatos");
+    }//GEN-LAST:event_botonRegistrarAlumnoActionPerformed
+
+    private void botonModificarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarAlumnoActionPerformed
+        activarOpcion("alumnos", "modificarDatos");
+    }//GEN-LAST:event_botonModificarAlumnoActionPerformed
+
+    private void botonVerAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerAlumnoActionPerformed
+        activarOpcion("alumnos", "verDatos");
+    }//GEN-LAST:event_botonVerAlumnoActionPerformed
+
+    private void botonVerClasesAsistidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerClasesAsistidasActionPerformed
+        activarOpcion("alumnos", "clasesAsistidas");
+    }//GEN-LAST:event_botonVerClasesAsistidasActionPerformed
+
+    private void botonVerClasesPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerClasesPendientesActionPerformed
+        activarOpcion("alumnos", "clasesPendientes");
+    }//GEN-LAST:event_botonVerClasesPendientesActionPerformed
+
+    private void botonVerPaquetesAdquiridosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerPaquetesAdquiridosActionPerformed
+        activarOpcion("alumnos", "paquetesAdquiridos");
+    }//GEN-LAST:event_botonVerPaquetesAdquiridosActionPerformed
+
+    private void botonEliminarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarAlumnoActionPerformed
+        activarOpcion("alumnos", "eliminarAlumno");
+    }//GEN-LAST:event_botonEliminarAlumnoActionPerformed
+
+    private void botonRegistrarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarProfesorActionPerformed
+        activarOpcion("profesores", "ingresarDatos");
+    }//GEN-LAST:event_botonRegistrarProfesorActionPerformed
+
+    private void botonModificarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarProfesorActionPerformed
+        activarOpcion("profesores", "modificarDatos");
+    }//GEN-LAST:event_botonModificarProfesorActionPerformed
+
+    private void botonVerProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerProfesorActionPerformed
+        activarOpcion("profesores", "verDatos");
+    }//GEN-LAST:event_botonVerProfesorActionPerformed
+
+    private void botonVerSesionesProgramadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerSesionesProgramadasActionPerformed
+        activarOpcion("profesores", "verSesionesProgramadas");
+    }//GEN-LAST:event_botonVerSesionesProgramadasActionPerformed
+
+    private void botonVerSesionesDictadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerSesionesDictadasActionPerformed
+        activarOpcion("profesores", "verSesionesDictadas");
+    }//GEN-LAST:event_botonVerSesionesDictadasActionPerformed
+
+    private void botonEliminarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarProfesorActionPerformed
+        activarOpcion("profesores", "eliminarProfesor");
+    }//GEN-LAST:event_botonEliminarProfesorActionPerformed
+
+    private void sesiones_ingresarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sesiones_ingresarDatosActionPerformed
+        activarOpcion("sesiones", "ingresarDatos");
+    }//GEN-LAST:event_sesiones_ingresarDatosActionPerformed
+
+    private void sesiones_modificarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sesiones_modificarDatosActionPerformed
+        activarOpcion("sesiones", "modificarDatos");
+    }//GEN-LAST:event_sesiones_modificarDatosActionPerformed
+
+    private void sesiones_verDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sesiones_verDatosActionPerformed
+        activarOpcion("sesiones", "verDatos");
+    }//GEN-LAST:event_sesiones_verDatosActionPerformed
+
+    private void sesiones_filtarFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sesiones_filtarFechaActionPerformed
+        activarOpcion("sesiones", "filtarFecha");
+    }//GEN-LAST:event_sesiones_filtarFechaActionPerformed
+
+    private void sesiones_filtrarClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sesiones_filtrarClaseActionPerformed
+        activarOpcion("sesiones", "filtrarClase");
+    }//GEN-LAST:event_sesiones_filtrarClaseActionPerformed
+
+    private void sesiones_eliminarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sesiones_eliminarSesionActionPerformed
+        activarOpcion("sesiones", "eliminarSesion");
+    }//GEN-LAST:event_sesiones_eliminarSesionActionPerformed
+
+    private void salones_ingresarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salones_ingresarDatosActionPerformed
+        activarOpcion("salones", "ingresarDatos");
+    }//GEN-LAST:event_salones_ingresarDatosActionPerformed
+
+    private void salones_modificarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salones_modificarDatosActionPerformed
+        activarOpcion("salones", "modificarDatos");
+    }//GEN-LAST:event_salones_modificarDatosActionPerformed
+
+    private void salones_verDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salones_verDatosActionPerformed
+        activarOpcion("salones", "verDatos");
+    }//GEN-LAST:event_salones_verDatosActionPerformed
+
+    private void salones_verDisponibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salones_verDisponibilidadActionPerformed
+        activarOpcion("salones", "verDisponibilidad");
+    }//GEN-LAST:event_salones_verDisponibilidadActionPerformed
+
+    private void salones_filtrarHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salones_filtrarHoraActionPerformed
+        activarOpcion("salones", "filtrarHora");
+    }//GEN-LAST:event_salones_filtrarHoraActionPerformed
+
+    private void salones_eliminarSalonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salones_eliminarSalonActionPerformed
+        activarOpcion("salones", "eliminarSalon");
+    }//GEN-LAST:event_salones_eliminarSalonActionPerformed
+
+    private void paquetes_ingresarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paquetes_ingresarDatosActionPerformed
+        activarOpcion("paquetes", "ingresarDatos");
+    }//GEN-LAST:event_paquetes_ingresarDatosActionPerformed
+
+    private void paquetes_modificarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paquetes_modificarDatosActionPerformed
+        activarOpcion("paquetes", "modificarDatos");
+    }//GEN-LAST:event_paquetes_modificarDatosActionPerformed
+
+    private void paquetes_verDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paquetes_verDatosActionPerformed
+        activarOpcion("paquetes", "verDatos");
+    }//GEN-LAST:event_paquetes_verDatosActionPerformed
+
+    private void paquetes_verVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paquetes_verVentasActionPerformed
+        activarOpcion("paquetes", "verVentas");
+    }//GEN-LAST:event_paquetes_verVentasActionPerformed
+
+    private void paquetes_filtrarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paquetes_filtrarCompraActionPerformed
+        activarOpcion("paquetes", "filtrarCompra");
+    }//GEN-LAST:event_paquetes_filtrarCompraActionPerformed
+
+    private void paquetes_eliminarPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paquetes_eliminarPaqueteActionPerformed
+        activarOpcion("paquetes", "eliminarPaquete");
+    }//GEN-LAST:event_paquetes_eliminarPaqueteActionPerformed
 
     public static void main(String args[]) {
         /* Set the FlatLaf Dark look and feel */
@@ -626,8 +1123,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -637,42 +1132,62 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton alumnos_clasesAsistidas;
-    private javax.swing.JButton alumnos_clasesPendientes;
-    private javax.swing.JButton alumnos_ingresarDatos;
-    private javax.swing.JButton alumnos_modificarDatos;
-    private javax.swing.JButton alumnos_paquetesAdquiridos;
-    private javax.swing.JButton alumnos_retirarAlumno;
-    private javax.swing.JButton alumnos_verInformacion;
     private javax.swing.JPanel barraAlumnos;
     private javax.swing.JPanel barraInicio;
     private javax.swing.JPanel barraLateral;
     private javax.swing.JMenuBar barraMenu;
+    private javax.swing.JPanel barraPaquetes;
     private javax.swing.JPanel barraPrincipal;
     private javax.swing.JPanel barraProfesores;
+    private javax.swing.JPanel barraSalones;
     private javax.swing.JSeparator barraSeparadora;
+    private javax.swing.JPanel barraSesiones;
     private javax.swing.JPanel botonAlumnos;
+    private javax.swing.JButton botonEliminarAlumno;
+    private javax.swing.JButton botonEliminarProfesor;
     private javax.swing.JPanel botonInicio;
+    private javax.swing.JButton botonModificarAlumno;
+    private javax.swing.JButton botonModificarProfesor;
     private javax.swing.JPanel botonPaquetes;
     private javax.swing.JPanel botonProfesores;
+    private javax.swing.JButton botonRegistrarAlumno;
+    private javax.swing.JButton botonRegistrarProfesor;
     private javax.swing.JMenuItem botonSalir;
     private javax.swing.JPanel botonSalones;
     private javax.swing.JPanel botonSesiones;
-    private javax.swing.ButtonGroup gestionEmpleado_grupoBotones;
+    private javax.swing.JButton botonVerAlumno;
+    private javax.swing.JButton botonVerClasesAsistidas;
+    private javax.swing.JButton botonVerClasesPendientes;
+    private javax.swing.JButton botonVerPaquetesAdquiridos;
+    private javax.swing.JButton botonVerProfesor;
+    private javax.swing.JButton botonVerSesionesDictadas;
+    private javax.swing.JButton botonVerSesionesProgramadas;
     private javax.swing.JLabel logoPrimerParrafo;
     private javax.swing.JLabel logoSegundoParrafo;
     private javax.swing.JMenu menuArchivo;
-    private javax.swing.JButton profesores_ingresarDatos;
-    private javax.swing.JButton profesores_modificarDatos;
-    private javax.swing.JButton profesores_retirarProfesor;
-    private javax.swing.JButton profesores_verInformacion;
-    private javax.swing.JButton profesores_verSesionesDictadas;
-    private javax.swing.JButton profesores_verSesionesProgramadas;
-    private javax.swing.JLabel textoBoton_Empleados;
-    private javax.swing.JLabel textoBoton_Empleados1;
-    private javax.swing.JLabel textoBoton_Empleados2;
-    private javax.swing.JLabel textoBoton_Empleados3;
-    private javax.swing.JLabel textoBoton_Inicio;
-    private javax.swing.JLabel textoBoton_Pacientes;
+    private javax.swing.JButton paquetes_eliminarPaquete;
+    private javax.swing.JButton paquetes_filtrarCompra;
+    private javax.swing.JButton paquetes_ingresarDatos;
+    private javax.swing.JButton paquetes_modificarDatos;
+    private javax.swing.JButton paquetes_verDatos;
+    private javax.swing.JButton paquetes_verVentas;
+    private javax.swing.JButton salones_eliminarSalon;
+    private javax.swing.JButton salones_filtrarHora;
+    private javax.swing.JButton salones_ingresarDatos;
+    private javax.swing.JButton salones_modificarDatos;
+    private javax.swing.JButton salones_verDatos;
+    private javax.swing.JButton salones_verDisponibilidad;
+    private javax.swing.JButton sesiones_eliminarSesion;
+    private javax.swing.JButton sesiones_filtarFecha;
+    private javax.swing.JButton sesiones_filtrarClase;
+    private javax.swing.JButton sesiones_ingresarDatos;
+    private javax.swing.JButton sesiones_modificarDatos;
+    private javax.swing.JButton sesiones_verDatos;
+    private javax.swing.JLabel tituloBotonAlumnos;
+    private javax.swing.JLabel tituloBotonInicio;
+    private javax.swing.JLabel tituloBotonPaquetes;
+    private javax.swing.JLabel tituloBotonProfesores;
+    private javax.swing.JLabel tituloBotonSalones;
+    private javax.swing.JLabel tituloBotonSesiones;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,8 +2,6 @@
 
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="gestionEmpleado_grupoBotones">
-    </Component>
     <Menu class="javax.swing.JMenuBar" name="barraMenu">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="menuArchivo">
@@ -26,7 +24,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Seatora - Sistema Especializado de Atenci&#xf3;n Oral"/>
+    <Property name="title" type="java.lang.String" value="Gestion - Mis primeros brincos"/>
     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
       <Color id="Default Cursor"/>
     </Property>
@@ -55,7 +53,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="barraLateral" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="barraPrincipal" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -88,7 +86,7 @@
                       <Component id="barraSeparadora" min="-2" pref="107" max="-2" attributes="0"/>
                       <Component id="logoPrimerParrafo" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="16" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Component id="botonSesiones" alignment="0" max="32767" attributes="0"/>
               <Component id="botonSalones" alignment="0" max="32767" attributes="0"/>
@@ -137,7 +135,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      <Component id="textoBoton_Inicio" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloBotonInicio" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -146,14 +144,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="textoBoton_Inicio" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloBotonInicio" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="7" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="textoBoton_Inicio">
+            <Component class="javax.swing.JLabel" name="tituloBotonInicio">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="bb" green="bb" red="bb" type="rgb"/>
@@ -185,7 +183,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="textoBoton_Empleados" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloBotonAlumnos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -194,14 +192,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="textoBoton_Empleados" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloBotonAlumnos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="7" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="textoBoton_Empleados">
+            <Component class="javax.swing.JLabel" name="tituloBotonAlumnos">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="bb" green="bb" red="bb" type="rgb"/>
@@ -230,7 +228,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="textoBoton_Pacientes" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloBotonProfesores" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -239,14 +237,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="7" max="32767" attributes="0"/>
-                      <Component id="textoBoton_Pacientes" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloBotonProfesores" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="textoBoton_Pacientes">
+            <Component class="javax.swing.JLabel" name="tituloBotonProfesores">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="bb" green="bb" red="bb" type="rgb"/>
@@ -275,7 +273,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="textoBoton_Empleados1" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloBotonSesiones" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -284,14 +282,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="textoBoton_Empleados1" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloBotonSesiones" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="7" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="textoBoton_Empleados1">
+            <Component class="javax.swing.JLabel" name="tituloBotonSesiones">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="bb" green="bb" red="bb" type="rgb"/>
@@ -320,7 +318,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="textoBoton_Empleados2" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloBotonSalones" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -329,14 +327,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="7" max="32767" attributes="0"/>
-                      <Component id="textoBoton_Empleados2" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloBotonSalones" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="textoBoton_Empleados2">
+            <Component class="javax.swing.JLabel" name="tituloBotonSalones">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="bb" green="bb" red="bb" type="rgb"/>
@@ -365,7 +363,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="textoBoton_Empleados3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloBotonPaquetes" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -374,14 +372,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="textoBoton_Empleados3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloBotonPaquetes" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="7" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="textoBoton_Empleados3">
+            <Component class="javax.swing.JLabel" name="tituloBotonPaquetes">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="bb" green="bb" red="bb" type="rgb"/>
@@ -474,97 +472,97 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="52" max="32767" attributes="0"/>
+                      <EmptySpace pref="51" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="alumnos_retirarAlumno" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="alumnos_clasesPendientes" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="alumnos_clasesAsistidas" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="alumnos_paquetesAdquiridos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="alumnos_modificarDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="alumnos_verInformacion" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="alumnos_ingresarDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonEliminarAlumno" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonVerClasesPendientes" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonVerClasesAsistidas" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonVerPaquetesAdquiridos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonModificarAlumno" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonVerAlumno" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonRegistrarAlumno" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="alumnos_ingresarDatos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="botonRegistrarAlumno" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Component id="botonVerAlumno" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="alumnos_modificarDatos" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonModificarAlumno" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="alumnos_verInformacion" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonVerClasesAsistidas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="alumnos_clasesAsistidas" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonVerClasesPendientes" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="alumnos_clasesPendientes" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonVerPaquetesAdquiridos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="alumnos_paquetesAdquiridos" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="alumnos_retirarAlumno" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="86" max="32767" attributes="0"/>
+                      <Component id="botonEliminarAlumno" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="74" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="alumnos_ingresarDatos">
+            <Component class="javax.swing.JButton" name="botonRegistrarAlumno">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ingresar datos de un alumno"/>
+                <Property name="text" type="java.lang.String" value="Registrar nuevo alumno"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alumnos_ingresarDatosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRegistrarAlumnoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="alumnos_modificarDatos">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Modificar datos de un alumno"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alumnos_modificarDatosActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="alumnos_verInformacion">
+            <Component class="javax.swing.JButton" name="botonVerAlumno">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ver informacion de un alumno"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alumnos_verInformacionActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVerAlumnoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="alumnos_clasesAsistidas">
+            <Component class="javax.swing.JButton" name="botonModificarAlumno">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Modificar datos de un alumno"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarAlumnoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="botonVerClasesAsistidas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Clases a las que ha asistido"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alumnos_clasesAsistidasActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVerClasesAsistidasActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="alumnos_clasesPendientes">
+            <Component class="javax.swing.JButton" name="botonVerClasesPendientes">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Clases pendientes"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alumnos_clasesPendientesActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVerClasesPendientesActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="alumnos_paquetesAdquiridos">
+            <Component class="javax.swing.JButton" name="botonVerPaquetesAdquiridos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Paquetes adquiridos"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alumnos_paquetesAdquiridosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVerPaquetesAdquiridosActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="alumnos_retirarAlumno">
+            <Component class="javax.swing.JButton" name="botonEliminarAlumno">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Retirar un alumno"/>
+                <Property name="text" type="java.lang.String" value="Eliminar un alumno"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alumnos_retirarAlumnoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonEliminarAlumnoActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -590,12 +588,12 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="51" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="profesores_retirarProfesor" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="profesores_verSesionesDictadas" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="profesores_verSesionesProgramadas" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="profesores_modificarDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="profesores_verInformacion" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="profesores_ingresarDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonEliminarProfesor" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonVerSesionesDictadas" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonVerSesionesProgramadas" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonModificarProfesor" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonVerProfesor" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonRegistrarProfesor" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   </Group>
@@ -604,71 +602,379 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="profesores_ingresarDatos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="botonRegistrarProfesor" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="profesores_modificarDatos" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonVerProfesor" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="profesores_verInformacion" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonModificarProfesor" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Component id="botonVerSesionesProgramadas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="profesores_verSesionesProgramadas" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonVerSesionesDictadas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="profesores_verSesionesDictadas" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="profesores_retirarProfesor" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="96" max="32767" attributes="0"/>
+                      <Component id="botonEliminarProfesor" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="108" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="profesores_ingresarDatos">
+            <Component class="javax.swing.JButton" name="botonRegistrarProfesor">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ingresar datos de un profesor"/>
+                <Property name="text" type="java.lang.String" value="Registrar nuevo profesor"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="profesores_ingresarDatosMouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="profesores_ingresarDatosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRegistrarProfesorActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="profesores_modificarDatos">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Modificar datos de un profesor"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="profesores_modificarDatosActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="profesores_verInformacion">
+            <Component class="javax.swing.JButton" name="botonVerProfesor">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ver informacion de un profesor"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="profesores_verInformacionActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVerProfesorActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="profesores_verSesionesProgramadas">
+            <Component class="javax.swing.JButton" name="botonModificarProfesor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Modificar datos de un profesor"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarProfesorActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="botonVerSesionesProgramadas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ver sesiones programadas"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="profesores_verSesionesProgramadasActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVerSesionesProgramadasActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="profesores_verSesionesDictadas">
+            <Component class="javax.swing.JButton" name="botonVerSesionesDictadas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ver sesiones dictadas"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="profesores_verSesionesDictadasActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVerSesionesDictadasActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="profesores_retirarProfesor">
+            <Component class="javax.swing.JButton" name="botonEliminarProfesor">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Retirar un profesor"/>
+                <Property name="text" type="java.lang.String" value="Eliminar un profesor"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="profesores_retirarProfesorActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonEliminarProfesorActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="barraSesiones">
+          <Properties>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[300, 300]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[300, 300]"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card4"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="51" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="sesiones_eliminarSesion" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="sesiones_filtrarClase" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="sesiones_filtarFecha" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="sesiones_modificarDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="sesiones_verDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="sesiones_ingresarDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="sesiones_ingresarDatos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="sesiones_modificarDatos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="sesiones_verDatos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="sesiones_filtarFecha" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="sesiones_filtrarClase" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="sesiones_eliminarSesion" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="108" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JButton" name="sesiones_ingresarDatos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ingresar datos de una sesi&#xf3;n"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sesiones_ingresarDatosActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="sesiones_modificarDatos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Modificar datos de una sesi&#xf3;n"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sesiones_modificarDatosActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="sesiones_verDatos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ver informacion de una sesi&#xf3;n"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sesiones_verDatosActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="sesiones_filtarFecha">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Filtrar sesi&#xf3;nes por fecha"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sesiones_filtarFechaActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="sesiones_filtrarClase">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Filtrar sesi&#xf3;nes por clases"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sesiones_filtrarClaseActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="sesiones_eliminarSesion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eliminar una sesi&#xf3;n"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sesiones_eliminarSesionActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="barraSalones">
+          <Properties>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[300, 300]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[300, 300]"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card4"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="51" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="salones_eliminarSalon" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="salones_filtrarHora" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="salones_verDisponibilidad" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="salones_modificarDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="salones_verDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="salones_ingresarDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="salones_ingresarDatos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="salones_modificarDatos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="salones_verDatos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="salones_verDisponibilidad" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="salones_filtrarHora" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="salones_eliminarSalon" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="108" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JButton" name="salones_ingresarDatos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ingresar datos de un salon"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salones_ingresarDatosActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="salones_modificarDatos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Modificar datos de un salon"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salones_modificarDatosActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="salones_verDatos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ver informacion de un salon"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salones_verDatosActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="salones_verDisponibilidad">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ver disponibilidad de un salon"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salones_verDisponibilidadActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="salones_filtrarHora">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Clases dictadas en un tiempo"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salones_filtrarHoraActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="salones_eliminarSalon">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eliminar un salon"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salones_eliminarSalonActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="barraPaquetes">
+          <Properties>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[300, 300]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[300, 300]"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card4"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="51" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="paquetes_eliminarPaquete" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="paquetes_filtrarCompra" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="paquetes_verVentas" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="paquetes_modificarDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="paquetes_verDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="paquetes_ingresarDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="paquetes_ingresarDatos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="paquetes_modificarDatos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="paquetes_verDatos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="paquetes_verVentas" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="paquetes_filtrarCompra" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="paquetes_eliminarPaquete" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="108" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JButton" name="paquetes_ingresarDatos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ingresar datos de un paquete"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paquetes_ingresarDatosActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="paquetes_modificarDatos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Modificar datos de un paquete"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paquetes_modificarDatosActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="paquetes_verDatos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ver informacion de un paquete"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paquetes_verDatosActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="paquetes_verVentas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ver ventas de un paquete"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paquetes_verVentasActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="paquetes_filtrarCompra">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ver compras dada su fecha"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paquetes_filtrarCompraActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="paquetes_eliminarPaquete">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eliminar un paquete"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paquetes_eliminarPaqueteActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

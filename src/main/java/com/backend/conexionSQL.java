@@ -5,23 +5,36 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ConexionSQL {
-    private Connection conexion = null;
-    
-    public ConexionSQL() {}
 
+    private Connection conexion = null;
+    private String mensajeInformativo = "Error desconocido con la conexion";
+
+    public ConexionSQL() {
+    }
+
+    public String getMensajeInformativo() {
+        return mensajeInformativo;
+    }
+
+    public void setMensajeInformativo(String mensajeInformativo) {
+        this.mensajeInformativo = mensajeInformativo;
+    }
+    
     public void establecerConexion() {
         try {
             String url = "jdbc:mysql://remotemysql.com/EmTvGOXF3P";
             String usuario = "EmTvGOXF3P";
             String clave = "huf5uABmbI";
 
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             conexion = DriverManager.getConnection(url, usuario, clave);
 
         } catch (SQLException | ClassNotFoundException error) {
-            System.out.println("La conexion con la base de datos fallo: " + error);
+            mensajeInformativo = error.getMessage();
+            System.out.println("La conexion con la base de datos fallo: " + error.getMessage());
         }
 
         if (conexion != null) {
@@ -34,33 +47,32 @@ public class ConexionSQL {
         System.out.println("La conexion con la base de datos fue cerrada");
     }
 
-    public void agregarValor(String id, String nombre) {
-        String sentencia = "insert into Usuarios values (" + id + ", " + "'" + nombre + "'" + ")";
-
+    public void ejecutarSentencia(String sentencia) {
         try (PreparedStatement stmt = conexion.prepareStatement(sentencia)) {
             stmt.executeUpdate();
-            System.out.println("El valor fue agregado correctamente");
+            mensajeInformativo = "Los cambios fueron ejecutados exitosamente";
 
         } catch (SQLException error) {
+            mensajeInformativo = error.getMessage();
             System.out.println("Error en la ejecución: " + error.getErrorCode() + " " + error.getMessage());
         }
     }
 
-    public void mostratValores() {
-        String sentencia = "select * from Usuarios";
+    public ArrayList<String> obtenerDatosTabla(String datos, String tabla) {
+        ArrayList<String> listaDatos = new ArrayList<>();
+        String sentencia = "Select " + datos + " from " + tabla + ";";
 
         try (PreparedStatement stmt = conexion.prepareStatement(sentencia)) {
             ResultSet resultados = stmt.executeQuery();
 
             while (resultados.next()) {
-                String id = resultados.getString("ID");
-                String nombre = resultados.getString("Nombre");
-
-                System.out.println("ID: " + id + "  " + "Nombre: " + nombre);
+                listaDatos.add(resultados.getString(datos));
             }
 
         } catch (SQLException error) {
+            mensajeInformativo = error.getMessage();
             System.out.println("Error en la ejecución: " + error.getErrorCode() + " " + error.getMessage());
         }
+        return listaDatos;
     }
 }
