@@ -437,7 +437,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botonVerClasesPendientes.setText("Clases pendientes");
+        botonVerClasesPendientes.setText("Sesiónes pendientes");
         botonVerClasesPendientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonVerClasesPendientesActionPerformed(evt);
@@ -770,7 +770,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        paquetes_filtrarCompra.setText("Ver compras dada su fecha");
+        paquetes_filtrarCompra.setText("Compras en un rango de tiempo");
         paquetes_filtrarCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 paquetes_filtrarCompraActionPerformed(evt);
@@ -792,12 +792,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(51, Short.MAX_VALUE)
                 .addGroup(barraPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(paquetes_eliminarPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(paquetes_filtrarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(paquetes_verVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(paquetes_modificarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(paquetes_verDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(paquetes_ingresarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51))
+                    .addComponent(paquetes_ingresarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(paquetes_filtrarCompra))
+                .addGap(49, 49, 49))
         );
         barraPaquetesLayout.setVerticalGroup(
             barraPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1088,7 +1088,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_salones_verDisponibilidadActionPerformed
 
     private void salones_filtrarHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salones_filtrarHoraActionPerformed
-        activarOpcion("salones", "filtrarHora");
+        activarOpcion("salones", "filtrarDia");
     }//GEN-LAST:event_salones_filtrarHoraActionPerformed
 
     private void salones_eliminarSalonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salones_eliminarSalonActionPerformed
@@ -1112,7 +1112,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_paquetes_verVentasActionPerformed
 
     private void paquetes_filtrarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paquetes_filtrarCompraActionPerformed
-        activarOpcion("paquetes", "filtrarCompra");
+        activarOpcion("paquetes", "filtrarFechas");
     }//GEN-LAST:event_paquetes_filtrarCompraActionPerformed
 
     private void paquetes_eliminarPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paquetes_eliminarPaqueteActionPerformed

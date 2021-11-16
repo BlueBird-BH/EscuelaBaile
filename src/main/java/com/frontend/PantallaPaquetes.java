@@ -4,13 +4,15 @@ import com.backend.Paquete;
 import com.backend.ConexionSQL;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 
 public class PantallaPaquetes extends javax.swing.JFrame {
 
     private ArrayList<Paquete> listaPaquetes = new ArrayList<>();
     private ArrayList<Paquete> listaCursos = new ArrayList<>();
+    private DefaultListModel modeloLista = new DefaultListModel();
     private Paquete paquetes = new Paquete();
-    
+
     private ConexionSQL conexion = new ConexionSQL();
     private VentanasEmergentes ventanaEmergente = new VentanasEmergentes();
 
@@ -28,7 +30,7 @@ public class PantallaPaquetes extends javax.swing.JFrame {
         ventanaEmergente.ventanaRequerida(ventana);
     }
 
-    private void cargarCedulas(javax.swing.JComboBox<String> comboBox) {
+    private void cargarPaquetes(javax.swing.JComboBox<String> comboBox) {
         listaPaquetes = paquetes.obtenerPaquetes();
         comboBox.removeAllItems();
 
@@ -36,7 +38,7 @@ public class PantallaPaquetes extends javax.swing.JFrame {
             comboBox.addItem(paquete.getId());
         });
     }
-    
+
     private void cargarCursos(javax.swing.JComboBox<String> comboBox) {
         listaCursos = paquetes.obtenerPaquetes();
         comboBox.removeAllItems();
@@ -45,7 +47,12 @@ public class PantallaPaquetes extends javax.swing.JFrame {
             comboBox.addItem(curso.getId());
         });
     }
-
+    
+    private void prepararModeloLista(javax.swing.JList<String> campo) {
+        campo.setModel(modeloLista);
+        modeloLista.removeAllElements();
+    }
+    
     private boolean determinarCampoVacio(javax.swing.JTextField campo) {
         if (campo.getText().equals("") == true) {
             return true;
@@ -53,12 +60,18 @@ public class PantallaPaquetes extends javax.swing.JFrame {
         return false;
     }
 
-    public void pantallaRequerida(String barraRequerida) {
+    private void ocultarPantallas() {
         pantallaRegistrar.setVisible(false);
         pantallaVisualizar.setVisible(false);
         pantallaModificar.setVisible(false);
         pantallaEliminar.setVisible(false);
+        pantallaVerVentas.setVisible(false);
+        pantallaFiltrarFecha.setVisible(false);
+    }
 
+    public void pantallaRequerida(String barraRequerida) {
+        ocultarPantallas();
+        
         switch (barraRequerida) {
             case "ingresarDatos":
                 campoRegistrarCantidadSesiones.setText(null);
@@ -71,7 +84,7 @@ public class PantallaPaquetes extends javax.swing.JFrame {
                 break;
 
             case "verDatos":
-                cargarCedulas(campoVisualizarID);
+                cargarPaquetes(campoVisualizarID);
                 campoVisualizarCantidadSesiones.setText(null);
                 campoVisualizarCantidadSesiones.setEditable(false);
 
@@ -88,7 +101,7 @@ public class PantallaPaquetes extends javax.swing.JFrame {
                 break;
 
             case "modificarDatos":
-                cargarCedulas(campoModificarID);
+                cargarPaquetes(campoModificarID);
                 campoModificarCantidadSesiones.setText(null);
                 campoModificarVigencia.setText(null);
                 campoModificarCurso.removeAllItems();
@@ -98,7 +111,7 @@ public class PantallaPaquetes extends javax.swing.JFrame {
                 break;
 
             case "eliminarPaquete":
-                cargarCedulas(campoEliminarID);
+                cargarPaquetes(campoEliminarID);
                 campoEliminarCantidadSesiones.setText(null);
                 campoEliminarCantidadSesiones.setEditable(false);
 
@@ -112,6 +125,22 @@ public class PantallaPaquetes extends javax.swing.JFrame {
                 campoEliminarPrecio.setEditable(false);
 
                 pantallaEliminar.setVisible(true);
+                break;
+
+            case "verVentas":
+                cargarPaquetes(campoVerVentasID);
+                prepararModeloLista(campoVerVentas);
+
+                pantallaVerVentas.setVisible(true);
+                break;
+
+            case "filtrarFechas":
+                prepararModeloLista(campoFiltrarFecha);
+                cargarPaquetes(campoFiltrarFechaID);
+                campoFiltrarFechaRangoInicial.setText(null);
+                campoFiltrarFechaRangoFinal.setText(null);
+                
+                pantallaFiltrarFecha.setVisible(true);
                 break;
         }
     }
@@ -174,6 +203,24 @@ public class PantallaPaquetes extends javax.swing.JFrame {
         campoEliminarPrecio = new javax.swing.JTextField();
         botonCerrarEliminacion = new javax.swing.JButton();
         botonEliminarPaquete = new javax.swing.JButton();
+        pantallaVerVentas = new javax.swing.JPanel();
+        tituloVerVentasID = new javax.swing.JLabel();
+        campoVerVentasID = new javax.swing.JComboBox<>();
+        botonCargarVerVentas = new javax.swing.JButton();
+        capsulaVerVentas = new javax.swing.JScrollPane();
+        campoVerVentas = new javax.swing.JList<>();
+        botonCerrarVerVentas = new javax.swing.JButton();
+        pantallaFiltrarFecha = new javax.swing.JPanel();
+        tituloFiltrarFechaID = new javax.swing.JLabel();
+        tituloFiltrarFechaRangoInicial = new javax.swing.JLabel();
+        tituloFiltrarFechaRangoFinal = new javax.swing.JLabel();
+        campoFiltrarFechaID = new javax.swing.JComboBox<>();
+        botonCargarFiltrarFecha = new javax.swing.JButton();
+        campoFiltrarFechaRangoInicial = new javax.swing.JTextField();
+        campoFiltrarFechaRangoFinal = new javax.swing.JTextField();
+        capsulaFiltrarFecha = new javax.swing.JScrollPane();
+        campoFiltrarFecha = new javax.swing.JList<>();
+        botonCerrarFiltrarFecha = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gestion - Mis primeros brincos");
@@ -590,6 +637,143 @@ public class PantallaPaquetes extends javax.swing.JFrame {
 
         getContentPane().add(pantallaEliminar, "card4");
 
+        pantallaVerVentas.setMaximumSize(new java.awt.Dimension(300, 300));
+        pantallaVerVentas.setMinimumSize(new java.awt.Dimension(300, 300));
+
+        tituloVerVentasID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloVerVentasID.setText("ID del paquete");
+
+        botonCargarVerVentas.setText("Cargar");
+        botonCargarVerVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCargarVerVentasActionPerformed(evt);
+            }
+        });
+
+        capsulaVerVentas.setViewportView(campoVerVentas);
+
+        botonCerrarVerVentas.setText("Regresar");
+        botonCerrarVerVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCerrarVerVentasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pantallaVerVentasLayout = new javax.swing.GroupLayout(pantallaVerVentas);
+        pantallaVerVentas.setLayout(pantallaVerVentasLayout);
+        pantallaVerVentasLayout.setHorizontalGroup(
+            pantallaVerVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pantallaVerVentasLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(pantallaVerVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botonCerrarVerVentas)
+                    .addGroup(pantallaVerVentasLayout.createSequentialGroup()
+                        .addComponent(tituloVerVentasID)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(campoVerVentasID, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botonCargarVerVentas))
+                    .addComponent(capsulaVerVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        pantallaVerVentasLayout.setVerticalGroup(
+            pantallaVerVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pantallaVerVentasLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(pantallaVerVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonCargarVerVentas)
+                    .addComponent(campoVerVentasID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloVerVentasID))
+                .addGap(18, 18, 18)
+                .addComponent(capsulaVerVentas, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(botonCerrarVerVentas)
+                .addGap(30, 30, 30))
+        );
+
+        getContentPane().add(pantallaVerVentas, "card4");
+
+        pantallaFiltrarFecha.setMaximumSize(new java.awt.Dimension(300, 300));
+        pantallaFiltrarFecha.setMinimumSize(new java.awt.Dimension(300, 300));
+
+        tituloFiltrarFechaID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloFiltrarFechaID.setText("ID del paquete");
+
+        tituloFiltrarFechaRangoInicial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloFiltrarFechaRangoInicial.setText("Rango inicial (yyyy-MM-dd)");
+
+        tituloFiltrarFechaRangoFinal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloFiltrarFechaRangoFinal.setText("Rango final (yyyy-MM-dd)");
+
+        botonCargarFiltrarFecha.setText("Cargar");
+        botonCargarFiltrarFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCargarFiltrarFechaActionPerformed(evt);
+            }
+        });
+
+        capsulaFiltrarFecha.setViewportView(campoFiltrarFecha);
+
+        botonCerrarFiltrarFecha.setText("Regresar");
+        botonCerrarFiltrarFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCerrarFiltrarFechaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pantallaFiltrarFechaLayout = new javax.swing.GroupLayout(pantallaFiltrarFecha);
+        pantallaFiltrarFecha.setLayout(pantallaFiltrarFechaLayout);
+        pantallaFiltrarFechaLayout.setHorizontalGroup(
+            pantallaFiltrarFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pantallaFiltrarFechaLayout.createSequentialGroup()
+                .addGroup(pantallaFiltrarFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pantallaFiltrarFechaLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(pantallaFiltrarFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(botonCerrarFiltrarFecha)
+                            .addGroup(pantallaFiltrarFechaLayout.createSequentialGroup()
+                                .addComponent(tituloFiltrarFechaID)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(campoFiltrarFechaID, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonCargarFiltrarFecha))
+                            .addComponent(capsulaFiltrarFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pantallaFiltrarFechaLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(pantallaFiltrarFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tituloFiltrarFechaRangoInicial)
+                            .addComponent(tituloFiltrarFechaRangoFinal))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pantallaFiltrarFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(campoFiltrarFechaRangoInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                            .addComponent(campoFiltrarFechaRangoFinal))))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        pantallaFiltrarFechaLayout.setVerticalGroup(
+            pantallaFiltrarFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pantallaFiltrarFechaLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(pantallaFiltrarFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonCargarFiltrarFecha)
+                    .addComponent(campoFiltrarFechaID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloFiltrarFechaID))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pantallaFiltrarFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoFiltrarFechaRangoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloFiltrarFechaRangoInicial))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pantallaFiltrarFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoFiltrarFechaRangoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloFiltrarFechaRangoFinal))
+                .addGap(18, 18, 18)
+                .addComponent(capsulaFiltrarFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(botonCerrarFiltrarFecha)
+                .addGap(30, 30, 30))
+        );
+
+        getContentPane().add(pantallaFiltrarFecha, "card4");
+
         setSize(new java.awt.Dimension(453, 411));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -624,10 +808,10 @@ public class PantallaPaquetes extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCerrarRegistroActionPerformed
 
     private void botonCargarVisualizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarVisualizacionActionPerformed
-        String cedulaSeleccionada = String.valueOf(campoVisualizarID.getSelectedItem());
+        String paqueteSeleccionado = String.valueOf(campoVisualizarID.getSelectedItem());
 
         for (Paquete paquete : listaPaquetes) {
-            if (paquete.getId().equals(cedulaSeleccionada) == true) {
+            if (paquete.getId().equals(paqueteSeleccionado) == true) {
                 campoVisualizarCantidadSesiones.setText(paquete.getCantidadSesiones());
                 campoVisualizarVigencia.setText(paquete.getVigencia());
                 campoVisualizarCurso.setText(paquete.getIdCurso());
@@ -641,11 +825,11 @@ public class PantallaPaquetes extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCerrarVisualizacionActionPerformed
 
     private void botonCargarModificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarModificacionActionPerformed
-        String cedulaSeleccionada = String.valueOf(campoModificarID.getSelectedItem());
+        String paqueteSeleccionado = String.valueOf(campoModificarID.getSelectedItem());
         cargarCursos(campoModificarCurso);
 
         for (Paquete paquete : listaPaquetes) {
-            if (paquete.getId().equals(cedulaSeleccionada) == true) {
+            if (paquete.getId().equals(paqueteSeleccionado) == true) {
                 campoModificarCantidadSesiones.setText(paquete.getCantidadSesiones());
                 campoModificarVigencia.setText(paquete.getVigencia());
                 campoModificarCurso.setSelectedItem(paquete.getIdCurso());
@@ -655,10 +839,10 @@ public class PantallaPaquetes extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCargarModificacionActionPerformed
 
     private void botonModificarPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarPaqueteActionPerformed
-        String cedulaSeleccionada = String.valueOf(campoModificarID.getSelectedItem());
+        String paqueteSeleccionado = String.valueOf(campoModificarID.getSelectedItem());
 
         for (Paquete paquete : listaPaquetes) {
-            if (paquete.getId().equals(cedulaSeleccionada) == true) {
+            if (paquete.getId().equals(paqueteSeleccionado) == true) {
                 paquete.setCantidadSesiones(campoModificarCantidadSesiones.getText());
                 paquete.setVigencia(campoModificarVigencia.getText());
                 paquete.setIdCurso(String.valueOf(campoModificarCurso.getSelectedItem()));
@@ -676,10 +860,10 @@ public class PantallaPaquetes extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCerrarModificacionActionPerformed
 
     private void botonCargarEliminacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarEliminacionActionPerformed
-        String cedulaSeleccionada = String.valueOf(campoEliminarID.getSelectedItem());
+        String paqueteSeleccionado = String.valueOf(campoEliminarID.getSelectedItem());
 
         for (Paquete paquete : listaPaquetes) {
-            if (paquete.getId().equals(cedulaSeleccionada) == true) {
+            if (paquete.getId().equals(paqueteSeleccionado) == true) {
                 campoEliminarCantidadSesiones.setText(paquete.getCantidadSesiones());
                 campoEliminarVigencia.setText(paquete.getVigencia());
                 campoEliminarCurso.setText(paquete.getIdCurso());
@@ -689,10 +873,10 @@ public class PantallaPaquetes extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCargarEliminacionActionPerformed
 
     private void botonEliminarPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarPaqueteActionPerformed
-        String cedulaSeleccionada = String.valueOf(campoEliminarID.getSelectedItem());
+        String paqueteSeleccionado = String.valueOf(campoEliminarID.getSelectedItem());
 
         for (Paquete paquete : listaPaquetes) {
-            if (paquete.getId().equals(cedulaSeleccionada) == true) {
+            if (paquete.getId().equals(paqueteSeleccionado) == true) {
                 paquete.setCantidadSesiones(campoEliminarCantidadSesiones.getText());
                 paquete.setVigencia(campoEliminarVigencia.getText());
                 paquete.setIdCurso(campoEliminarCurso.getText());
@@ -708,6 +892,67 @@ public class PantallaPaquetes extends javax.swing.JFrame {
     private void botonCerrarEliminacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarEliminacionActionPerformed
         this.dispose();
     }//GEN-LAST:event_botonCerrarEliminacionActionPerformed
+
+    private void botonCargarVerVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarVerVentasActionPerformed
+        String paqueteSeleccionado = String.valueOf(campoVerVentasID.getSelectedItem());
+        prepararModeloLista(campoVerVentas);
+
+        for (Paquete paquete : listaPaquetes) {
+            if (paquete.getId().equals(paqueteSeleccionado) == true) {
+                ArrayList<String> ventasPaquete = paquetes.verVentas(paquete);
+                int cantidadVentas = ventasPaquete.size();
+
+                if (cantidadVentas == 0) {
+                    modeloLista.addElement("No tiene ninguna venta.");
+                } else {
+                    modeloLista.addElement("El paquete ha sido vendido " + cantidadVentas + " veces.\n");
+                    for (String venta : ventasPaquete) {
+                        modeloLista.addElement("ID de la compra: " + venta);
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_botonCargarVerVentasActionPerformed
+
+    private void botonCerrarVerVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarVerVentasActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_botonCerrarVerVentasActionPerformed
+
+    private void botonCargarFiltrarFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarFiltrarFechaActionPerformed
+        prepararModeloLista(campoFiltrarFecha);
+
+        boolean camposIncompletos
+        = determinarCampoVacio(campoFiltrarFechaRangoInicial)
+        || determinarCampoVacio(campoFiltrarFechaRangoFinal);
+
+        if (camposIncompletos) {
+            mensajePantalla("camposIncompletos");
+        } else {
+            String profesorSeleccionado = String.valueOf(campoFiltrarFechaID.getSelectedItem());
+            String rangoInicial = campoFiltrarFechaRangoInicial.getText();
+            String rangoFinal = campoFiltrarFechaRangoFinal.getText();
+
+            for (Paquete paquete : listaPaquetes) {
+                if (paquete.getId().equals(profesorSeleccionado) == true) {
+                    ArrayList<String> ventasPaquete = paquetes.filtrarFecha(paquete, rangoInicial, rangoFinal);
+                    int cantidadVentas = ventasPaquete.size();
+
+                    if (cantidadVentas == 0) {
+                        modeloLista.addElement("No ha dictado sesiónes entre esas fechas.");
+                    } else {
+                        modeloLista.addElement("El paquete ha sido vendido " + cantidadVentas + " veces entre " + rangoInicial + " y " + rangoFinal +".\n");
+                        for (String venta : ventasPaquete) {
+                            modeloLista.addElement("ID de la compra: " + venta);
+                        }
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_botonCargarFiltrarFechaActionPerformed
+
+    private void botonCerrarFiltrarFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarFiltrarFechaActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_botonCerrarFiltrarFechaActionPerformed
 
     public static void main(String args[]) {
         /* Set the FlatLaf Dark look and feel */
@@ -733,11 +978,15 @@ public class PantallaPaquetes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCargarEliminacion;
+    private javax.swing.JButton botonCargarFiltrarFecha;
     private javax.swing.JButton botonCargarModificacion;
+    private javax.swing.JButton botonCargarVerVentas;
     private javax.swing.JButton botonCargarVisualizacion;
     private javax.swing.JButton botonCerrarEliminacion;
+    private javax.swing.JButton botonCerrarFiltrarFecha;
     private javax.swing.JButton botonCerrarModificacion;
     private javax.swing.JButton botonCerrarRegistro;
+    private javax.swing.JButton botonCerrarVerVentas;
     private javax.swing.JButton botonCerrarVisualizacion;
     private javax.swing.JButton botonEliminarPaquete;
     private javax.swing.JButton botonModificarPaquete;
@@ -747,6 +996,10 @@ public class PantallaPaquetes extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> campoEliminarID;
     private javax.swing.JTextField campoEliminarPrecio;
     private javax.swing.JTextField campoEliminarVigencia;
+    private javax.swing.JList<String> campoFiltrarFecha;
+    private javax.swing.JComboBox<String> campoFiltrarFechaID;
+    private javax.swing.JTextField campoFiltrarFechaRangoFinal;
+    private javax.swing.JTextField campoFiltrarFechaRangoInicial;
     private javax.swing.JTextField campoModificarCantidadSesiones;
     private javax.swing.JComboBox<String> campoModificarCurso;
     private javax.swing.JComboBox<String> campoModificarID;
@@ -757,20 +1010,29 @@ public class PantallaPaquetes extends javax.swing.JFrame {
     private javax.swing.JTextField campoRegistrarID;
     private javax.swing.JTextField campoRegistrarPrecio;
     private javax.swing.JTextField campoRegistrarVigencia;
+    private javax.swing.JList<String> campoVerVentas;
+    private javax.swing.JComboBox<String> campoVerVentasID;
     private javax.swing.JTextField campoVisualizarCantidadSesiones;
     private javax.swing.JTextField campoVisualizarCurso;
     private javax.swing.JComboBox<String> campoVisualizarID;
     private javax.swing.JTextField campoVisualizarPrecio;
     private javax.swing.JTextField campoVisualizarVigencia;
+    private javax.swing.JScrollPane capsulaFiltrarFecha;
+    private javax.swing.JScrollPane capsulaVerVentas;
     private javax.swing.JPanel pantallaEliminar;
+    private javax.swing.JPanel pantallaFiltrarFecha;
     private javax.swing.JPanel pantallaModificar;
     private javax.swing.JPanel pantallaRegistrar;
+    private javax.swing.JPanel pantallaVerVentas;
     private javax.swing.JPanel pantallaVisualizar;
     private javax.swing.JLabel tituloEliminarCantidadSesiones;
     private javax.swing.JLabel tituloEliminarCurso;
     private javax.swing.JLabel tituloEliminarPaquete;
     private javax.swing.JLabel tituloEliminarPrecio;
     private javax.swing.JLabel tituloEliminarVigencia;
+    private javax.swing.JLabel tituloFiltrarFechaID;
+    private javax.swing.JLabel tituloFiltrarFechaRangoFinal;
+    private javax.swing.JLabel tituloFiltrarFechaRangoInicial;
     private javax.swing.JLabel tituloModificarCantidadSesiones;
     private javax.swing.JLabel tituloModificarCurso;
     private javax.swing.JLabel tituloModificarID;
@@ -781,6 +1043,7 @@ public class PantallaPaquetes extends javax.swing.JFrame {
     private javax.swing.JLabel tituloRegistrarID;
     private javax.swing.JLabel tituloRegistrarPrecio;
     private javax.swing.JLabel tituloRegistrarVigencia;
+    private javax.swing.JLabel tituloVerVentasID;
     private javax.swing.JLabel tituloVisualizarCantidadSesiones;
     private javax.swing.JLabel tituloVisualizarCurso;
     private javax.swing.JLabel tituloVisualizarID;

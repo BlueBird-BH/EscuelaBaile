@@ -554,7 +554,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="botonVerClasesPendientes">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Clases pendientes"/>
+                <Property name="text" type="java.lang.String" value="Sesi&#xf3;nes pendientes"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVerClasesPendientesActionPerformed"/>
@@ -909,13 +909,13 @@
                       <EmptySpace pref="51" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="paquetes_eliminarPaquete" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="paquetes_filtrarCompra" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="paquetes_verVentas" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="paquetes_modificarDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="paquetes_verDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="paquetes_ingresarDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="paquetes_filtrarCompra" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -974,7 +974,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="paquetes_filtrarCompra">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ver compras dada su fecha"/>
+                <Property name="text" type="java.lang.String" value="Compras en un rango de tiempo"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paquetes_filtrarCompraActionPerformed"/>

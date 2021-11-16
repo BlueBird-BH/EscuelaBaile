@@ -79,4 +79,35 @@ public class Salon {
                 + ";";
         conexion.ejecutarSentencia(sentencia);
     }
+
+    public ArrayList<String> verDisponibilidad(Salon salon, String fecha, String rangoInicial, String rangoFinal) {
+        String columna = "Sesiones.IDSesion";
+        String sentencia = "SELECT " + columna
+                + " FROM Salones, Cursos, Sesiones"
+                + " WHERE"
+                + " (Sesiones.IDSalon = " + "'" + salon.getId() + "'" + ")"
+                + " AND"
+                + " (Sesiones.FechaSesion = " + "'" + fecha + "'" + ")"
+                + " AND"
+                + " (Sesiones.HoraInicio = " + "'" + rangoInicial + "'" + ")"
+                + " AND"
+                + " (Sesiones.HoraFin = " + "'" + rangoFinal + "'" + ")"
+                + " GROUP BY Sesiones.IDSesion"
+                + ";";
+        return conexion.obtenerDatosSentencia(sentencia, columna);
+    }
+        
+    public ArrayList<String> filtrarClasesPorDia(Salon salon, String rangoInicial, String rangoFinal) {
+        String columna = "Sesiones.IDSesion";
+        String sentencia = "SELECT " + columna
+                + " FROM Cursos, Sesiones"
+                + " WHERE"
+                + " (Sesiones.IDSalon = " + "'" + salon.getId() + "'" + ")"
+                + " AND"
+                + " (Sesiones.FechaSesion BETWEEN " + "'" + rangoInicial + "'" + " AND " + "'" + rangoFinal + "'" + ")"
+                + " AND"
+                + " (Cursos.IDCurso = Sesiones.IDCurso)"
+                + ";";
+        return conexion.obtenerDatosSentencia(sentencia, columna);
+    }
 }

@@ -3,6 +3,7 @@ package com.backend;
 import java.util.ArrayList;
 
 public class Paquete {
+
     private String id, cantidadSesiones, vigencia, precio, idCurso;
     private ConexionSQL conexion;
 
@@ -64,7 +65,7 @@ public class Paquete {
     public void setConexion(ConexionSQL conexion) {
         this.conexion = conexion;
     }
-    
+
     public ArrayList<Paquete> obtenerPaquetes() {
         ArrayList<Paquete> paquetes = new ArrayList<>();
         ArrayList<String> identificaciones = conexion.obtenerDatosTabla("IDPaquete", "Paquetes");
@@ -123,4 +124,37 @@ public class Paquete {
                 + ";";
         conexion.ejecutarSentencia(sentencia);
     }
+
+    public ArrayList<String> verVentas(Paquete paquete) {
+        String columna = "Compras.IDCompra";
+        String sentencia = "SELECT " + columna
+                + " FROM Paquetes, Compras"
+                + " WHERE"
+                + " (Compras.IDPaquete = Paquetes.IDPaquete)"
+                + " AND"
+                + " (Paquetes.IDPaquete = " + "'" + paquete.getId() + "'" + ")"
+                + ";";
+        return conexion.obtenerDatosSentencia(sentencia, columna);
+    }
+    
+    public ArrayList<String> filtrarFecha(Paquete paquete, String rangoInicial, String rangoFinal) {
+        String columna = "Compras.IDCompra";
+        String sentencia = "SELECT " + columna
+                + " FROM Paquetes, Compras"
+                + " WHERE"
+                + " (Compras.IDPaquete = Paquetes.IDPaquete)"
+                + " AND"
+                + " (Compras.FechaCompra BETWEEN " + "'" + rangoInicial + "'" + " AND " + "'" + rangoFinal + "'" + ")"
+                + " AND"
+                + " (Compras.IDPaquete = " + "'" + paquete.getId() + "'" + ")"
+                + ";";
+        return conexion.obtenerDatosSentencia(sentencia, columna);
+    }
+    /*
+    Select Count(Compra.IDPaquete)
+from Paquete, Compra
+WHERE (Compra.IDPaquete = Paquete.IDPaquete)
+AND Compra.FechaCompra BETWEEN "..." AND "..."
+AND Compra.IDPaquete = "..."
+     */
 }

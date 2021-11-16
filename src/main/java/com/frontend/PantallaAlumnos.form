@@ -941,15 +941,15 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="botonCerrarListado1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonCerrarClasesPendientes" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="tituloListarCedula1" min="-2" max="-2" attributes="0"/>
+                          <Component id="tituloClasesPendientesCedula" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="campoListarCedula1" min="-2" pref="131" max="-2" attributes="0"/>
+                          <Component id="campoClasesPendientesCedula" min="-2" pref="131" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="botonCargarListado1" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonCargarClasesPendientes" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="capsulalLista1" alignment="1" min="-2" pref="403" max="-2" attributes="0"/>
+                      <Component id="capsulaListaClasesPendientes" alignment="1" min="-2" pref="403" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="17" max="32767" attributes="0"/>
               </Group>
@@ -960,27 +960,27 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="botonCargarListado1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="campoListarCedula1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tituloListarCedula1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonCargarClasesPendientes" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoClasesPendientesCedula" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloClasesPendientesCedula" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="capsulalLista1" pref="263" max="32767" attributes="0"/>
+                  <Component id="capsulaListaClasesPendientes" pref="263" max="32767" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="botonCerrarListado1" min="-2" max="-2" attributes="0"/>
+                  <Component id="botonCerrarClasesPendientes" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="tituloListarCedula1">
+        <Component class="javax.swing.JLabel" name="tituloClasesPendientesCedula">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Documento de identidad"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="campoListarCedula1">
+        <Component class="javax.swing.JComboBox" name="campoClasesPendientesCedula">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
@@ -990,22 +990,22 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="botonCargarListado1">
+        <Component class="javax.swing.JButton" name="botonCargarClasesPendientes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cargar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCargarListado1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCargarClasesPendientesActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="capsulalLista1">
+        <Container class="javax.swing.JScrollPane" name="capsulaListaClasesPendientes">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JList" name="campoLista1">
+            <Component class="javax.swing.JList" name="campoListaClasesPendientes">
               <Properties>
                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                   <StringArray count="0"/>
@@ -1017,12 +1017,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="botonCerrarListado1">
+        <Component class="javax.swing.JButton" name="botonCerrarClasesPendientes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Regresar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCerrarListado1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCerrarClasesPendientesActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

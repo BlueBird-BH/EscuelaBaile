@@ -77,6 +77,7 @@ public class PantallaAlumnos extends javax.swing.JFrame {
         pantallaEliminar.setVisible(false);
         pantallaComprar.setVisible(false);
         pantallaClasesAsistidas.setVisible(false);
+        pantallaClasesPendientes.setVisible(false);
         pantallaPaquetesAdquiridos.setVisible(false);
     }
 
@@ -141,13 +142,19 @@ public class PantallaAlumnos extends javax.swing.JFrame {
             case "clasesAsistidas":
                 prepararModeloLista(campoListaClases);
                 cargarAlumnos(campoListarClasesCedula);
-                
+
                 pantallaClasesAsistidas.setVisible(true);
-            
+                
+            case "clasesPendientes":
+                prepararModeloLista(campoListaClasesPendientes);
+                cargarAlumnos(campoClasesPendientesCedula);
+
+                pantallaClasesPendientes.setVisible(true);
+                
             case "paquetesAdquiridos":
                 prepararModeloLista(campoListaPaquetes);
                 cargarAlumnos(campoPaquetesCedula);
-                
+
                 pantallaPaquetesAdquiridos.setVisible(true);
         }
     }
@@ -220,12 +227,12 @@ public class PantallaAlumnos extends javax.swing.JFrame {
         campoListaClases = new javax.swing.JList<>();
         botonCerrarListadoClases = new javax.swing.JButton();
         pantallaClasesPendientes = new javax.swing.JPanel();
-        tituloListarCedula1 = new javax.swing.JLabel();
-        campoListarCedula1 = new javax.swing.JComboBox<>();
-        botonCargarListado1 = new javax.swing.JButton();
-        capsulalLista1 = new javax.swing.JScrollPane();
-        campoLista1 = new javax.swing.JList<>();
-        botonCerrarListado1 = new javax.swing.JButton();
+        tituloClasesPendientesCedula = new javax.swing.JLabel();
+        campoClasesPendientesCedula = new javax.swing.JComboBox<>();
+        botonCargarClasesPendientes = new javax.swing.JButton();
+        capsulaListaClasesPendientes = new javax.swing.JScrollPane();
+        campoListaClasesPendientes = new javax.swing.JList<>();
+        botonCerrarClasesPendientes = new javax.swing.JButton();
         pantallaPaquetesAdquiridos = new javax.swing.JPanel();
         tituloListarPaquetesCedula = new javax.swing.JLabel();
         campoPaquetesCedula = new javax.swing.JComboBox<>();
@@ -759,22 +766,22 @@ public class PantallaAlumnos extends javax.swing.JFrame {
         pantallaClasesPendientes.setMaximumSize(new java.awt.Dimension(300, 300));
         pantallaClasesPendientes.setMinimumSize(new java.awt.Dimension(300, 300));
 
-        tituloListarCedula1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tituloListarCedula1.setText("Documento de identidad");
+        tituloClasesPendientesCedula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloClasesPendientesCedula.setText("Documento de identidad");
 
-        botonCargarListado1.setText("Cargar");
-        botonCargarListado1.addActionListener(new java.awt.event.ActionListener() {
+        botonCargarClasesPendientes.setText("Cargar");
+        botonCargarClasesPendientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCargarListado1ActionPerformed(evt);
+                botonCargarClasesPendientesActionPerformed(evt);
             }
         });
 
-        capsulalLista1.setViewportView(campoLista1);
+        capsulaListaClasesPendientes.setViewportView(campoListaClasesPendientes);
 
-        botonCerrarListado1.setText("Regresar");
-        botonCerrarListado1.addActionListener(new java.awt.event.ActionListener() {
+        botonCerrarClasesPendientes.setText("Regresar");
+        botonCerrarClasesPendientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCerrarListado1ActionPerformed(evt);
+                botonCerrarClasesPendientesActionPerformed(evt);
             }
         });
 
@@ -785,14 +792,14 @@ public class PantallaAlumnos extends javax.swing.JFrame {
             .addGroup(pantallaClasesPendientesLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(pantallaClasesPendientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botonCerrarListado1)
+                    .addComponent(botonCerrarClasesPendientes)
                     .addGroup(pantallaClasesPendientesLayout.createSequentialGroup()
-                        .addComponent(tituloListarCedula1)
+                        .addComponent(tituloClasesPendientesCedula)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(campoListarCedula1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(campoClasesPendientesCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botonCargarListado1))
-                    .addComponent(capsulalLista1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(botonCargarClasesPendientes))
+                    .addComponent(capsulaListaClasesPendientes, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         pantallaClasesPendientesLayout.setVerticalGroup(
@@ -800,13 +807,13 @@ public class PantallaAlumnos extends javax.swing.JFrame {
             .addGroup(pantallaClasesPendientesLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(pantallaClasesPendientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonCargarListado1)
-                    .addComponent(campoListarCedula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tituloListarCedula1))
+                    .addComponent(botonCargarClasesPendientes)
+                    .addComponent(campoClasesPendientesCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloClasesPendientesCedula))
                 .addGap(18, 18, 18)
-                .addComponent(capsulalLista1, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                .addComponent(capsulaListaClasesPendientes, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(botonCerrarListado1)
+                .addComponent(botonCerrarClasesPendientes)
                 .addGap(30, 30, 30))
         );
 
@@ -1027,12 +1034,12 @@ public class PantallaAlumnos extends javax.swing.JFrame {
             if (alumno.getCedula().equals(alumnoSeleccionado) == true) {
                 ArrayList<String> clasesAsistidas = alumnos.verClasesAsistidas(alumno);
                 int cantidadClases = clasesAsistidas.size();
-                
+
                 if (cantidadClases == 0) {
                     modeloLista.addElement("No se ha asistido a ninguna sesión");
                 } else {
                     modeloLista.addElement(alumno.getNombre() + " ha asistido a " + cantidadClases + " sesión(es).\n");
-                    for (String sesion: clasesAsistidas) {
+                    for (String sesion : clasesAsistidas) {
                         modeloLista.addElement("ID de la sesión: " + sesion);
                     }
                 }
@@ -1040,13 +1047,30 @@ public class PantallaAlumnos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonCargarListadoClasesActionPerformed
 
-    private void botonCargarListado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarListado1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonCargarListado1ActionPerformed
+    private void botonCargarClasesPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarClasesPendientesActionPerformed
+        String alumnoSeleccionado = String.valueOf(campoClasesPendientesCedula.getSelectedItem());
+        prepararModeloLista(campoListaClasesPendientes);
 
-    private void botonCerrarListado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarListado1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonCerrarListado1ActionPerformed
+        for (Alumno alumno : listaAlumnos) {
+            if (alumno.getCedula().equals(alumnoSeleccionado) == true) {
+                ArrayList<String> clasesAsistidas = alumnos.verClasesPendientes(alumno);
+                int cantidadClases = clasesAsistidas.size();
+
+                if (cantidadClases == 0) {
+                    modeloLista.addElement("El alumno no tiene ninguna sesión pendiente");
+                } else {
+                    modeloLista.addElement(alumno.getNombre() + " tiene pendiente " + cantidadClases + " sesión(es).\n");
+                    for (String sesion : clasesAsistidas) {
+                        modeloLista.addElement("ID de la sesión: " + sesion);
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_botonCargarClasesPendientesActionPerformed
+
+    private void botonCerrarClasesPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarClasesPendientesActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_botonCerrarClasesPendientesActionPerformed
 
     private void botonCargarListadoPaquetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarListadoPaquetesActionPerformed
         String alumnoSeleccionado = String.valueOf(campoPaquetesCedula.getSelectedItem());
@@ -1056,7 +1080,7 @@ public class PantallaAlumnos extends javax.swing.JFrame {
             if (alumno.getCedula().equals(alumnoSeleccionado) == true) {
                 ArrayList<String> paquetesAdquiridos = alumnos.verPaquetesAdquiridos(alumno);
                 int cantidadPaquetes = paquetesAdquiridos.size();
-                
+
                 if (cantidadPaquetes == 0) {
                     modeloLista.addElement("No se tiene ningun paquete activo actualmente");
                 } else {
@@ -1096,16 +1120,16 @@ public class PantallaAlumnos extends javax.swing.JFrame {
     // Metodo Principal - Fin
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonCargarClasesPendientes;
     private javax.swing.JButton botonCargarCompra;
     private javax.swing.JButton botonCargarEliminacion;
-    private javax.swing.JButton botonCargarListado1;
     private javax.swing.JButton botonCargarListadoClases;
     private javax.swing.JButton botonCargarListadoPaquetes;
     private javax.swing.JButton botonCargarModificacion;
     private javax.swing.JButton botonCargarVisualizacion;
+    private javax.swing.JButton botonCerrarClasesPendientes;
     private javax.swing.JButton botonCerrarCompra;
     private javax.swing.JButton botonCerrarEliminacion;
-    private javax.swing.JButton botonCerrarListado1;
     private javax.swing.JButton botonCerrarListadoClases;
     private javax.swing.JButton botonCerrarListadoPaquetes;
     private javax.swing.JButton botonCerrarModificacion;
@@ -1115,6 +1139,7 @@ public class PantallaAlumnos extends javax.swing.JFrame {
     private javax.swing.JButton botonEliminarAlumno;
     private javax.swing.JButton botonModificarAlumno;
     private javax.swing.JButton botonRegistrarAlumno;
+    private javax.swing.JComboBox<String> campoClasesPendientesCedula;
     private javax.swing.JComboBox<String> campoComprarCedula;
     private javax.swing.JComboBox<String> campoComprarPaquete;
     private javax.swing.JTextField campoComprarPrecio;
@@ -1122,10 +1147,9 @@ public class PantallaAlumnos extends javax.swing.JFrame {
     private javax.swing.JTextField campoEliminarFechaNacimiento;
     private javax.swing.JTextField campoEliminarGenero;
     private javax.swing.JTextField campoEliminarNombre;
-    private javax.swing.JList<String> campoLista1;
     private javax.swing.JList<String> campoListaClases;
+    private javax.swing.JList<String> campoListaClasesPendientes;
     private javax.swing.JList<String> campoListaPaquetes;
-    private javax.swing.JComboBox<String> campoListarCedula1;
     private javax.swing.JComboBox<String> campoListarClasesCedula;
     private javax.swing.JComboBox<String> campoModificarCedula;
     private javax.swing.JTextField campoModificarFechaNacimiento;
@@ -1141,8 +1165,8 @@ public class PantallaAlumnos extends javax.swing.JFrame {
     private javax.swing.JTextField campoVisualizarGenero;
     private javax.swing.JTextField campoVisualizarNombre;
     private javax.swing.JScrollPane capsulaListaClases;
+    private javax.swing.JScrollPane capsulaListaClasesPendientes;
     private javax.swing.JScrollPane capsulaListaPaquetes;
-    private javax.swing.JScrollPane capsulalLista1;
     private javax.swing.JPanel pantallaClasesAsistidas;
     private javax.swing.JPanel pantallaClasesPendientes;
     private javax.swing.JPanel pantallaComprar;
@@ -1151,6 +1175,7 @@ public class PantallaAlumnos extends javax.swing.JFrame {
     private javax.swing.JPanel pantallaPaquetesAdquiridos;
     private javax.swing.JPanel pantallaRegistrar;
     private javax.swing.JPanel pantallaVisualizar;
+    private javax.swing.JLabel tituloClasesPendientesCedula;
     private javax.swing.JLabel tituloComprarCedula;
     private javax.swing.JLabel tituloComprarPaquete;
     private javax.swing.JLabel tituloComprarPrecio;
@@ -1158,7 +1183,6 @@ public class PantallaAlumnos extends javax.swing.JFrame {
     private javax.swing.JLabel tituloEliminarFechaNacimiento;
     private javax.swing.JLabel tituloEliminarGenero;
     private javax.swing.JLabel tituloEliminarNombre;
-    private javax.swing.JLabel tituloListarCedula1;
     private javax.swing.JLabel tituloListarClasesCedula;
     private javax.swing.JLabel tituloListarPaquetesCedula;
     private javax.swing.JLabel tituloModificarCedula;
