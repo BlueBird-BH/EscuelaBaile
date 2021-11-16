@@ -7,15 +7,11 @@ import com.formdev.flatlaf.FlatDarkLaf;
 
 public class PantallaPrincipal extends javax.swing.JFrame {
 
-    /*
-    
+    private PantallaAlumnos pantallaAlumnos = new PantallaAlumnos();
     private PantallaProfesores pantallaProfesores = new PantallaProfesores();
     private PantallaSesiones pantallaSesiones = new PantallaSesiones();
     private PantallaSalones pantallaSalones = new PantallaSalones();
     private PantallaPaquetes pantallaPaquetes = new PantallaPaquetes();
-    */
-    private PantallaAlumnos pantallaAlumnos = new PantallaAlumnos();
-    private PantallaProfesores pantallaProfesores = new PantallaProfesores();
     private ConexionSQL conexion = new ConexionSQL();
     
     private Color colorGris = new Color(123, 123, 123);
@@ -43,18 +39,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         conexion.establecerConexion();
         pantallaAlumnos.definirConexion(conexion);
         pantallaProfesores.definirConexion(conexion);
+        pantallaSesiones.definirConexion(conexion);
+        pantallaSalones.definirConexion(conexion);
+        pantallaPaquetes.definirConexion(conexion);
     }
     
     private void ocultarPantallas() {
         pantallaAlumnos.setVisible(false);
         pantallaProfesores.setVisible(false);
-    /*
         pantallaSesiones.setVisible(false);
         pantallaSalones.setVisible(false);
         pantallaPaquetes.setVisible(false);
-    */
     }
-
+    
     private void activarOpcion(String pantalla, String opcion) {
         ocultarPantallas();
         
@@ -70,18 +67,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 break;
 
             case "sesiones":
-                //pantallaSesiones.setVisible(true);
-                //pantallaSesiones.pantallaRequerida(opcion);
+                pantallaSesiones.setVisible(true);
+                pantallaSesiones.pantallaRequerida(opcion);
                 break;
 
             case "salones":
-                //pantallaSalones.setVisible(true);
-                //pantallaSalones.pantallaRequerida(opcion);
+                pantallaSalones.setVisible(true);
+                pantallaSalones.pantallaRequerida(opcion);
                 break;
 
             case "paquetes":
-                //pantallaPaquetes.setVisible(true);
-                //pantallaPaquetes.pantallaRequerida(opcion);
+                pantallaPaquetes.setVisible(true);
+                pantallaPaquetes.pantallaRequerida(opcion);
                 break;
         }
     }
@@ -112,6 +109,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         botonRegistrarAlumno = new javax.swing.JButton();
         botonVerAlumno = new javax.swing.JButton();
         botonModificarAlumno = new javax.swing.JButton();
+        botonComprarPaquete = new javax.swing.JButton();
         botonVerClasesAsistidas = new javax.swing.JButton();
         botonVerClasesPendientes = new javax.swing.JButton();
         botonVerPaquetesAdquiridos = new javax.swing.JButton();
@@ -124,12 +122,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         botonVerSesionesDictadas = new javax.swing.JButton();
         botonEliminarProfesor = new javax.swing.JButton();
         barraSesiones = new javax.swing.JPanel();
-        sesiones_ingresarDatos = new javax.swing.JButton();
-        sesiones_modificarDatos = new javax.swing.JButton();
-        sesiones_verDatos = new javax.swing.JButton();
-        sesiones_filtarFecha = new javax.swing.JButton();
-        sesiones_filtrarClase = new javax.swing.JButton();
-        sesiones_eliminarSesion = new javax.swing.JButton();
+        botonIngresarSesion = new javax.swing.JButton();
+        botonVerSesion = new javax.swing.JButton();
+        botonModificarSesion = new javax.swing.JButton();
+        botonSesionesPorFecha = new javax.swing.JButton();
+        botonSesionesPorClase = new javax.swing.JButton();
+        botonEliminarSesion = new javax.swing.JButton();
         barraSalones = new javax.swing.JPanel();
         salones_ingresarDatos = new javax.swing.JButton();
         salones_modificarDatos = new javax.swing.JButton();
@@ -425,7 +423,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botonVerClasesAsistidas.setText("Clases a las que ha asistido");
+        botonComprarPaquete.setText("Comprar paquete");
+        botonComprarPaquete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonComprarPaqueteActionPerformed(evt);
+            }
+        });
+
+        botonVerClasesAsistidas.setText("Sesiónes a las que ha asistido");
         botonVerClasesAsistidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonVerClasesAsistidasActionPerformed(evt);
@@ -460,6 +465,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraAlumnosLayout.createSequentialGroup()
                 .addContainerGap(51, Short.MAX_VALUE)
                 .addGroup(barraAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonComprarPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonEliminarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonVerClasesPendientes, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonVerClasesAsistidas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -479,6 +485,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonModificarAlumno)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botonComprarPaquete)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonVerClasesAsistidas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonVerClasesPendientes)
@@ -486,7 +494,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addComponent(botonVerPaquetesAdquiridos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonEliminarAlumno)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         barraPrincipal.add(barraAlumnos, "card4");
@@ -574,45 +582,45 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         barraSesiones.setMaximumSize(new java.awt.Dimension(300, 300));
         barraSesiones.setMinimumSize(new java.awt.Dimension(300, 300));
 
-        sesiones_ingresarDatos.setText("Ingresar datos de una sesión");
-        sesiones_ingresarDatos.addActionListener(new java.awt.event.ActionListener() {
+        botonIngresarSesion.setText("Ingresar datos de una sesión");
+        botonIngresarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sesiones_ingresarDatosActionPerformed(evt);
+                botonIngresarSesionActionPerformed(evt);
             }
         });
 
-        sesiones_modificarDatos.setText("Modificar datos de una sesión");
-        sesiones_modificarDatos.addActionListener(new java.awt.event.ActionListener() {
+        botonVerSesion.setText("Ver informacion de una sesión");
+        botonVerSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sesiones_modificarDatosActionPerformed(evt);
+                botonVerSesionActionPerformed(evt);
             }
         });
 
-        sesiones_verDatos.setText("Ver informacion de una sesión");
-        sesiones_verDatos.addActionListener(new java.awt.event.ActionListener() {
+        botonModificarSesion.setText("Modificar datos de una sesión");
+        botonModificarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sesiones_verDatosActionPerformed(evt);
+                botonModificarSesionActionPerformed(evt);
             }
         });
 
-        sesiones_filtarFecha.setText("Filtrar sesiónes por fecha");
-        sesiones_filtarFecha.addActionListener(new java.awt.event.ActionListener() {
+        botonSesionesPorFecha.setText("Filtrar sesiónes por fecha");
+        botonSesionesPorFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sesiones_filtarFechaActionPerformed(evt);
+                botonSesionesPorFechaActionPerformed(evt);
             }
         });
 
-        sesiones_filtrarClase.setText("Filtrar sesiónes por clases");
-        sesiones_filtrarClase.addActionListener(new java.awt.event.ActionListener() {
+        botonSesionesPorClase.setText("Filtrar sesiónes por clases");
+        botonSesionesPorClase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sesiones_filtrarClaseActionPerformed(evt);
+                botonSesionesPorClaseActionPerformed(evt);
             }
         });
 
-        sesiones_eliminarSesion.setText("Eliminar una sesión");
-        sesiones_eliminarSesion.addActionListener(new java.awt.event.ActionListener() {
+        botonEliminarSesion.setText("Eliminar una sesión");
+        botonEliminarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sesiones_eliminarSesionActionPerformed(evt);
+                botonEliminarSesionActionPerformed(evt);
             }
         });
 
@@ -623,29 +631,29 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraSesionesLayout.createSequentialGroup()
                 .addContainerGap(51, Short.MAX_VALUE)
                 .addGroup(barraSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sesiones_eliminarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sesiones_filtrarClase, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sesiones_filtarFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sesiones_modificarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sesiones_verDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sesiones_ingresarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botonEliminarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonSesionesPorClase, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonSesionesPorFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonModificarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonVerSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonIngresarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51))
         );
         barraSesionesLayout.setVerticalGroup(
             barraSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(barraSesionesLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(sesiones_ingresarDatos)
+                .addComponent(botonIngresarSesion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sesiones_modificarDatos)
+                .addComponent(botonVerSesion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sesiones_verDatos)
+                .addComponent(botonModificarSesion)
+                .addGap(12, 12, 12)
+                .addComponent(botonSesionesPorFecha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sesiones_filtarFecha)
+                .addComponent(botonSesionesPorClase)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sesiones_filtrarClase)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sesiones_eliminarSesion)
+                .addComponent(botonEliminarSesion)
                 .addContainerGap(108, Short.MAX_VALUE))
         );
 
@@ -1039,29 +1047,29 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         activarOpcion("profesores", "eliminarProfesor");
     }//GEN-LAST:event_botonEliminarProfesorActionPerformed
 
-    private void sesiones_ingresarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sesiones_ingresarDatosActionPerformed
+    private void botonIngresarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarSesionActionPerformed
         activarOpcion("sesiones", "ingresarDatos");
-    }//GEN-LAST:event_sesiones_ingresarDatosActionPerformed
+    }//GEN-LAST:event_botonIngresarSesionActionPerformed
 
-    private void sesiones_modificarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sesiones_modificarDatosActionPerformed
+    private void botonModificarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarSesionActionPerformed
         activarOpcion("sesiones", "modificarDatos");
-    }//GEN-LAST:event_sesiones_modificarDatosActionPerformed
+    }//GEN-LAST:event_botonModificarSesionActionPerformed
 
-    private void sesiones_verDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sesiones_verDatosActionPerformed
+    private void botonVerSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerSesionActionPerformed
         activarOpcion("sesiones", "verDatos");
-    }//GEN-LAST:event_sesiones_verDatosActionPerformed
+    }//GEN-LAST:event_botonVerSesionActionPerformed
 
-    private void sesiones_filtarFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sesiones_filtarFechaActionPerformed
+    private void botonSesionesPorFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSesionesPorFechaActionPerformed
         activarOpcion("sesiones", "filtarFecha");
-    }//GEN-LAST:event_sesiones_filtarFechaActionPerformed
+    }//GEN-LAST:event_botonSesionesPorFechaActionPerformed
 
-    private void sesiones_filtrarClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sesiones_filtrarClaseActionPerformed
+    private void botonSesionesPorClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSesionesPorClaseActionPerformed
         activarOpcion("sesiones", "filtrarClase");
-    }//GEN-LAST:event_sesiones_filtrarClaseActionPerformed
+    }//GEN-LAST:event_botonSesionesPorClaseActionPerformed
 
-    private void sesiones_eliminarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sesiones_eliminarSesionActionPerformed
+    private void botonEliminarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarSesionActionPerformed
         activarOpcion("sesiones", "eliminarSesion");
-    }//GEN-LAST:event_sesiones_eliminarSesionActionPerformed
+    }//GEN-LAST:event_botonEliminarSesionActionPerformed
 
     private void salones_ingresarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salones_ingresarDatosActionPerformed
         activarOpcion("salones", "ingresarDatos");
@@ -1111,6 +1119,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         activarOpcion("paquetes", "eliminarPaquete");
     }//GEN-LAST:event_paquetes_eliminarPaqueteActionPerformed
 
+    private void botonComprarPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonComprarPaqueteActionPerformed
+        activarOpcion("alumnos", "comprarPaquete");
+    }//GEN-LAST:event_botonComprarPaqueteActionPerformed
+
     public static void main(String args[]) {
         /* Set the FlatLaf Dark look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1143,11 +1155,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JSeparator barraSeparadora;
     private javax.swing.JPanel barraSesiones;
     private javax.swing.JPanel botonAlumnos;
+    private javax.swing.JButton botonComprarPaquete;
     private javax.swing.JButton botonEliminarAlumno;
     private javax.swing.JButton botonEliminarProfesor;
+    private javax.swing.JButton botonEliminarSesion;
+    private javax.swing.JButton botonIngresarSesion;
     private javax.swing.JPanel botonInicio;
     private javax.swing.JButton botonModificarAlumno;
     private javax.swing.JButton botonModificarProfesor;
+    private javax.swing.JButton botonModificarSesion;
     private javax.swing.JPanel botonPaquetes;
     private javax.swing.JPanel botonProfesores;
     private javax.swing.JButton botonRegistrarAlumno;
@@ -1155,11 +1171,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem botonSalir;
     private javax.swing.JPanel botonSalones;
     private javax.swing.JPanel botonSesiones;
+    private javax.swing.JButton botonSesionesPorClase;
+    private javax.swing.JButton botonSesionesPorFecha;
     private javax.swing.JButton botonVerAlumno;
     private javax.swing.JButton botonVerClasesAsistidas;
     private javax.swing.JButton botonVerClasesPendientes;
     private javax.swing.JButton botonVerPaquetesAdquiridos;
     private javax.swing.JButton botonVerProfesor;
+    private javax.swing.JButton botonVerSesion;
     private javax.swing.JButton botonVerSesionesDictadas;
     private javax.swing.JButton botonVerSesionesProgramadas;
     private javax.swing.JLabel logoPrimerParrafo;
@@ -1177,12 +1196,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton salones_modificarDatos;
     private javax.swing.JButton salones_verDatos;
     private javax.swing.JButton salones_verDisponibilidad;
-    private javax.swing.JButton sesiones_eliminarSesion;
-    private javax.swing.JButton sesiones_filtarFecha;
-    private javax.swing.JButton sesiones_filtrarClase;
-    private javax.swing.JButton sesiones_ingresarDatos;
-    private javax.swing.JButton sesiones_modificarDatos;
-    private javax.swing.JButton sesiones_verDatos;
     private javax.swing.JLabel tituloBotonAlumnos;
     private javax.swing.JLabel tituloBotonInicio;
     private javax.swing.JLabel tituloBotonPaquetes;

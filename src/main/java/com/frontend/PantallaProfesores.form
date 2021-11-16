@@ -71,7 +71,7 @@
                           <Component id="campoRegistrarCedula" min="-2" pref="210" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="botonRegistrarAlumno" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonRegistrarProfesor" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="botonCerrarRegistro" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -131,7 +131,7 @@
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="botonCerrarRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="botonRegistrarAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonRegistrarProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
@@ -187,12 +187,12 @@
         </Component>
         <Component class="javax.swing.JTextField" name="campoRegistrarSalario">
         </Component>
-        <Component class="javax.swing.JButton" name="botonRegistrarAlumno">
+        <Component class="javax.swing.JButton" name="botonRegistrarProfesor">
           <Properties>
             <Property name="text" type="java.lang.String" value="Registrar datos del profesor"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRegistrarAlumnoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRegistrarProfesorActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="botonCerrarRegistro">
@@ -399,7 +399,7 @@
                           <Component id="campoModificarSalario" min="-2" pref="210" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="botonModificarAlumno" min="-2" pref="173" max="-2" attributes="0"/>
+                          <Component id="botonModificarProfesor" min="-2" pref="173" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="botonCerrarModificacion" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -466,7 +466,7 @@
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="botonCerrarModificacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="botonModificarAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonModificarProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
@@ -538,12 +538,12 @@
         </Component>
         <Component class="javax.swing.JTextField" name="campoModificarSalario">
         </Component>
-        <Component class="javax.swing.JButton" name="botonModificarAlumno">
+        <Component class="javax.swing.JButton" name="botonModificarProfesor">
           <Properties>
             <Property name="text" type="java.lang.String" value="Guardar cambios"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarAlumnoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarProfesorActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="botonCerrarModificacion">
@@ -731,6 +731,262 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonEliminarAlumnoActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="pantallaSesionesProgramadas">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[300, 300]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[300, 300]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+          <CardConstraints cardName="card4"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="botonCerrarSesionesProgramadas" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="tituloSesionesProgramadasCedula" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="campoSesionesProgramadasCedula" min="-2" pref="131" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="botonCargarSesionesProgramadas" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="capsulaSesionesProgramadas" alignment="1" min="-2" pref="403" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="14" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="botonCargarSesionesProgramadas" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoSesionesProgramadasCedula" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloSesionesProgramadasCedula" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="capsulaSesionesProgramadas" pref="263" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="botonCerrarSesionesProgramadas" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="tituloSesionesProgramadasCedula">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Documento de identidad"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="campoSesionesProgramadasCedula">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="botonCargarSesionesProgramadas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cargar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCargarSesionesProgramadasActionPerformed"/>
+          </Events>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="capsulaSesionesProgramadas">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JList" name="campoSesionesProgramadas">
+              <Properties>
+                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="botonCerrarSesionesProgramadas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Regresar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCerrarSesionesProgramadasActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="pantallaSesionesDictadas">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[300, 300]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[300, 300]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+          <CardConstraints cardName="card4"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="botonCerrarSesionesDictadas" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="tituloSesionesDictadasCedula" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="campoSesionesDictadasCedula" min="-2" pref="131" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="botonCargarSesionesDictadas" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="capsulaSesionesDictadas" alignment="1" min="-2" pref="403" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="tituloSesionesDictadasRangoInicial" min="-2" max="-2" attributes="0"/>
+                              <Component id="tituloSesionesDictadasRangoFinal" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="campoSesionDictadasRangoInicial" pref="215" max="32767" attributes="0"/>
+                              <Component id="campoSesionDictadasRangoFinal" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="14" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="botonCargarSesionesDictadas" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoSesionesDictadasCedula" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloSesionesDictadasCedula" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="campoSesionDictadasRangoInicial" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloSesionesDictadasRangoInicial" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="campoSesionDictadasRangoFinal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tituloSesionesDictadasRangoFinal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="capsulaSesionesDictadas" pref="195" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="botonCerrarSesionesDictadas" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="tituloSesionesDictadasCedula">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Documento de identidad"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="tituloSesionesDictadasRangoInicial">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Rango inicial (yyyy-MM-dd)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="tituloSesionesDictadasRangoFinal">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Rango final (yyyy-MM-dd)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="campoSesionesDictadasCedula">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="botonCargarSesionesDictadas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cargar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCargarSesionesDictadasActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="campoSesionDictadasRangoInicial">
+        </Component>
+        <Component class="javax.swing.JTextField" name="campoSesionDictadasRangoFinal">
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="capsulaSesionesDictadas">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JList" name="campoSesionesDictadas">
+              <Properties>
+                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="botonCerrarSesionesDictadas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Regresar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCerrarSesionesDictadasActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

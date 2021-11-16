@@ -37,7 +37,8 @@ public class VentanasEmergentes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Aviso");
-        setResizable(false);
+        setMaximumSize(new java.awt.Dimension(560, 74));
+        setMinimumSize(new java.awt.Dimension(280, 74));
         setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(new java.awt.CardLayout());
 
@@ -62,7 +63,7 @@ public class VentanasEmergentes extends javax.swing.JFrame {
             .addGroup(pantallaCamposVaciosLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(pantallaCamposVaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tituloCamposVacios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tituloCamposVacios, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pantallaCamposVaciosLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(botonCamposVacios)))
@@ -80,10 +81,11 @@ public class VentanasEmergentes extends javax.swing.JFrame {
 
         getContentPane().add(pantallaCamposVacios, "card2");
 
-        pantallaMensajePersonalizado.setMaximumSize(new java.awt.Dimension(265, 74));
-        pantallaMensajePersonalizado.setMinimumSize(new java.awt.Dimension(265, 74));
+        pantallaMensajePersonalizado.setMaximumSize(new java.awt.Dimension(560, 74));
+        pantallaMensajePersonalizado.setMinimumSize(new java.awt.Dimension(560, 74));
+        pantallaMensajePersonalizado.setPreferredSize(new java.awt.Dimension(560, 74));
 
-        tituloPersonalizado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloPersonalizado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         tituloPersonalizado.setText("Mensaje personalizado");
 
         botonPersonalizado.setText("Aceptar");
@@ -97,23 +99,23 @@ public class VentanasEmergentes extends javax.swing.JFrame {
         pantallaMensajePersonalizado.setLayout(pantallaMensajePersonalizadoLayout);
         pantallaMensajePersonalizadoLayout.setHorizontalGroup(
             pantallaMensajePersonalizadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pantallaMensajePersonalizadoLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(pantallaMensajePersonalizadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tituloPersonalizado, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pantallaMensajePersonalizadoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pantallaMensajePersonalizadoLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(pantallaMensajePersonalizadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tituloPersonalizado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pantallaMensajePersonalizadoLayout.createSequentialGroup()
+                        .addGap(0, 458, Short.MAX_VALUE)
                         .addComponent(botonPersonalizado)))
-                .addGap(12, 12, 12))
+                .addGap(15, 15, 15))
         );
         pantallaMensajePersonalizadoLayout.setVerticalGroup(
             pantallaMensajePersonalizadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pantallaMensajePersonalizadoLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addGap(15, 15, 15)
                 .addComponent(tituloPersonalizado, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonPersonalizado)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
 
         getContentPane().add(pantallaMensajePersonalizado, "card2");
@@ -126,9 +128,9 @@ public class VentanasEmergentes extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botonPersonalizadoActionPerformed
 
-    private void botonCamposVaciosActionPerformed(java.awt.event.ActionEvent evt) {
+    private void botonCamposVaciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCamposVaciosActionPerformed
         this.dispose();
-    }
+    }//GEN-LAST:event_botonCamposVaciosActionPerformed
 
     public static void main(String args[]) {
         /* Set the FlatLaf Dark look and feel */

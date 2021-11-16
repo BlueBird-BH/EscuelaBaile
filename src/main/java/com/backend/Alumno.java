@@ -1,6 +1,10 @@
 package com.backend;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Alumno {
 
@@ -90,23 +94,60 @@ public class Alumno {
 
     public void modificarAlumno(Alumno alumno) {
         String sentencia = "UPDATE Alumnos SET"
-                + " NombreAlumno = "
-                + "'" + alumno.getNombre() + "'"
-                + ", NacimientoAlumno = "
-                + "'" + alumno.getFechaNacimiento() + "'"
-                + ", GeneroAlumno = "
-                + "'" + alumno.getGenero() + "'"
-                + " WHERE CCAlumno = "
-                + alumno.getCedula()
-                + ";";
+                + " NombreAlumno = " + "'" + alumno.getNombre() + "'"
+                + ","
+                + " NacimientoAlumno = " + "'" + alumno.getFechaNacimiento() + "'"
+                + ","
+                + " GeneroAlumno = " + "'" + alumno.getGenero() + "'"
+                + " WHERE CCAlumno = " + alumno.getCedula() + ";";
         conexion.ejecutarSentencia(sentencia);
     }
-
+    
+    public void verPaquetes(Alumno alumno) {
+        String sentencia = "SELECT Compras.IDPaquete FROM Alumnos, Compras"
+                + " WHERE (Compras.CCAlumno = Alumnos.CCAlumno)"
+                + " AND (Alumnos.CCAlumno = '" + alumno.getCedula() + "'"
+                + ");";
+        conexion.ejecutarSentencia(sentencia);
+    }
+    
     public void eliminarAlumno(Alumno alumno) {
         String sentencia = "DELETE FROM Alumnos"
-                + " WHERE CCAlumno = "
-                + alumno.getCedula()
-                + ";";
+                + " WHERE CCAlumno = " + alumno.getCedula() + ";";
         conexion.ejecutarSentencia(sentencia);
+    }
+    
+    public void comprarPaquete(Paquete paquete, Alumno alumno) {
+        String sentencia = "INSERT INTO Compras (IDCompra, FechaCompra, IDPaquete, CCAlumno) VALUES ("
+                + conexion.generarValorAleatorio()
+                + ", "
+                + "CURDATE()"
+                + ", "
+                + "'" + paquete.getId() + "'"
+                + ", "
+                + "'" + alumno.getCedula() + "'"
+                + ");";
+        conexion.ejecutarSentencia(sentencia);
+    }
+    
+    public ArrayList<String> verClasesAsistidas(Alumno alumno) {
+        String columna = "Asistencias.IDSesion";
+        String sentencia = "SELECT " + columna
+                + " FROM Alumnos, Sesiones, Cursos, Asistencias"
+                + " WHERE (Asistencias.CCAlumno = " + "'" + alumno.getCedula() + "'" + ")"
+                + " AND (Asistencias.IDSesion = Sesiones.IDSesion)"
+                + " AND (Sesiones.IDCurso = Cursos.IDCurso)"
+                + " GROUP by Asistencias.IDSesion"
+                + ";";
+        return conexion.obtenerDatosSentencia(sentencia, columna);     
+    }
+    
+    public ArrayList<String> verPaquetesAdquiridos(Alumno alumno) {
+        String columna = "Compras.IDPaquete";
+        String sentencia = "SELECT " + columna
+                + " FROM Compras"
+                + " WHERE (Compras.CCAlumno = " + "'" + alumno.getCedula() + "'" + ")"
+                + ";";
+        return conexion.obtenerDatosSentencia(sentencia, columna);     
     }
 }

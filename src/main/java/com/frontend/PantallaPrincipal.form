@@ -474,6 +474,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="51" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="botonComprarPaquete" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="botonEliminarAlumno" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="botonVerClasesPendientes" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="botonVerClasesAsistidas" min="-2" pref="200" max="-2" attributes="0"/>
@@ -496,6 +497,8 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="botonModificarAlumno" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="botonComprarPaquete" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="botonVerClasesAsistidas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="botonVerClasesPendientes" min="-2" max="-2" attributes="0"/>
@@ -503,7 +506,7 @@
                       <Component id="botonVerPaquetesAdquiridos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="botonEliminarAlumno" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="74" max="32767" attributes="0"/>
+                      <EmptySpace pref="40" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -533,9 +536,17 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarAlumnoActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JButton" name="botonComprarPaquete">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Comprar paquete"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonComprarPaqueteActionPerformed"/>
+              </Events>
+            </Component>
             <Component class="javax.swing.JButton" name="botonVerClasesAsistidas">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Clases a las que ha asistido"/>
+                <Property name="text" type="java.lang.String" value="Sesi&#xf3;nes a las que ha asistido"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVerClasesAsistidasActionPerformed"/>
@@ -691,12 +702,12 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="51" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="sesiones_eliminarSesion" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="sesiones_filtrarClase" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="sesiones_filtarFecha" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="sesiones_modificarDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="sesiones_verDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="sesiones_ingresarDatos" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonEliminarSesion" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonSesionesPorClase" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonSesionesPorFecha" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonModificarSesion" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonVerSesion" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="botonIngresarSesion" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   </Group>
@@ -706,69 +717,69 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Component id="sesiones_ingresarDatos" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonIngresarSesion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="sesiones_modificarDatos" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonVerSesion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="sesiones_verDatos" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonModificarSesion" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Component id="botonSesionesPorFecha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="sesiones_filtarFecha" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonSesionesPorClase" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="sesiones_filtrarClase" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="sesiones_eliminarSesion" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonEliminarSesion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="108" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="sesiones_ingresarDatos">
+            <Component class="javax.swing.JButton" name="botonIngresarSesion">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ingresar datos de una sesi&#xf3;n"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sesiones_ingresarDatosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonIngresarSesionActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="sesiones_modificarDatos">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Modificar datos de una sesi&#xf3;n"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sesiones_modificarDatosActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="sesiones_verDatos">
+            <Component class="javax.swing.JButton" name="botonVerSesion">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ver informacion de una sesi&#xf3;n"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sesiones_verDatosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVerSesionActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="sesiones_filtarFecha">
+            <Component class="javax.swing.JButton" name="botonModificarSesion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Modificar datos de una sesi&#xf3;n"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarSesionActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="botonSesionesPorFecha">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Filtrar sesi&#xf3;nes por fecha"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sesiones_filtarFechaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSesionesPorFechaActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="sesiones_filtrarClase">
+            <Component class="javax.swing.JButton" name="botonSesionesPorClase">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Filtrar sesi&#xf3;nes por clases"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sesiones_filtrarClaseActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSesionesPorClaseActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="sesiones_eliminarSesion">
+            <Component class="javax.swing.JButton" name="botonEliminarSesion">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Eliminar una sesi&#xf3;n"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sesiones_eliminarSesionActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonEliminarSesionActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

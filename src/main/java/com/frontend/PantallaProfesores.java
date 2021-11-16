@@ -4,11 +4,14 @@ import com.backend.Profesor;
 import com.backend.ConexionSQL;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 
 public class PantallaProfesores extends javax.swing.JFrame {
 
     private ArrayList<Profesor> listaProfesores = new ArrayList<>();
+    private DefaultListModel modeloLista = new DefaultListModel();
     private Profesor profesores = new Profesor();
+
     private ConexionSQL conexion = new ConexionSQL();
     private VentanasEmergentes ventanaEmergente = new VentanasEmergentes();
 
@@ -26,7 +29,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
         ventanaEmergente.ventanaRequerida(ventana);
     }
 
-    private void añadirCedulas(javax.swing.JComboBox<String> comboBox) {
+    private void cargarProfesores(javax.swing.JComboBox<String> comboBox) {
         listaProfesores = profesores.obtenerProfesores();
         comboBox.removeAllItems();
 
@@ -49,11 +52,22 @@ public class PantallaProfesores extends javax.swing.JFrame {
         return false;
     }
 
-    public void pantallaRequerida(String barraRequerida) {
+    private void prepararModeloLista(javax.swing.JList<String> campo) {
+        campo.setModel(modeloLista);
+        modeloLista.removeAllElements();
+    }
+    
+    private void ocultarPantallas() {
         pantallaRegistrar.setVisible(false);
         pantallaVisualizar.setVisible(false);
         pantallaModificar.setVisible(false);
         pantallaEliminar.setVisible(false);
+        pantallaSesionesProgramadas.setVisible(false);
+        pantallaSesionesDictadas.setVisible(false);
+    }
+    
+    public void pantallaRequerida(String barraRequerida) {
+        ocultarPantallas();
 
         switch (barraRequerida) {
             case "ingresarDatos":
@@ -68,7 +82,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
                 break;
 
             case "verDatos":
-                añadirCedulas(campoVisualizarCedula);
+                cargarProfesores(campoVisualizarCedula);
                 campoVisualizarNombre.setText(null);
                 campoVisualizarNombre.setEditable(false);
 
@@ -85,7 +99,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
                 break;
 
             case "modificarDatos":
-                añadirCedulas(campoModificarCedula);
+                cargarProfesores(campoModificarCedula);
                 campoModificarNombre.setText(null);
                 campoModificarFechaNacimiento.setText(null);
                 campoModificarGenero.removeAllItems();
@@ -95,7 +109,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
                 break;
 
             case "eliminarProfesor":
-                añadirCedulas(campoEliminarCedula);
+                cargarProfesores(campoEliminarCedula);
                 campoEliminarNombre.setText(null);
                 campoEliminarNombre.setEditable(false);
 
@@ -110,6 +124,20 @@ public class PantallaProfesores extends javax.swing.JFrame {
 
                 pantallaEliminar.setVisible(true);
                 break;
+
+            case "verSesionesProgramadas":
+                prepararModeloLista(campoSesionesProgramadas);
+                cargarProfesores(campoSesionesProgramadasCedula);
+
+                pantallaSesionesProgramadas.setVisible(true);
+
+            case "verSesionesDictadas":
+                prepararModeloLista(campoSesionesDictadas);
+                cargarProfesores(campoSesionesDictadasCedula);
+                campoSesionDictadasRangoInicial.setText(null);
+                campoSesionDictadasRangoFinal.setText(null);
+
+                pantallaSesionesDictadas.setVisible(true);
         }
     }
 
@@ -128,7 +156,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
         campoRegistrarFechaNacimiento = new javax.swing.JTextField();
         campoRegistrarGenero = new javax.swing.JComboBox<>();
         campoRegistrarSalario = new javax.swing.JTextField();
-        botonRegistrarAlumno = new javax.swing.JButton();
+        botonRegistrarProfesor = new javax.swing.JButton();
         botonCerrarRegistro = new javax.swing.JButton();
         pantallaVisualizar = new javax.swing.JPanel();
         tituloVisualizarCedula = new javax.swing.JLabel();
@@ -155,7 +183,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
         campoModificarFechaNacimiento = new javax.swing.JTextField();
         campoModificarGenero = new javax.swing.JComboBox<>();
         campoModificarSalario = new javax.swing.JTextField();
-        botonModificarAlumno = new javax.swing.JButton();
+        botonModificarProfesor = new javax.swing.JButton();
         botonCerrarModificacion = new javax.swing.JButton();
         pantallaEliminar = new javax.swing.JPanel();
         tituloEliminarCedula = new javax.swing.JLabel();
@@ -171,6 +199,24 @@ public class PantallaProfesores extends javax.swing.JFrame {
         campoEliminarSalario = new javax.swing.JTextField();
         botonCerrarEliminacion = new javax.swing.JButton();
         botonEliminarAlumno = new javax.swing.JButton();
+        pantallaSesionesProgramadas = new javax.swing.JPanel();
+        tituloSesionesProgramadasCedula = new javax.swing.JLabel();
+        campoSesionesProgramadasCedula = new javax.swing.JComboBox<>();
+        botonCargarSesionesProgramadas = new javax.swing.JButton();
+        capsulaSesionesProgramadas = new javax.swing.JScrollPane();
+        campoSesionesProgramadas = new javax.swing.JList<>();
+        botonCerrarSesionesProgramadas = new javax.swing.JButton();
+        pantallaSesionesDictadas = new javax.swing.JPanel();
+        tituloSesionesDictadasCedula = new javax.swing.JLabel();
+        tituloSesionesDictadasRangoInicial = new javax.swing.JLabel();
+        tituloSesionesDictadasRangoFinal = new javax.swing.JLabel();
+        campoSesionesDictadasCedula = new javax.swing.JComboBox<>();
+        botonCargarSesionesDictadas = new javax.swing.JButton();
+        campoSesionDictadasRangoInicial = new javax.swing.JTextField();
+        campoSesionDictadasRangoFinal = new javax.swing.JTextField();
+        capsulaSesionesDictadas = new javax.swing.JScrollPane();
+        campoSesionesDictadas = new javax.swing.JList<>();
+        botonCerrarSesionesDictadas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gestion - Mis primeros brincos");
@@ -200,10 +246,10 @@ public class PantallaProfesores extends javax.swing.JFrame {
         tituloRegistrarSalario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tituloRegistrarSalario.setText("Salario");
 
-        botonRegistrarAlumno.setText("Registrar datos del profesor");
-        botonRegistrarAlumno.addActionListener(new java.awt.event.ActionListener() {
+        botonRegistrarProfesor.setText("Registrar datos del profesor");
+        botonRegistrarProfesor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonRegistrarAlumnoActionPerformed(evt);
+                botonRegistrarProfesorActionPerformed(evt);
             }
         });
 
@@ -230,7 +276,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(campoRegistrarCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pantallaRegistrarLayout.createSequentialGroup()
-                        .addComponent(botonRegistrarAlumno)
+                        .addComponent(botonRegistrarProfesor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(botonCerrarRegistro))
                     .addGroup(pantallaRegistrarLayout.createSequentialGroup()
@@ -275,7 +321,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(pantallaRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonCerrarRegistro)
-                    .addComponent(botonRegistrarAlumno))
+                    .addComponent(botonRegistrarProfesor))
                 .addGap(30, 30, 30))
         );
 
@@ -404,10 +450,10 @@ public class PantallaProfesores extends javax.swing.JFrame {
             }
         });
 
-        botonModificarAlumno.setText("Guardar cambios");
-        botonModificarAlumno.addActionListener(new java.awt.event.ActionListener() {
+        botonModificarProfesor.setText("Guardar cambios");
+        botonModificarProfesor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonModificarAlumnoActionPerformed(evt);
+                botonModificarProfesorActionPerformed(evt);
             }
         });
 
@@ -430,7 +476,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(campoModificarSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pantallaModificarLayout.createSequentialGroup()
-                        .addComponent(botonModificarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botonModificarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(botonCerrarModificacion))
                     .addGroup(pantallaModificarLayout.createSequentialGroup()
@@ -481,7 +527,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(pantallaModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonCerrarModificacion)
-                    .addComponent(botonModificarAlumno))
+                    .addComponent(botonModificarProfesor))
                 .addGap(30, 30, 30))
         );
 
@@ -596,12 +642,149 @@ public class PantallaProfesores extends javax.swing.JFrame {
 
         getContentPane().add(pantallaEliminar, "card4");
 
+        pantallaSesionesProgramadas.setMaximumSize(new java.awt.Dimension(300, 300));
+        pantallaSesionesProgramadas.setMinimumSize(new java.awt.Dimension(300, 300));
+
+        tituloSesionesProgramadasCedula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloSesionesProgramadasCedula.setText("Documento de identidad");
+
+        botonCargarSesionesProgramadas.setText("Cargar");
+        botonCargarSesionesProgramadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCargarSesionesProgramadasActionPerformed(evt);
+            }
+        });
+
+        capsulaSesionesProgramadas.setViewportView(campoSesionesProgramadas);
+
+        botonCerrarSesionesProgramadas.setText("Regresar");
+        botonCerrarSesionesProgramadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCerrarSesionesProgramadasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pantallaSesionesProgramadasLayout = new javax.swing.GroupLayout(pantallaSesionesProgramadas);
+        pantallaSesionesProgramadas.setLayout(pantallaSesionesProgramadasLayout);
+        pantallaSesionesProgramadasLayout.setHorizontalGroup(
+            pantallaSesionesProgramadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pantallaSesionesProgramadasLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(pantallaSesionesProgramadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botonCerrarSesionesProgramadas)
+                    .addGroup(pantallaSesionesProgramadasLayout.createSequentialGroup()
+                        .addComponent(tituloSesionesProgramadasCedula)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(campoSesionesProgramadasCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botonCargarSesionesProgramadas))
+                    .addComponent(capsulaSesionesProgramadas, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        pantallaSesionesProgramadasLayout.setVerticalGroup(
+            pantallaSesionesProgramadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pantallaSesionesProgramadasLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(pantallaSesionesProgramadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonCargarSesionesProgramadas)
+                    .addComponent(campoSesionesProgramadasCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloSesionesProgramadasCedula))
+                .addGap(18, 18, 18)
+                .addComponent(capsulaSesionesProgramadas, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(botonCerrarSesionesProgramadas)
+                .addGap(30, 30, 30))
+        );
+
+        getContentPane().add(pantallaSesionesProgramadas, "card4");
+
+        pantallaSesionesDictadas.setMaximumSize(new java.awt.Dimension(300, 300));
+        pantallaSesionesDictadas.setMinimumSize(new java.awt.Dimension(300, 300));
+
+        tituloSesionesDictadasCedula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloSesionesDictadasCedula.setText("Documento de identidad");
+
+        tituloSesionesDictadasRangoInicial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloSesionesDictadasRangoInicial.setText("Rango inicial (yyyy-MM-dd)");
+
+        tituloSesionesDictadasRangoFinal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloSesionesDictadasRangoFinal.setText("Rango final (yyyy-MM-dd)");
+
+        botonCargarSesionesDictadas.setText("Cargar");
+        botonCargarSesionesDictadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCargarSesionesDictadasActionPerformed(evt);
+            }
+        });
+
+        capsulaSesionesDictadas.setViewportView(campoSesionesDictadas);
+
+        botonCerrarSesionesDictadas.setText("Regresar");
+        botonCerrarSesionesDictadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCerrarSesionesDictadasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pantallaSesionesDictadasLayout = new javax.swing.GroupLayout(pantallaSesionesDictadas);
+        pantallaSesionesDictadas.setLayout(pantallaSesionesDictadasLayout);
+        pantallaSesionesDictadasLayout.setHorizontalGroup(
+            pantallaSesionesDictadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pantallaSesionesDictadasLayout.createSequentialGroup()
+                .addGroup(pantallaSesionesDictadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pantallaSesionesDictadasLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(pantallaSesionesDictadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(botonCerrarSesionesDictadas)
+                            .addGroup(pantallaSesionesDictadasLayout.createSequentialGroup()
+                                .addComponent(tituloSesionesDictadasCedula)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(campoSesionesDictadasCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonCargarSesionesDictadas))
+                            .addComponent(capsulaSesionesDictadas, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pantallaSesionesDictadasLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(pantallaSesionesDictadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tituloSesionesDictadasRangoInicial)
+                            .addComponent(tituloSesionesDictadasRangoFinal))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pantallaSesionesDictadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(campoSesionDictadasRangoInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                            .addComponent(campoSesionDictadasRangoFinal))))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        pantallaSesionesDictadasLayout.setVerticalGroup(
+            pantallaSesionesDictadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pantallaSesionesDictadasLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(pantallaSesionesDictadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonCargarSesionesDictadas)
+                    .addComponent(campoSesionesDictadasCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloSesionesDictadasCedula))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pantallaSesionesDictadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoSesionDictadasRangoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloSesionesDictadasRangoInicial))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pantallaSesionesDictadasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoSesionDictadasRangoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloSesionesDictadasRangoFinal))
+                .addGap(18, 18, 18)
+                .addComponent(capsulaSesionesDictadas, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(botonCerrarSesionesDictadas)
+                .addGap(30, 30, 30))
+        );
+
+        getContentPane().add(pantallaSesionesDictadas, "card4");
+
         setSize(new java.awt.Dimension(453, 411));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
 
-    private void botonRegistrarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarAlumnoActionPerformed
+    private void botonRegistrarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarProfesorActionPerformed
         boolean camposIncompletos
                 = determinarCampoVacio(campoRegistrarCedula)
                 || determinarCampoVacio(campoRegistrarNombre)
@@ -623,7 +806,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
             mensajePantalla(conexion.getMensajeInformativo());
             this.dispose();
         }
-    }//GEN-LAST:event_botonRegistrarAlumnoActionPerformed
+    }//GEN-LAST:event_botonRegistrarProfesorActionPerformed
 
     private void botonCerrarRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarRegistroActionPerformed
         this.dispose();
@@ -660,7 +843,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonCargarModificacionActionPerformed
 
-    private void botonModificarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarAlumnoActionPerformed
+    private void botonModificarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarProfesorActionPerformed
         String cedulaSeleccionada = String.valueOf(campoModificarCedula.getSelectedItem());
 
         for (Profesor profesor : listaProfesores) {
@@ -675,7 +858,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
                 this.dispose();
             }
         }
-    }//GEN-LAST:event_botonModificarAlumnoActionPerformed
+    }//GEN-LAST:event_botonModificarProfesorActionPerformed
 
     private void botonCerrarModificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarModificacionActionPerformed
         this.dispose();
@@ -715,6 +898,67 @@ public class PantallaProfesores extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botonCerrarEliminacionActionPerformed
 
+    private void botonCargarSesionesProgramadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarSesionesProgramadasActionPerformed
+        String profesorSeleccionado = String.valueOf(campoSesionesProgramadasCedula.getSelectedItem());
+        prepararModeloLista(campoSesionesProgramadas);
+
+        for (Profesor profesor : listaProfesores) {
+            if (profesor.getCedula().equals(profesorSeleccionado) == true) {
+                ArrayList<String> sesionesProgramadas = profesores.verSesionesProgramadas(profesor);
+                int cantidadClases = sesionesProgramadas.size();
+
+                if (cantidadClases == 0) {
+                    modeloLista.addElement("No tiene sesiónes programadas actualmente.");
+                } else {
+                    modeloLista.addElement(profesor.getNombre() + " tiene programadas " + cantidadClases + " sesión(es).\n");
+                    for (String sesion : sesionesProgramadas) {
+                        modeloLista.addElement("ID de la sesión: " + sesion);
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_botonCargarSesionesProgramadasActionPerformed
+
+    private void botonCerrarSesionesProgramadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarSesionesProgramadasActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_botonCerrarSesionesProgramadasActionPerformed
+
+    private void botonCargarSesionesDictadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarSesionesDictadasActionPerformed
+        prepararModeloLista(campoSesionesDictadas);
+        
+        boolean camposIncompletos
+                = determinarCampoVacio(campoSesionDictadasRangoInicial)
+                || determinarCampoVacio(campoSesionDictadasRangoFinal);
+
+        if (camposIncompletos) {
+            mensajePantalla("camposIncompletos");
+        } else {
+            String profesorSeleccionado = String.valueOf(campoSesionesDictadasCedula.getSelectedItem());
+            String rangoInicial = campoSesionDictadasRangoInicial.getText();
+            String rangoFinal = campoSesionDictadasRangoFinal.getText();
+
+            for (Profesor profesor : listaProfesores) {
+                if (profesor.getCedula().equals(profesorSeleccionado) == true) {
+                    ArrayList<String> sesionesDictadas = profesores.verSesionesDictadas(profesor, rangoInicial, rangoFinal);
+                    int cantidadSesiones = sesionesDictadas.size();
+
+                    if (cantidadSesiones == 0) {
+                        modeloLista.addElement("No ha dictado sesiónes entre esas fechas.");
+                    } else {
+                        modeloLista.addElement(profesor.getNombre() + " ha dictado " + cantidadSesiones + " sesión(es) entre " + rangoInicial + " y " + rangoFinal +".\n");
+                        for (String sesion : sesionesDictadas) {
+                            modeloLista.addElement("ID de la sesión: " + sesion);
+                        }
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_botonCargarSesionesDictadasActionPerformed
+
+    private void botonCerrarSesionesDictadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarSesionesDictadasActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_botonCerrarSesionesDictadasActionPerformed
+
     public static void main(String args[]) {
         /* Set the FlatLaf Dark look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -740,14 +984,18 @@ public class PantallaProfesores extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCargarEliminacion;
     private javax.swing.JButton botonCargarModificacion;
+    private javax.swing.JButton botonCargarSesionesDictadas;
+    private javax.swing.JButton botonCargarSesionesProgramadas;
     private javax.swing.JButton botonCargarVisualizacion;
     private javax.swing.JButton botonCerrarEliminacion;
     private javax.swing.JButton botonCerrarModificacion;
     private javax.swing.JButton botonCerrarRegistro;
+    private javax.swing.JButton botonCerrarSesionesDictadas;
+    private javax.swing.JButton botonCerrarSesionesProgramadas;
     private javax.swing.JButton botonCerrarVisualizacion;
     private javax.swing.JButton botonEliminarAlumno;
-    private javax.swing.JButton botonModificarAlumno;
-    private javax.swing.JButton botonRegistrarAlumno;
+    private javax.swing.JButton botonModificarProfesor;
+    private javax.swing.JButton botonRegistrarProfesor;
     private javax.swing.JComboBox<String> campoEliminarCedula;
     private javax.swing.JTextField campoEliminarFechaNacimiento;
     private javax.swing.JTextField campoEliminarGenero;
@@ -763,14 +1011,24 @@ public class PantallaProfesores extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> campoRegistrarGenero;
     private javax.swing.JTextField campoRegistrarNombre;
     private javax.swing.JTextField campoRegistrarSalario;
+    private javax.swing.JTextField campoSesionDictadasRangoFinal;
+    private javax.swing.JTextField campoSesionDictadasRangoInicial;
+    private javax.swing.JList<String> campoSesionesDictadas;
+    private javax.swing.JComboBox<String> campoSesionesDictadasCedula;
+    private javax.swing.JList<String> campoSesionesProgramadas;
+    private javax.swing.JComboBox<String> campoSesionesProgramadasCedula;
     private javax.swing.JComboBox<String> campoVisualizarCedula;
     private javax.swing.JTextField campoVisualizarFechaNacimiento;
     private javax.swing.JTextField campoVisualizarGenero;
     private javax.swing.JTextField campoVisualizarNombre;
     private javax.swing.JTextField campoVisualizarSalario;
+    private javax.swing.JScrollPane capsulaSesionesDictadas;
+    private javax.swing.JScrollPane capsulaSesionesProgramadas;
     private javax.swing.JPanel pantallaEliminar;
     private javax.swing.JPanel pantallaModificar;
     private javax.swing.JPanel pantallaRegistrar;
+    private javax.swing.JPanel pantallaSesionesDictadas;
+    private javax.swing.JPanel pantallaSesionesProgramadas;
     private javax.swing.JPanel pantallaVisualizar;
     private javax.swing.JLabel tituloEliminarCedula;
     private javax.swing.JLabel tituloEliminarFechaNacimiento;
@@ -787,6 +1045,10 @@ public class PantallaProfesores extends javax.swing.JFrame {
     private javax.swing.JLabel tituloRegistrarGenero;
     private javax.swing.JLabel tituloRegistrarNombre;
     private javax.swing.JLabel tituloRegistrarSalario;
+    private javax.swing.JLabel tituloSesionesDictadasCedula;
+    private javax.swing.JLabel tituloSesionesDictadasRangoFinal;
+    private javax.swing.JLabel tituloSesionesDictadasRangoInicial;
+    private javax.swing.JLabel tituloSesionesProgramadasCedula;
     private javax.swing.JLabel tituloVisualizarCedula;
     private javax.swing.JLabel tituloVisualizarFechaNacimiento;
     private javax.swing.JLabel tituloVisualizarGenero;

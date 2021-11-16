@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ConexionSQL {
 
@@ -74,5 +75,27 @@ public class ConexionSQL {
             System.out.println("Error en la ejecución: " + error.getErrorCode() + " " + error.getMessage());
         }
         return listaDatos;
+    }
+    
+    public ArrayList<String> obtenerDatosSentencia(String sentencia, String columna) {
+        ArrayList<String> listaDatos = new ArrayList<>();
+        try (PreparedStatement stmt = conexion.prepareStatement(sentencia)) {
+            ResultSet resultados = stmt.executeQuery();
+            
+            while (resultados.next()) {
+                listaDatos.add(resultados.getString(columna));
+            }
+
+        } catch (SQLException error) {
+            System.out.println("Error en la ejecución: " + error.getErrorCode() + " " + error.getMessage());
+        }
+        return listaDatos;
+    }
+    
+    public int generarValorAleatorio() {
+        int valorMinimo = 100000000;
+        int valorMaximo = 999999999;
+        int valorAleatorio = new Random().nextInt(((valorMaximo - valorMinimo) + 1) + valorMinimo);
+        return valorAleatorio;
     }
 }

@@ -124,4 +124,23 @@ public class Profesor {
                 + ";";
         conexion.ejecutarSentencia(sentencia);
     }
+
+    public ArrayList<String> verSesionesProgramadas(Profesor profesor) {
+        String columna = "Sesiones.IDSesion";
+        String sentencia = "SELECT " + columna
+                + " FROM Sesiones"
+                + " WHERE (Sesiones.CCProfesor = " + "'" + profesor.getCedula() + "'" + ")"
+                + ";";
+        return conexion.obtenerDatosSentencia(sentencia, columna);     
+    }
+    
+    public ArrayList<String> verSesionesDictadas(Profesor profesor, String rangoInicial, String rangoFinal) {
+        String columna = "Sesiones.IDSesion";
+        String sentencia = "SELECT " + columna
+                + " FROM Sesiones"
+                + " WHERE (Sesiones.CCProfesor = " + "'" + profesor.getCedula() + "'" + ")"
+                + " AND (Sesiones.FechaSesion BETWEEN " + "'" + rangoInicial + "'" + " AND " + "'" + rangoFinal + "'"
+                + ");";
+        return conexion.obtenerDatosSentencia(sentencia, columna);     
+    }
 }
