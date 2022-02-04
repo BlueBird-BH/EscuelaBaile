@@ -98,6 +98,7 @@ public class Paquete {
                 + ", "
                 + "'" + paquete.getIdCurso() + "'"
                 + ");";
+        System.out.println(sentencia);
         conexion.ejecutarSentencia(sentencia);
     }
 
@@ -105,11 +106,11 @@ public class Paquete {
         String sentencia = "UPDATE Paquetes SET"
                 + " NumeroSesiones = "
                 + "'" + paquete.getCantidadSesiones() + "'"
-                + " VigenciaPaquete = "
+                + ", VigenciaPaquete = "
                 + "'" + paquete.getVigencia() + "'"
-                + " Precio = "
+                + ", Precio = "
                 + "'" + paquete.getPrecio() + "'"
-                + " IDCurso = "
+                + ", IDCurso = "
                 + "'" + paquete.getIdCurso() + "'"
                 + " WHERE IDPaquete = "
                 + paquete.getId()
@@ -119,9 +120,7 @@ public class Paquete {
 
     public void eliminarPaquete(Paquete paquete) {
         String sentencia = "DELETE FROM Paquetes"
-                + " WHERE IDPaquete = "
-                + paquete.getId()
-                + ";";
+                + " WHERE IDPaquete = " + paquete.getId() + ";";
         conexion.ejecutarSentencia(sentencia);
     }
 
@@ -130,9 +129,9 @@ public class Paquete {
         String sentencia = "SELECT " + columna
                 + " FROM Paquetes, Compras"
                 + " WHERE"
-                + " (Compras.IDPaquete = Paquetes.IDPaquete)"
-                + " AND"
                 + " (Paquetes.IDPaquete = " + "'" + paquete.getId() + "'" + ")"
+                + " AND"
+                + " (Paquetes.IDPaquete = Compras.IDPaquete)"
                 + ";";
         return conexion.obtenerDatosSentencia(sentencia, columna);
     }
@@ -142,19 +141,11 @@ public class Paquete {
         String sentencia = "SELECT " + columna
                 + " FROM Paquetes, Compras"
                 + " WHERE"
-                + " (Compras.IDPaquete = Paquetes.IDPaquete)"
+                + " (Paquetes.IDPaquete = " + "'" + paquete.getId() + "'" + ")"
+                + " AND (Paquetes.IDPaquete = Compras.IDPaquete)"
                 + " AND"
                 + " (Compras.FechaCompra BETWEEN " + "'" + rangoInicial + "'" + " AND " + "'" + rangoFinal + "'" + ")"
-                + " AND"
-                + " (Compras.IDPaquete = " + "'" + paquete.getId() + "'" + ")"
                 + ";";
         return conexion.obtenerDatosSentencia(sentencia, columna);
     }
-    /*
-    Select Count(Compra.IDPaquete)
-from Paquete, Compra
-WHERE (Compra.IDPaquete = Paquete.IDPaquete)
-AND Compra.FechaCompra BETWEEN "..." AND "..."
-AND Compra.IDPaquete = "..."
-     */
 }

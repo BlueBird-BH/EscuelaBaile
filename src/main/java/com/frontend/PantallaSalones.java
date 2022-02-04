@@ -51,11 +51,11 @@ public class PantallaSalones extends javax.swing.JFrame {
     }
 
     private void ocultarPantallas() {
+        pantallaFiltrarDia.setVisible(false);
         pantallaRegistrar.setVisible(false);
         pantallaVisualizar.setVisible(false);
         pantallaModificar.setVisible(false);
         pantallaEliminar.setVisible(false);
-        pantallaFiltrarDia.setVisible(false);
         pantallaDisponibilidad.setVisible(false);
     }
 
@@ -108,7 +108,7 @@ public class PantallaSalones extends javax.swing.JFrame {
                 campoDisponibilidadHoraFinal.setText(null);
                 campoDisponibilidad.setText(null);
                 campoDisponibilidad.setEditable(false);
-                
+
                 pantallaDisponibilidad.setVisible(true);
         }
     }
@@ -117,6 +117,17 @@ public class PantallaSalones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pantallaFiltrarDia = new javax.swing.JPanel();
+        tituloFiltrarDiaID = new javax.swing.JLabel();
+        tituloFiltrarDiaFechaInicial = new javax.swing.JLabel();
+        tituloFiltrarDiaFechaFinal = new javax.swing.JLabel();
+        campoFiltrarDiaID = new javax.swing.JComboBox<>();
+        botonCargarSalonesDelDia = new javax.swing.JButton();
+        campoFiltrarDiaFechaInicial = new javax.swing.JTextField();
+        campoFiltrarDiaFechaFinal = new javax.swing.JTextField();
+        capsulaFiltrarDia = new javax.swing.JScrollPane();
+        campoFiltrarDia = new javax.swing.JList<>();
+        botonCerrarFiltrarDia = new javax.swing.JButton();
         pantallaRegistrar = new javax.swing.JPanel();
         tituloRegistrarID = new javax.swing.JLabel();
         tituloRegistrarCapacidad = new javax.swing.JLabel();
@@ -160,17 +171,6 @@ public class PantallaSalones extends javax.swing.JFrame {
         campoDisponibilidadHoraInicial = new javax.swing.JTextField();
         campoDisponibilidad = new javax.swing.JTextField();
         tituloDisponibilidad = new javax.swing.JLabel();
-        pantallaFiltrarDia = new javax.swing.JPanel();
-        tituloFiltrarDiaID = new javax.swing.JLabel();
-        tituloFiltrarDiaFechaInicial = new javax.swing.JLabel();
-        tituloFiltrarDiaFechaFinal = new javax.swing.JLabel();
-        campoFiltrarDiaID = new javax.swing.JComboBox<>();
-        botonCargarSalonesDelDia = new javax.swing.JButton();
-        campoFiltrarDiaFechaInicial = new javax.swing.JTextField();
-        campoFiltrarDiaFechaFinal = new javax.swing.JTextField();
-        capsulaFiltrarDia = new javax.swing.JScrollPane();
-        campoFiltrarDia = new javax.swing.JList<>();
-        botonCerrarFiltrarDia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gestion - Mis primeros brincos");
@@ -179,6 +179,88 @@ public class PantallaSalones extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(453, 411));
         setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
+
+        pantallaFiltrarDia.setMaximumSize(new java.awt.Dimension(453, 373));
+        pantallaFiltrarDia.setMinimumSize(new java.awt.Dimension(453, 373));
+        pantallaFiltrarDia.setPreferredSize(new java.awt.Dimension(453, 373));
+
+        tituloFiltrarDiaID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloFiltrarDiaID.setText("ID del salon");
+
+        tituloFiltrarDiaFechaInicial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloFiltrarDiaFechaInicial.setText("Rango inicial (yyyy-MM-dd)");
+
+        tituloFiltrarDiaFechaFinal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloFiltrarDiaFechaFinal.setText("Rango final (yyyy-MM-dd)");
+
+        botonCargarSalonesDelDia.setText("Cargar");
+        botonCargarSalonesDelDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCargarSalonesDelDiaActionPerformed(evt);
+            }
+        });
+
+        capsulaFiltrarDia.setViewportView(campoFiltrarDia);
+
+        botonCerrarFiltrarDia.setText("Regresar");
+        botonCerrarFiltrarDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCerrarFiltrarDiaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pantallaFiltrarDiaLayout = new javax.swing.GroupLayout(pantallaFiltrarDia);
+        pantallaFiltrarDia.setLayout(pantallaFiltrarDiaLayout);
+        pantallaFiltrarDiaLayout.setHorizontalGroup(
+            pantallaFiltrarDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pantallaFiltrarDiaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pantallaFiltrarDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(capsulaFiltrarDia, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pantallaFiltrarDiaLayout.createSequentialGroup()
+                        .addGroup(pantallaFiltrarDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tituloFiltrarDiaID)
+                            .addComponent(tituloFiltrarDiaFechaFinal)
+                            .addComponent(tituloFiltrarDiaFechaInicial))
+                        .addGap(12, 12, 12)
+                        .addGroup(pantallaFiltrarDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(campoFiltrarDiaFechaFinal, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(campoFiltrarDiaFechaInicial, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pantallaFiltrarDiaLayout.createSequentialGroup()
+                                .addComponent(campoFiltrarDiaID, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonCargarSalonesDelDia)
+                                .addGap(3, 3, 3)))))
+                .addGap(21, 21, 21))
+            .addGroup(pantallaFiltrarDiaLayout.createSequentialGroup()
+                .addGap(360, 360, 360)
+                .addComponent(botonCerrarFiltrarDia)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        pantallaFiltrarDiaLayout.setVerticalGroup(
+            pantallaFiltrarDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pantallaFiltrarDiaLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(pantallaFiltrarDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonCargarSalonesDelDia)
+                    .addComponent(campoFiltrarDiaID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloFiltrarDiaID))
+                .addGap(12, 12, 12)
+                .addGroup(pantallaFiltrarDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoFiltrarDiaFechaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloFiltrarDiaFechaInicial))
+                .addGap(12, 12, 12)
+                .addGroup(pantallaFiltrarDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tituloFiltrarDiaFechaFinal)
+                    .addComponent(campoFiltrarDiaFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(capsulaFiltrarDia, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(botonCerrarFiltrarDia)
+                .addGap(37, 37, 37))
+        );
+
+        getContentPane().add(pantallaFiltrarDia, "card4");
 
         pantallaRegistrar.setMaximumSize(new java.awt.Dimension(300, 300));
         pantallaRegistrar.setMinimumSize(new java.awt.Dimension(300, 300));
@@ -552,88 +634,6 @@ public class PantallaSalones extends javax.swing.JFrame {
 
         getContentPane().add(pantallaDisponibilidad, "card4");
 
-        pantallaFiltrarDia.setMaximumSize(new java.awt.Dimension(453, 373));
-        pantallaFiltrarDia.setMinimumSize(new java.awt.Dimension(453, 373));
-        pantallaFiltrarDia.setPreferredSize(new java.awt.Dimension(453, 373));
-
-        tituloFiltrarDiaID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tituloFiltrarDiaID.setText("ID del salon");
-
-        tituloFiltrarDiaFechaInicial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tituloFiltrarDiaFechaInicial.setText("Rango inicial (yyyy-MM-dd)");
-
-        tituloFiltrarDiaFechaFinal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tituloFiltrarDiaFechaFinal.setText("Rango final (yyyy-MM-dd)");
-
-        botonCargarSalonesDelDia.setText("Cargar");
-        botonCargarSalonesDelDia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCargarSalonesDelDiaActionPerformed(evt);
-            }
-        });
-
-        capsulaFiltrarDia.setViewportView(campoFiltrarDia);
-
-        botonCerrarFiltrarDia.setText("Regresar");
-        botonCerrarFiltrarDia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCerrarFiltrarDiaActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pantallaFiltrarDiaLayout = new javax.swing.GroupLayout(pantallaFiltrarDia);
-        pantallaFiltrarDia.setLayout(pantallaFiltrarDiaLayout);
-        pantallaFiltrarDiaLayout.setHorizontalGroup(
-            pantallaFiltrarDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pantallaFiltrarDiaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pantallaFiltrarDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(capsulaFiltrarDia, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pantallaFiltrarDiaLayout.createSequentialGroup()
-                        .addGroup(pantallaFiltrarDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tituloFiltrarDiaID)
-                            .addComponent(tituloFiltrarDiaFechaFinal)
-                            .addComponent(tituloFiltrarDiaFechaInicial))
-                        .addGap(12, 12, 12)
-                        .addGroup(pantallaFiltrarDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(campoFiltrarDiaFechaFinal, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(campoFiltrarDiaFechaInicial, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pantallaFiltrarDiaLayout.createSequentialGroup()
-                                .addComponent(campoFiltrarDiaID, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(botonCargarSalonesDelDia)
-                                .addGap(3, 3, 3)))))
-                .addGap(21, 21, 21))
-            .addGroup(pantallaFiltrarDiaLayout.createSequentialGroup()
-                .addGap(360, 360, 360)
-                .addComponent(botonCerrarFiltrarDia)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-        pantallaFiltrarDiaLayout.setVerticalGroup(
-            pantallaFiltrarDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pantallaFiltrarDiaLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(pantallaFiltrarDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonCargarSalonesDelDia)
-                    .addComponent(campoFiltrarDiaID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tituloFiltrarDiaID))
-                .addGap(12, 12, 12)
-                .addGroup(pantallaFiltrarDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoFiltrarDiaFechaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tituloFiltrarDiaFechaInicial))
-                .addGap(12, 12, 12)
-                .addGroup(pantallaFiltrarDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tituloFiltrarDiaFechaFinal)
-                    .addComponent(campoFiltrarDiaFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(capsulaFiltrarDia, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonCerrarFiltrarDia)
-                .addGap(30, 30, 30))
-        );
-
-        getContentPane().add(pantallaFiltrarDia, "card4");
-
         setSize(new java.awt.Dimension(453, 411));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -694,9 +694,9 @@ public class PantallaSalones extends javax.swing.JFrame {
 
                 salones.modificarSalon(salon);
                 mensajePantalla(conexion.getMensajeInformativo());
-                this.dispose();
             }
         }
+        this.dispose();
     }//GEN-LAST:event_botonModificarSalonActionPerformed
 
     private void botonCerrarModificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarModificacionActionPerformed
@@ -722,9 +722,9 @@ public class PantallaSalones extends javax.swing.JFrame {
 
                 salones.eliminarSalon(salon);
                 mensajePantalla(conexion.getMensajeInformativo());
-                this.dispose();
             }
         }
+        this.dispose();
     }//GEN-LAST:event_botonEliminarSalonActionPerformed
 
     private void botonCerrarEliminacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarEliminacionActionPerformed
@@ -780,19 +780,19 @@ public class PantallaSalones extends javax.swing.JFrame {
         if (camposIncompletos) {
             mensajePantalla("camposIncompletos");
         } else {
-            String profesorSeleccionado = String.valueOf(campoFiltrarDiaID.getSelectedItem());
+            String salonSeleccionado = String.valueOf(campoFiltrarDiaID.getSelectedItem());
             String rangoInicial = campoFiltrarDiaFechaInicial.getText();
             String rangoFinal = campoFiltrarDiaFechaFinal.getText();
 
             for (Salon salon : listaSalones) {
-                if (salon.getId().equals(profesorSeleccionado) == true) {
+                if (salon.getId().equals(salonSeleccionado) == true) {
                     ArrayList<String> sesionesDictadas = salones.filtrarClasesPorDia(salon, rangoInicial, rangoFinal);
                     int cantidadSesiones = sesionesDictadas.size();
 
                     if (cantidadSesiones == 0) {
                         modeloLista.addElement("No ha dictado sesiónes entre esas fechas en este salon.");
                     } else {
-                        modeloLista.addElement("Se han dictado " + cantidadSesiones + "sesión(es) en este salon entre " + rangoInicial + " y " + rangoFinal + ".\n");
+                        modeloLista.addElement("Se han dictado " + cantidadSesiones + " sesión(es) en este salon entre " + rangoInicial + " y " + rangoFinal + ".\n");
                         for (String sesion : sesionesDictadas) {
                             modeloLista.addElement("ID de la sesión: " + sesion);
                         }

@@ -144,13 +144,13 @@ public class PantallaAlumnos extends javax.swing.JFrame {
                 cargarAlumnos(campoListarClasesCedula);
 
                 pantallaClasesAsistidas.setVisible(true);
-                
+
             case "clasesPendientes":
                 prepararModeloLista(campoListaClasesPendientes);
                 cargarAlumnos(campoClasesPendientesCedula);
 
                 pantallaClasesPendientes.setVisible(true);
-                
+
             case "paquetesAdquiridos":
                 prepararModeloLista(campoListaPaquetes);
                 cargarAlumnos(campoPaquetesCedula);
@@ -942,8 +942,8 @@ public class PantallaAlumnos extends javax.swing.JFrame {
                 alumno.setNombre(campoModificarNombre.getText());
                 alumno.setFechaNacimiento(campoModificarFechaNacimiento.getText());
                 alumno.setGenero(String.valueOf(campoModificarGenero.getSelectedItem()));
-                alumnos.modificarAlumno(alumno);
 
+                alumnos.modificarAlumno(alumno);
                 mensajePantalla(conexion.getMensajeInformativo());
             }
         }
@@ -974,8 +974,8 @@ public class PantallaAlumnos extends javax.swing.JFrame {
                 alumno.setNombre(campoEliminarNombre.getText());
                 alumno.setFechaNacimiento(campoEliminarFechaNacimiento.getText());
                 alumno.setGenero(campoEliminarGenero.getText());
-                alumnos.eliminarAlumno(alumno);
 
+                alumnos.eliminarAlumno(alumno);
                 mensajePantalla(conexion.getMensajeInformativo());
             }
         }
@@ -1008,8 +1008,8 @@ public class PantallaAlumnos extends javax.swing.JFrame {
         for (Alumno alumno : listaAlumnos) {
             if (alumno.getCedula().equals(alumnoSeleccionado) == true) {
                 Paquete paquete = listaPaquetes.get(indicePaqueteSeleccionado);
-                alumnos.comprarPaquete(paquete, alumno);
 
+                alumnos.comprarPaquete(paquete, alumno);
                 mensajePantalla(conexion.getMensajeInformativo());
             }
         }

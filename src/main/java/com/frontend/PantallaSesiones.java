@@ -42,7 +42,7 @@ public class PantallaSesiones extends javax.swing.JFrame {
         ventanaEmergente.ventanaRequerida(ventana);
     }
 
-    private void cargarIdentifiaciones(javax.swing.JComboBox<String> comboBox) {
+    private void cargarSesiones(javax.swing.JComboBox<String> comboBox) {
         listaSesiones = sesiones.obtenerSesiones();
         comboBox.removeAllItems();
 
@@ -73,8 +73,8 @@ public class PantallaSesiones extends javax.swing.JFrame {
         listaCursos = cursos.obtenerCursos();
         comboBox.removeAllItems();
 
-        listaCursos.forEach(sesion -> {
-            comboBox.addItem(sesion.getId());
+        listaCursos.forEach(cursos -> {
+            comboBox.addItem(cursos.getId());
         });
     }
 
@@ -116,7 +116,7 @@ public class PantallaSesiones extends javax.swing.JFrame {
                 break;
 
             case "verDatos":
-                cargarIdentifiaciones(campoVisualizarID);
+                cargarSesiones(campoVisualizarID);
                 campoVisualizarFecha.setText(null);
                 campoVisualizarFecha.setEditable(false);
 
@@ -139,7 +139,7 @@ public class PantallaSesiones extends javax.swing.JFrame {
                 break;
 
             case "modificarDatos":
-                cargarIdentifiaciones(campoModificarID);
+                cargarSesiones(campoModificarID);
                 campoModificarFecha.setText(null);
                 campoModificarHoraInicio.setText(null);
                 campoModificarHoraFin.setText(null);
@@ -151,7 +151,7 @@ public class PantallaSesiones extends javax.swing.JFrame {
                 break;
 
             case "eliminarSesion":
-                cargarIdentifiaciones(campoEliminarID);
+                cargarSesiones(campoEliminarID);
                 campoEliminarFecha.setText(null);
                 campoEliminarFecha.setEditable(false);
 
@@ -978,12 +978,12 @@ public class PantallaSesiones extends javax.swing.JFrame {
                 sesion.setCedulaProfesor(String.valueOf(campoModificarProfesor.getSelectedItem()));
                 sesion.setIdSalon(String.valueOf(campoModificarProfesor.getSelectedItem()));
                 sesion.setIdCurso(String.valueOf(campoModificarProfesor.getSelectedItem()));
+                
                 sesiones.modificarSesion(sesion);
-
                 mensajePantalla(conexion.getMensajeInformativo());
-                this.dispose();
             }
         }
+        this.dispose();
     }//GEN-LAST:event_botonModificarSesionActionPerformed
 
     private void botonCerrarModificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarModificacionActionPerformed
@@ -1016,12 +1016,12 @@ public class PantallaSesiones extends javax.swing.JFrame {
                 sesion.setCedulaProfesor(campoEliminarProfesor.getText());
                 sesion.setIdSalon(campoEliminarProfesor.getText());
                 sesion.setIdCurso(campoEliminarProfesor.getText());
+                
                 sesiones.eliminarSesion(sesion);
-
                 mensajePantalla(conexion.getMensajeInformativo());
-                this.dispose();
             }
         }
+        this.dispose();
     }//GEN-LAST:event_botonEliminarAlumnoActionPerformed
 
     private void botonCerrarEliminacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarEliminacionActionPerformed

@@ -130,42 +130,49 @@ public class Alumno {
         conexion.ejecutarSentencia(sentencia);
     }
 
-
-
     public ArrayList<String> verClasesAsistidas(Alumno alumno) {
         String columna = "Asistencias.IDSesion";
         String sentencia = "SELECT " + columna
-                + " FROM Alumnos, Sesiones, Cursos, Asistencias"
-                + " WHERE (Asistencias.CCAlumno = " + "'" + alumno.getCedula() + "'" + ")"
+                + " FROM Alumnos, Sesiones, Asistencias"
+                + " WHERE (Asistencias.CCAlumno = Alumnos.CCAlumno)"
                 + " AND (Asistencias.IDSesion = Sesiones.IDSesion)"
-                + " AND (Sesiones.IDCurso = Cursos.IDCurso)"
+                + " AND (Alumnos.CCAlumno = " + "'" + alumno.getCedula() + "'" + ")"
                 + " GROUP by Asistencias.IDSesion"
                 + ";";
         return conexion.obtenerDatosSentencia(sentencia, columna);
     }
-    
+
     public ArrayList<String> verClasesPendientes(Alumno alumno) {
         String columna = "Sesiones.IDSesion";
         String sentencia = "SELECT " + columna
-                + " FROM Alumnos, Cursos, Sesiones, Asistencias, Paquetes, Compras"
+                + " FROM Alumnos, Sesiones, Cursos, Compras, Paquetes"
                 + " WHERE"
                 + " (Alumnos.CCAlumno = " + "'" + alumno.getCedula() + "'" + ")"
                 + " AND"
-                + " (Asistencias.IDSesion <> Sesiones.IDSesion)"
+                + " (Sesiones.IDCurso = Cursos.IDCurso)"
                 + " AND"
-                + " (Cursos.IDCurso = Paquetes.IDCurso)"
-                + " AND"
-                + " (Compras.IDPaquete = Paquetes.IDPaquete)"
-                + " GROUP BY Sesiones.IDSesion"
+                + " (Sesiones.IDSesion NOT IN ("
+                + " SELECT Asistencias.IDSesion"
+                + " FROM Alumnos, Sesiones, Cursos, Asistencias"
+                + " WHERE"
+                + " (Asistencias.CCAlumno = " + "'" + alumno.getCedula() + "'" + ")"
+                + " AND (Asistencias.IDSesion = Sesiones.IDSesion)"
+                + " AND (Sesiones.IDCurso = Cursos.IDCurso)"
+                + " GROUP by Asistencias.IDSesion))"
+                + " AND (Compras.CCAlumno = " + "'" + alumno.getCedula() + "'" + ")"
+                + " AND (Compras.IDPaquete = Paquetes.IDPaquete)"
+                + " AND (Paquetes.IDCurso = Cursos.IDCurso)"
+                + " GROUP by Sesiones.IDSesion"
                 + ";";
         return conexion.obtenerDatosSentencia(sentencia, columna);
     }
-    
+
     public ArrayList<String> verPaquetesAdquiridos(Alumno alumno) {
         String columna = "Compras.IDPaquete";
         String sentencia = "SELECT " + columna
-                + " FROM Compras"
-                + " WHERE (Compras.CCAlumno = " + "'" + alumno.getCedula() + "'" + ")"
+                + " FROM Alumnos, Compras"
+                + " WHERE (Compras.CCAlumno = Alumnos.CCAlumno)"
+                + " AND (Alumnos.CCAlumno = " + "'" + alumno.getCedula() + "'" + ")"
                 + ";";
         return conexion.obtenerDatosSentencia(sentencia, columna);
     }

@@ -1,6 +1,7 @@
 package com.frontend;
 
 import com.backend.Paquete;
+import com.backend.Curso;
 import com.backend.ConexionSQL;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.util.ArrayList;
@@ -9,8 +10,9 @@ import javax.swing.DefaultListModel;
 public class PantallaPaquetes extends javax.swing.JFrame {
 
     private ArrayList<Paquete> listaPaquetes = new ArrayList<>();
-    private ArrayList<Paquete> listaCursos = new ArrayList<>();
+    private ArrayList<Curso> listaCursos = new ArrayList<>();
     private DefaultListModel modeloLista = new DefaultListModel();
+    private Curso cursos = new Curso();
     private Paquete paquetes = new Paquete();
 
     private ConexionSQL conexion = new ConexionSQL();
@@ -23,6 +25,7 @@ public class PantallaPaquetes extends javax.swing.JFrame {
     public void definirConexion(ConexionSQL conexion) {
         this.conexion = conexion;
         paquetes.setConexion(conexion);
+        cursos.setConexion(conexion);
     }
 
     private void mensajePantalla(String ventana) {
@@ -40,19 +43,19 @@ public class PantallaPaquetes extends javax.swing.JFrame {
     }
 
     private void cargarCursos(javax.swing.JComboBox<String> comboBox) {
-        listaCursos = paquetes.obtenerPaquetes();
+        listaCursos = cursos.obtenerCursos();
         comboBox.removeAllItems();
 
         listaCursos.forEach(curso -> {
             comboBox.addItem(curso.getId());
         });
     }
-    
+
     private void prepararModeloLista(javax.swing.JList<String> campo) {
         campo.setModel(modeloLista);
         modeloLista.removeAllElements();
     }
-    
+
     private boolean determinarCampoVacio(javax.swing.JTextField campo) {
         if (campo.getText().equals("") == true) {
             return true;
@@ -71,7 +74,7 @@ public class PantallaPaquetes extends javax.swing.JFrame {
 
     public void pantallaRequerida(String barraRequerida) {
         ocultarPantallas();
-        
+
         switch (barraRequerida) {
             case "ingresarDatos":
                 campoRegistrarCantidadSesiones.setText(null);
@@ -139,7 +142,7 @@ public class PantallaPaquetes extends javax.swing.JFrame {
                 cargarPaquetes(campoFiltrarFechaID);
                 campoFiltrarFechaRangoInicial.setText(null);
                 campoFiltrarFechaRangoFinal.setText(null);
-                
+
                 pantallaFiltrarFecha.setVisible(true);
                 break;
         }
@@ -793,8 +796,8 @@ public class PantallaPaquetes extends javax.swing.JFrame {
                     campoRegistrarID.getText(),
                     campoRegistrarCantidadSesiones.getText(),
                     campoRegistrarVigencia.getText(),
-                    String.valueOf(campoRegistrarCurso.getSelectedItem()),
-                    campoRegistrarPrecio.getText()
+                    campoRegistrarPrecio.getText(),
+                    String.valueOf(campoRegistrarCurso.getSelectedItem())
             );
             paquetes.registrarPaquete(paquete);
 
@@ -845,14 +848,14 @@ public class PantallaPaquetes extends javax.swing.JFrame {
             if (paquete.getId().equals(paqueteSeleccionado) == true) {
                 paquete.setCantidadSesiones(campoModificarCantidadSesiones.getText());
                 paquete.setVigencia(campoModificarVigencia.getText());
-                paquete.setIdCurso(String.valueOf(campoModificarCurso.getSelectedItem()));
                 paquete.setPrecio(campoModificarPrecio.getText());
-                paquetes.modificarPaquete(paquete);
+                paquete.setIdCurso(String.valueOf(campoModificarCurso.getSelectedItem()));
 
+                paquetes.modificarPaquete(paquete);
                 mensajePantalla(conexion.getMensajeInformativo());
-                this.dispose();
             }
         }
+        this.dispose();
     }//GEN-LAST:event_botonModificarPaqueteActionPerformed
 
     private void botonCerrarModificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarModificacionActionPerformed
@@ -881,12 +884,12 @@ public class PantallaPaquetes extends javax.swing.JFrame {
                 paquete.setVigencia(campoEliminarVigencia.getText());
                 paquete.setIdCurso(campoEliminarCurso.getText());
                 paquete.setPrecio(campoEliminarPrecio.getText());
-                paquetes.eliminarPaquete(paquete);
 
+                paquetes.eliminarPaquete(paquete);
                 mensajePantalla(conexion.getMensajeInformativo());
-                this.dispose();
             }
         }
+        this.dispose();
     }//GEN-LAST:event_botonEliminarPaqueteActionPerformed
 
     private void botonCerrarEliminacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarEliminacionActionPerformed
@@ -922,25 +925,25 @@ public class PantallaPaquetes extends javax.swing.JFrame {
         prepararModeloLista(campoFiltrarFecha);
 
         boolean camposIncompletos
-        = determinarCampoVacio(campoFiltrarFechaRangoInicial)
-        || determinarCampoVacio(campoFiltrarFechaRangoFinal);
+                = determinarCampoVacio(campoFiltrarFechaRangoInicial)
+                || determinarCampoVacio(campoFiltrarFechaRangoFinal);
 
         if (camposIncompletos) {
             mensajePantalla("camposIncompletos");
         } else {
-            String profesorSeleccionado = String.valueOf(campoFiltrarFechaID.getSelectedItem());
+            String paqueteSeleccionado = String.valueOf(campoFiltrarFechaID.getSelectedItem());
             String rangoInicial = campoFiltrarFechaRangoInicial.getText();
             String rangoFinal = campoFiltrarFechaRangoFinal.getText();
 
             for (Paquete paquete : listaPaquetes) {
-                if (paquete.getId().equals(profesorSeleccionado) == true) {
+                if (paquete.getId().equals(paqueteSeleccionado) == true) {
                     ArrayList<String> ventasPaquete = paquetes.filtrarFecha(paquete, rangoInicial, rangoFinal);
                     int cantidadVentas = ventasPaquete.size();
 
                     if (cantidadVentas == 0) {
-                        modeloLista.addElement("No ha dictado sesiónes entre esas fechas.");
+                        modeloLista.addElement("El paquete no se ha vendido ni una sola vez entre esas fechas.");
                     } else {
-                        modeloLista.addElement("El paquete ha sido vendido " + cantidadVentas + " veces entre " + rangoInicial + " y " + rangoFinal +".\n");
+                        modeloLista.addElement("El paquete ha sido vendido " + cantidadVentas + " veces entre " + rangoInicial + " y " + rangoFinal + ".\n");
                         for (String venta : ventasPaquete) {
                             modeloLista.addElement("ID de la compra: " + venta);
                         }

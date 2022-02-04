@@ -141,9 +141,7 @@ public class Sesion {
                 + "'" + sesion.getIdSalon() + "'"
                 + ", IDCurso = "
                 + "'" + sesion.getIdCurso() + "'"
-                + " WHERE IDSesion = "
-                + sesion.getId()
-                + ";";
+                + " WHERE IDSesion = " + sesion.getId() + ";";
         conexion.ejecutarSentencia(sentencia);
     }
 
@@ -156,19 +154,19 @@ public class Sesion {
     }
     
     public ArrayList<String> verSesionesPorFecha(String fecha) {
-        String columna = "Sesiones.IDSesion";
+        String columna = "IDSesion";
         String sentencia = "SELECT " + columna
                 + " FROM Sesiones"
-                + " WHERE (Sesiones.FechaSesion = " + "'" + fecha + "'" + ")"
+                + " WHERE (FechaSesion = " + "'" + fecha + "'" + ")"
                 + ";";
         return conexion.obtenerDatosSentencia(sentencia, columna);     
     }
     
     public ArrayList<String> verSesionesPorCurso(Curso curso) {
-        String columna = "Sesiones.IDSesion";
+        String columna = "IDSesion";
         String sentencia = "SELECT " + columna
                 + " FROM Sesiones"
-                + " WHERE (Sesiones.IDCurso = " + "'" + curso.getId() + "'" + ")"
+                + " WHERE (IDCurso = " + "'" + curso.getId() + "'" + ")"
                 + ";";
         return conexion.obtenerDatosSentencia(sentencia, columna);     
     }

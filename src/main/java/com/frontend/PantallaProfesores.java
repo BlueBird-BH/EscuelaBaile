@@ -56,7 +56,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
         campo.setModel(modeloLista);
         modeloLista.removeAllElements();
     }
-    
+
     private void ocultarPantallas() {
         pantallaRegistrar.setVisible(false);
         pantallaVisualizar.setVisible(false);
@@ -65,7 +65,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
         pantallaSesionesProgramadas.setVisible(false);
         pantallaSesionesDictadas.setVisible(false);
     }
-    
+
     public void pantallaRequerida(String barraRequerida) {
         ocultarPantallas();
 
@@ -813,10 +813,10 @@ public class PantallaProfesores extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCerrarRegistroActionPerformed
 
     private void botonCargarVisualizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarVisualizacionActionPerformed
-        String cedulaSeleccionada = String.valueOf(campoVisualizarCedula.getSelectedItem());
+        String profesorSeleccionado = String.valueOf(campoVisualizarCedula.getSelectedItem());
 
         for (Profesor profesor : listaProfesores) {
-            if (profesor.getCedula().equals(cedulaSeleccionada) == true) {
+            if (profesor.getCedula().equals(profesorSeleccionado) == true) {
                 campoVisualizarNombre.setText(profesor.getNombre());
                 campoVisualizarFechaNacimiento.setText(profesor.getFechaNacimiento());
                 campoVisualizarGenero.setText(profesor.getGenero());
@@ -830,11 +830,11 @@ public class PantallaProfesores extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCerrarVisualizacionActionPerformed
 
     private void botonCargarModificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarModificacionActionPerformed
-        String cedulaSeleccionada = String.valueOf(campoModificarCedula.getSelectedItem());
+        String profesorSeleccionado = String.valueOf(campoModificarCedula.getSelectedItem());
         cargarGeneros(campoModificarGenero);
 
         for (Profesor profesor : listaProfesores) {
-            if (profesor.getCedula().equals(cedulaSeleccionada) == true) {
+            if (profesor.getCedula().equals(profesorSeleccionado) == true) {
                 campoModificarNombre.setText(profesor.getNombre());
                 campoModificarFechaNacimiento.setText(profesor.getFechaNacimiento());
                 campoModificarGenero.setSelectedItem(profesor.getGenero());
@@ -844,20 +844,20 @@ public class PantallaProfesores extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCargarModificacionActionPerformed
 
     private void botonModificarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarProfesorActionPerformed
-        String cedulaSeleccionada = String.valueOf(campoModificarCedula.getSelectedItem());
+        String profesorSeleccionado = String.valueOf(campoModificarCedula.getSelectedItem());
 
         for (Profesor profesor : listaProfesores) {
-            if (profesor.getCedula().equals(cedulaSeleccionada) == true) {
+            if (profesor.getCedula().equals(profesorSeleccionado) == true) {
                 profesor.setNombre(campoModificarNombre.getText());
                 profesor.setFechaNacimiento(campoModificarFechaNacimiento.getText());
                 profesor.setGenero(String.valueOf(campoModificarGenero.getSelectedItem()));
                 profesor.setSalario(campoModificarSalario.getText());
+                
                 profesores.modificarProfesor(profesor);
-
                 mensajePantalla(conexion.getMensajeInformativo());
-                this.dispose();
             }
         }
+        this.dispose();
     }//GEN-LAST:event_botonModificarProfesorActionPerformed
 
     private void botonCerrarModificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarModificacionActionPerformed
@@ -865,10 +865,10 @@ public class PantallaProfesores extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCerrarModificacionActionPerformed
 
     private void botonCargarEliminacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarEliminacionActionPerformed
-        String cedulaSeleccionada = String.valueOf(campoEliminarCedula.getSelectedItem());
+        String profesorSeleccionado = String.valueOf(campoEliminarCedula.getSelectedItem());
 
         for (Profesor profesor : listaProfesores) {
-            if (profesor.getCedula().equals(cedulaSeleccionada) == true) {
+            if (profesor.getCedula().equals(profesorSeleccionado) == true) {
                 campoEliminarNombre.setText(profesor.getNombre());
                 campoEliminarFechaNacimiento.setText(profesor.getFechaNacimiento());
                 campoEliminarGenero.setText(profesor.getGenero());
@@ -878,20 +878,20 @@ public class PantallaProfesores extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCargarEliminacionActionPerformed
 
     private void botonEliminarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarAlumnoActionPerformed
-        String cedulaSeleccionada = String.valueOf(campoEliminarCedula.getSelectedItem());
+        String profesorSeleccionado = String.valueOf(campoEliminarCedula.getSelectedItem());
 
         for (Profesor profesor : listaProfesores) {
-            if (profesor.getCedula().equals(cedulaSeleccionada) == true) {
+            if (profesor.getCedula().equals(profesorSeleccionado) == true) {
                 profesor.setNombre(campoEliminarNombre.getText());
                 profesor.setFechaNacimiento(campoEliminarFechaNacimiento.getText());
                 profesor.setGenero(campoEliminarGenero.getText());
                 profesor.setSalario(campoEliminarSalario.getText());
+                
                 profesores.eliminarProfesor(profesor);
-
                 mensajePantalla(conexion.getMensajeInformativo());
-                this.dispose();
             }
         }
+        this.dispose();
     }//GEN-LAST:event_botonEliminarAlumnoActionPerformed
 
     private void botonCerrarEliminacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarEliminacionActionPerformed
@@ -925,7 +925,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
 
     private void botonCargarSesionesDictadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarSesionesDictadasActionPerformed
         prepararModeloLista(campoSesionesDictadas);
-        
+
         boolean camposIncompletos
                 = determinarCampoVacio(campoSesionDictadasRangoInicial)
                 || determinarCampoVacio(campoSesionDictadasRangoFinal);
@@ -945,7 +945,7 @@ public class PantallaProfesores extends javax.swing.JFrame {
                     if (cantidadSesiones == 0) {
                         modeloLista.addElement("No ha dictado sesiónes entre esas fechas.");
                     } else {
-                        modeloLista.addElement(profesor.getNombre() + " ha dictado " + cantidadSesiones + " sesión(es) entre " + rangoInicial + " y " + rangoFinal +".\n");
+                        modeloLista.addElement(profesor.getNombre() + " ha dictado " + cantidadSesiones + " sesión(es) entre " + rangoInicial + " y " + rangoFinal + ".\n");
                         for (String sesion : sesionesDictadas) {
                             modeloLista.addElement("ID de la sesión: " + sesion);
                         }
