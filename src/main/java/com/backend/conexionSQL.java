@@ -23,7 +23,7 @@ public class ConexionSQL {
     public void setMensajeInformativo(String mensajeInformativo) {
         this.mensajeInformativo = mensajeInformativo;
     }
-    
+
     public void establecerConexion() {
         try {
             String url = "jdbc:mysql://remotemysql.com/EmTvGOXF3P";
@@ -76,12 +76,12 @@ public class ConexionSQL {
         }
         return listaDatos;
     }
-    
+
     public ArrayList<String> obtenerDatosSentencia(String sentencia, String columna) {
         ArrayList<String> listaDatos = new ArrayList<>();
         try (PreparedStatement stmt = conexion.prepareStatement(sentencia)) {
             ResultSet resultados = stmt.executeQuery();
-            
+
             while (resultados.next()) {
                 listaDatos.add(resultados.getString(columna));
             }
@@ -91,7 +91,7 @@ public class ConexionSQL {
         }
         return listaDatos;
     }
-    
+
     public int generarValorAleatorio() {
         int valorMinimo = 100000000;
         int valorMaximo = 999999999;

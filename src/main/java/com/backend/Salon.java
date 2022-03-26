@@ -95,7 +95,7 @@ public class Salon {
                 + ";";
         return conexion.obtenerDatosSentencia(sentencia, columna);
     }
-        
+
     public ArrayList<String> filtrarClasesPorDia(Salon salon, String rangoInicial, String rangoFinal) {
         String columna = "IDSesion";
         String sentencia = "SELECT " + columna

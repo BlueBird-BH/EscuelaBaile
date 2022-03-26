@@ -131,9 +131,9 @@ public class Profesor {
                 + " FROM Sesiones"
                 + " WHERE (Sesiones.CCProfesor = " + "'" + profesor.getCedula() + "'" + ")"
                 + ";";
-        return conexion.obtenerDatosSentencia(sentencia, columna);     
+        return conexion.obtenerDatosSentencia(sentencia, columna);
     }
-    
+
     public ArrayList<String> verSesionesDictadas(Profesor profesor, String rangoInicial, String rangoFinal) {
         String columna = "Sesiones.IDSesion";
         String sentencia = "SELECT " + columna
@@ -141,6 +141,6 @@ public class Profesor {
                 + " WHERE (Sesiones.CCProfesor = " + "'" + profesor.getCedula() + "'" + ")"
                 + " AND (Sesiones.FechaSesion BETWEEN " + "'" + rangoInicial + "'" + " AND " + "'" + rangoFinal + "'"
                 + ");";
-        return conexion.obtenerDatosSentencia(sentencia, columna);     
+        return conexion.obtenerDatosSentencia(sentencia, columna);
     }
 }

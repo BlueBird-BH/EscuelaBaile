@@ -56,7 +56,7 @@ public class Curso {
     public void setConexion(ConexionSQL conexion) {
         this.conexion = conexion;
     }
-    
+
     public ArrayList<Curso> obtenerCursos() {
         ArrayList<Curso> cursos = new ArrayList<>();
 

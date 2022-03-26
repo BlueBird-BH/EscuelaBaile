@@ -1,8 +1,10 @@
 package com.frontend;
 
 import com.backend.ConexionSQL;
+
 import java.awt.Color;
 import java.awt.Cursor;
+
 import com.formdev.flatlaf.FlatDarkLaf;
 
 public class PantallaPrincipal extends javax.swing.JFrame {
@@ -13,7 +15,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private PantallaSalones pantallaSalones = new PantallaSalones();
     private PantallaPaquetes pantallaPaquetes = new PantallaPaquetes();
     private ConexionSQL conexion = new ConexionSQL();
-    
+
     private Color colorGris = new Color(123, 123, 123);
     private Color colorGrisClaro = new Color(150, 150, 150);
     private Color colorBlanco = new Color(187, 187, 187);
@@ -21,11 +23,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     public PantallaPrincipal() {
         realizarConexionSQL();
-        
+
         initComponents();
         definirCursorBotones();
     }
-    
+
     private void definirCursorBotones() {
         botonInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         botonAlumnos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -34,7 +36,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         botonSalones.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         botonPaquetes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }
-    
+
     private void realizarConexionSQL() {
         conexion.establecerConexion();
         pantallaAlumnos.definirConexion(conexion);
@@ -43,7 +45,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         pantallaSalones.definirConexion(conexion);
         pantallaPaquetes.definirConexion(conexion);
     }
-    
+
     private void ocultarPantallas() {
         pantallaAlumnos.setVisible(false);
         pantallaProfesores.setVisible(false);
@@ -51,10 +53,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         pantallaSalones.setVisible(false);
         pantallaPaquetes.setVisible(false);
     }
-    
+
     private void activarOpcion(String pantalla, String opcion) {
         ocultarPantallas();
-        
+
         switch (pantalla) {
             case "alumnos":
                 pantallaAlumnos.setVisible(true);
@@ -170,18 +172,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         javax.swing.GroupLayout botonInicioLayout = new javax.swing.GroupLayout(botonInicio);
         botonInicio.setLayout(botonInicioLayout);
         botonInicioLayout.setHorizontalGroup(
-            botonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botonInicioLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(tituloBotonInicio)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                botonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(botonInicioLayout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addComponent(tituloBotonInicio)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         botonInicioLayout.setVerticalGroup(
-            botonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botonInicioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tituloBotonInicio)
-                .addContainerGap(7, Short.MAX_VALUE))
+                botonInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(botonInicioLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(tituloBotonInicio)
+                                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         botonAlumnos.setBackground(new java.awt.Color(123, 123, 123));
@@ -199,18 +201,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         javax.swing.GroupLayout botonAlumnosLayout = new javax.swing.GroupLayout(botonAlumnos);
         botonAlumnos.setLayout(botonAlumnosLayout);
         botonAlumnosLayout.setHorizontalGroup(
-            botonAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botonAlumnosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tituloBotonAlumnos)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                botonAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(botonAlumnosLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(tituloBotonAlumnos)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         botonAlumnosLayout.setVerticalGroup(
-            botonAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botonAlumnosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tituloBotonAlumnos)
-                .addContainerGap(7, Short.MAX_VALUE))
+                botonAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(botonAlumnosLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(tituloBotonAlumnos)
+                                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         botonProfesores.setBackground(new java.awt.Color(123, 123, 123));
@@ -228,18 +230,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         javax.swing.GroupLayout botonProfesoresLayout = new javax.swing.GroupLayout(botonProfesores);
         botonProfesores.setLayout(botonProfesoresLayout);
         botonProfesoresLayout.setHorizontalGroup(
-            botonProfesoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botonProfesoresLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tituloBotonProfesores)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                botonProfesoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(botonProfesoresLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(tituloBotonProfesores)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         botonProfesoresLayout.setVerticalGroup(
-            botonProfesoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botonProfesoresLayout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
-                .addComponent(tituloBotonProfesores)
-                .addContainerGap())
+                botonProfesoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botonProfesoresLayout.createSequentialGroup()
+                                .addContainerGap(7, Short.MAX_VALUE)
+                                .addComponent(tituloBotonProfesores)
+                                .addContainerGap())
         );
 
         botonSesiones.setBackground(new java.awt.Color(123, 123, 123));
@@ -257,18 +259,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         javax.swing.GroupLayout botonSesionesLayout = new javax.swing.GroupLayout(botonSesiones);
         botonSesiones.setLayout(botonSesionesLayout);
         botonSesionesLayout.setHorizontalGroup(
-            botonSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botonSesionesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tituloBotonSesiones)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                botonSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(botonSesionesLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(tituloBotonSesiones)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         botonSesionesLayout.setVerticalGroup(
-            botonSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botonSesionesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tituloBotonSesiones)
-                .addContainerGap(7, Short.MAX_VALUE))
+                botonSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(botonSesionesLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(tituloBotonSesiones)
+                                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         botonSalones.setBackground(new java.awt.Color(123, 123, 123));
@@ -286,18 +288,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         javax.swing.GroupLayout botonSalonesLayout = new javax.swing.GroupLayout(botonSalones);
         botonSalones.setLayout(botonSalonesLayout);
         botonSalonesLayout.setHorizontalGroup(
-            botonSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botonSalonesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tituloBotonSalones)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                botonSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(botonSalonesLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(tituloBotonSalones)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         botonSalonesLayout.setVerticalGroup(
-            botonSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botonSalonesLayout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
-                .addComponent(tituloBotonSalones)
-                .addContainerGap())
+                botonSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botonSalonesLayout.createSequentialGroup()
+                                .addContainerGap(7, Short.MAX_VALUE)
+                                .addComponent(tituloBotonSalones)
+                                .addContainerGap())
         );
 
         botonPaquetes.setBackground(new java.awt.Color(123, 123, 123));
@@ -315,18 +317,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         javax.swing.GroupLayout botonPaquetesLayout = new javax.swing.GroupLayout(botonPaquetes);
         botonPaquetes.setLayout(botonPaquetesLayout);
         botonPaquetesLayout.setHorizontalGroup(
-            botonPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botonPaquetesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tituloBotonPaquetes)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                botonPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(botonPaquetesLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(tituloBotonPaquetes)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         botonPaquetesLayout.setVerticalGroup(
-            botonPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botonPaquetesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tituloBotonPaquetes)
-                .addContainerGap(7, Short.MAX_VALUE))
+                botonPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(botonPaquetesLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(tituloBotonPaquetes)
+                                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         logoPrimerParrafo.setBackground(new java.awt.Color(187, 187, 187));
@@ -342,43 +344,43 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         javax.swing.GroupLayout barraLateralLayout = new javax.swing.GroupLayout(barraLateral);
         barraLateral.setLayout(barraLateralLayout);
         barraLateralLayout.setHorizontalGroup(
-            barraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(botonProfesores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(botonAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(botonInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(barraLateralLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(barraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logoSegundoParrafo)
-                    .addComponent(barraSeparadora, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(logoPrimerParrafo))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(botonSesiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(botonSalones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(botonPaquetes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                barraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(botonProfesores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(barraLateralLayout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addGroup(barraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(logoSegundoParrafo)
+                                        .addComponent(barraSeparadora, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(logoPrimerParrafo))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(botonSesiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonSalones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonPaquetes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         barraLateralLayout.setVerticalGroup(
-            barraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(barraLateralLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(logoPrimerParrafo, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(logoSegundoParrafo, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(barraSeparadora, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonProfesores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonSesiones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonSalones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonPaquetes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                barraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(barraLateralLayout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(logoPrimerParrafo, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(logoSegundoParrafo, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1)
+                                .addComponent(barraSeparadora, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botonAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonProfesores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonSesiones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonSalones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonPaquetes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         barraPrincipal.setLayout(new java.awt.CardLayout());
@@ -389,12 +391,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         javax.swing.GroupLayout barraInicioLayout = new javax.swing.GroupLayout(barraInicio);
         barraInicio.setLayout(barraInicioLayout);
         barraInicioLayout.setHorizontalGroup(
-            barraInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 302, Short.MAX_VALUE)
+                barraInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 302, Short.MAX_VALUE)
         );
         barraInicioLayout.setVerticalGroup(
-            barraInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+                barraInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 350, Short.MAX_VALUE)
         );
 
         barraPrincipal.add(barraInicio, "card2");
@@ -461,40 +463,40 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         javax.swing.GroupLayout barraAlumnosLayout = new javax.swing.GroupLayout(barraAlumnos);
         barraAlumnos.setLayout(barraAlumnosLayout);
         barraAlumnosLayout.setHorizontalGroup(
-            barraAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraAlumnosLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addGroup(barraAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonComprarPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonEliminarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonVerClasesPendientes, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonVerClasesAsistidas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonVerPaquetesAdquiridos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonModificarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonVerAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonRegistrarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51))
+                barraAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraAlumnosLayout.createSequentialGroup()
+                                .addContainerGap(51, Short.MAX_VALUE)
+                                .addGroup(barraAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(botonComprarPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonEliminarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonVerClasesPendientes, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonVerClasesAsistidas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonVerPaquetesAdquiridos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonModificarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonVerAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonRegistrarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(51, 51, 51))
         );
         barraAlumnosLayout.setVerticalGroup(
-            barraAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(barraAlumnosLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(botonRegistrarAlumno)
-                .addGap(12, 12, 12)
-                .addComponent(botonVerAlumno)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonModificarAlumno)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonComprarPaquete)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonVerClasesAsistidas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonVerClasesPendientes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonVerPaquetesAdquiridos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonEliminarAlumno)
-                .addContainerGap(40, Short.MAX_VALUE))
+                barraAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(barraAlumnosLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(botonRegistrarAlumno)
+                                .addGap(12, 12, 12)
+                                .addComponent(botonVerAlumno)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonModificarAlumno)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonComprarPaquete)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonVerClasesAsistidas)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonVerClasesPendientes)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonVerPaquetesAdquiridos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonEliminarAlumno)
+                                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         barraPrincipal.add(barraAlumnos, "card4");
@@ -547,34 +549,34 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         javax.swing.GroupLayout barraProfesoresLayout = new javax.swing.GroupLayout(barraProfesores);
         barraProfesores.setLayout(barraProfesoresLayout);
         barraProfesoresLayout.setHorizontalGroup(
-            barraProfesoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraProfesoresLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addGroup(barraProfesoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonEliminarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonVerSesionesDictadas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonVerSesionesProgramadas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonModificarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonVerProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonRegistrarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51))
+                barraProfesoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraProfesoresLayout.createSequentialGroup()
+                                .addContainerGap(51, Short.MAX_VALUE)
+                                .addGroup(barraProfesoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(botonEliminarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonVerSesionesDictadas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonVerSesionesProgramadas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonModificarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonVerProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonRegistrarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(51, 51, 51))
         );
         barraProfesoresLayout.setVerticalGroup(
-            barraProfesoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(barraProfesoresLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(botonRegistrarProfesor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonVerProfesor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonModificarProfesor)
-                .addGap(12, 12, 12)
-                .addComponent(botonVerSesionesProgramadas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonVerSesionesDictadas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonEliminarProfesor)
-                .addContainerGap(108, Short.MAX_VALUE))
+                barraProfesoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(barraProfesoresLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(botonRegistrarProfesor)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonVerProfesor)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonModificarProfesor)
+                                .addGap(12, 12, 12)
+                                .addComponent(botonVerSesionesProgramadas)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonVerSesionesDictadas)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonEliminarProfesor)
+                                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         barraPrincipal.add(barraProfesores, "card4");
@@ -627,34 +629,34 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         javax.swing.GroupLayout barraSesionesLayout = new javax.swing.GroupLayout(barraSesiones);
         barraSesiones.setLayout(barraSesionesLayout);
         barraSesionesLayout.setHorizontalGroup(
-            barraSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraSesionesLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addGroup(barraSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonEliminarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonSesionesPorClase, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonSesionesPorFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonModificarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonVerSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonIngresarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51))
+                barraSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraSesionesLayout.createSequentialGroup()
+                                .addContainerGap(51, Short.MAX_VALUE)
+                                .addGroup(barraSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(botonEliminarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonSesionesPorClase, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonSesionesPorFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonModificarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonVerSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(botonIngresarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(51, 51, 51))
         );
         barraSesionesLayout.setVerticalGroup(
-            barraSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(barraSesionesLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(botonIngresarSesion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonVerSesion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonModificarSesion)
-                .addGap(12, 12, 12)
-                .addComponent(botonSesionesPorFecha)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonSesionesPorClase)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonEliminarSesion)
-                .addContainerGap(108, Short.MAX_VALUE))
+                barraSesionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(barraSesionesLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(botonIngresarSesion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonVerSesion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonModificarSesion)
+                                .addGap(12, 12, 12)
+                                .addComponent(botonSesionesPorFecha)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonSesionesPorClase)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botonEliminarSesion)
+                                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         barraPrincipal.add(barraSesiones, "card4");
@@ -707,34 +709,34 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         javax.swing.GroupLayout barraSalonesLayout = new javax.swing.GroupLayout(barraSalones);
         barraSalones.setLayout(barraSalonesLayout);
         barraSalonesLayout.setHorizontalGroup(
-            barraSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraSalonesLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addGroup(barraSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(salones_eliminarSalon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(salones_filtrarHora, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(salones_verDisponibilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(salones_modificarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(salones_verDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(salones_ingresarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51))
+                barraSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraSalonesLayout.createSequentialGroup()
+                                .addContainerGap(51, Short.MAX_VALUE)
+                                .addGroup(barraSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(salones_eliminarSalon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(salones_filtrarHora, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(salones_verDisponibilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(salones_modificarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(salones_verDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(salones_ingresarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(51, 51, 51))
         );
         barraSalonesLayout.setVerticalGroup(
-            barraSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(barraSalonesLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(salones_ingresarDatos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(salones_modificarDatos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(salones_verDatos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(salones_verDisponibilidad)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(salones_filtrarHora)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(salones_eliminarSalon)
-                .addContainerGap(108, Short.MAX_VALUE))
+                barraSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(barraSalonesLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(salones_ingresarDatos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(salones_modificarDatos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(salones_verDatos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(salones_verDisponibilidad)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(salones_filtrarHora)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(salones_eliminarSalon)
+                                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         barraPrincipal.add(barraSalones, "card4");
@@ -787,34 +789,34 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         javax.swing.GroupLayout barraPaquetesLayout = new javax.swing.GroupLayout(barraPaquetes);
         barraPaquetes.setLayout(barraPaquetesLayout);
         barraPaquetesLayout.setHorizontalGroup(
-            barraPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraPaquetesLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addGroup(barraPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(paquetes_eliminarPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(paquetes_verVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(paquetes_modificarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(paquetes_verDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(paquetes_ingresarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(paquetes_filtrarCompra))
-                .addGap(49, 49, 49))
+                barraPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraPaquetesLayout.createSequentialGroup()
+                                .addContainerGap(51, Short.MAX_VALUE)
+                                .addGroup(barraPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(paquetes_eliminarPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(paquetes_verVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(paquetes_modificarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(paquetes_verDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(paquetes_ingresarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(paquetes_filtrarCompra))
+                                .addGap(49, 49, 49))
         );
         barraPaquetesLayout.setVerticalGroup(
-            barraPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(barraPaquetesLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(paquetes_ingresarDatos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(paquetes_modificarDatos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(paquetes_verDatos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(paquetes_verVentas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(paquetes_filtrarCompra)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(paquetes_eliminarPaquete)
-                .addContainerGap(108, Short.MAX_VALUE))
+                barraPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(barraPaquetesLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(paquetes_ingresarDatos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(paquetes_modificarDatos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(paquetes_verDatos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(paquetes_verVentas)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(paquetes_filtrarCompra)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(paquetes_eliminarPaquete)
+                                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         barraPrincipal.add(barraPaquetes, "card4");
@@ -836,16 +838,16 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(barraLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
-                .addComponent(barraPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(barraLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, 0)
+                                .addComponent(barraPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(barraLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(barraPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(barraLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -898,7 +900,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         botonPaquetes.setBackground(colorGris);
     }//GEN-LAST:event_botonAlumnosMouseClicked
 
-    private void botonProfesoresMouseClicked(java.awt.event.MouseEvent evt) {                                                                                          
+    private void botonProfesoresMouseClicked(java.awt.event.MouseEvent evt) {
         barraInicio.setVisible(false);
         barraAlumnos.setVisible(false);
         barraProfesores.setVisible(true);
@@ -919,9 +921,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         botonSesiones.setBackground(colorGris);
         botonSalones.setBackground(colorGris);
         botonPaquetes.setBackground(colorGris);
-    }                                                                                                                  
-    
-    private void botonSesionesMouseClicked(java.awt.event.MouseEvent evt) {                                                                                          
+    }
+
+    private void botonSesionesMouseClicked(java.awt.event.MouseEvent evt) {
         barraInicio.setVisible(false);
         barraAlumnos.setVisible(false);
         barraProfesores.setVisible(false);
@@ -942,9 +944,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         botonSesiones.setBackground(colorNegro);
         botonSalones.setBackground(colorGris);
         botonPaquetes.setBackground(colorGris);
-    }       
-    
-    private void botonSalonesMouseClicked(java.awt.event.MouseEvent evt) {                                                                                          
+    }
+
+    private void botonSalonesMouseClicked(java.awt.event.MouseEvent evt) {
         barraInicio.setVisible(false);
         barraAlumnos.setVisible(false);
         barraProfesores.setVisible(false);
@@ -965,9 +967,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         botonSesiones.setBackground(colorGris);
         botonSalones.setBackground(colorNegro);
         botonPaquetes.setBackground(colorGris);
-    }   
-    
-    private void botonPaquetesMouseClicked(java.awt.event.MouseEvent evt) {                                                                                          
+    }
+
+    private void botonPaquetesMouseClicked(java.awt.event.MouseEvent evt) {
         barraInicio.setVisible(false);
         barraAlumnos.setVisible(false);
         barraProfesores.setVisible(false);
@@ -989,7 +991,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         botonSalones.setBackground(colorGris);
         botonPaquetes.setBackground(colorNegro);
     }
-    
+
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
         conexion.cerrarConexion();
         this.dispose();
@@ -1126,7 +1128,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     public static void main(String args[]) {
         /* Set the FlatLaf Dark look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+        /* For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             javax.swing.UIManager.setLookAndFeel(new FlatDarkLaf());

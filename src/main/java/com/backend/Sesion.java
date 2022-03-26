@@ -126,7 +126,7 @@ public class Sesion {
                 + ");";
         conexion.ejecutarSentencia(sentencia);
     }
-    
+
     public void modificarSesion(Sesion sesion) {
         String sentencia = "UPDATE Sesiones SET"
                 + " FechaSesion = "
@@ -152,22 +152,22 @@ public class Sesion {
                 + ";";
         conexion.ejecutarSentencia(sentencia);
     }
-    
+
     public ArrayList<String> verSesionesPorFecha(String fecha) {
         String columna = "IDSesion";
         String sentencia = "SELECT " + columna
                 + " FROM Sesiones"
                 + " WHERE (FechaSesion = " + "'" + fecha + "'" + ")"
                 + ";";
-        return conexion.obtenerDatosSentencia(sentencia, columna);     
+        return conexion.obtenerDatosSentencia(sentencia, columna);
     }
-    
+
     public ArrayList<String> verSesionesPorCurso(Curso curso) {
         String columna = "IDSesion";
         String sentencia = "SELECT " + columna
                 + " FROM Sesiones"
                 + " WHERE (IDCurso = " + "'" + curso.getId() + "'" + ")"
                 + ";";
-        return conexion.obtenerDatosSentencia(sentencia, columna);     
+        return conexion.obtenerDatosSentencia(sentencia, columna);
     }
 }

@@ -135,7 +135,7 @@ public class Paquete {
                 + ";";
         return conexion.obtenerDatosSentencia(sentencia, columna);
     }
-    
+
     public ArrayList<String> filtrarFecha(Paquete paquete, String rangoInicial, String rangoFinal) {
         String columna = "Compras.IDCompra";
         String sentencia = "SELECT " + columna
